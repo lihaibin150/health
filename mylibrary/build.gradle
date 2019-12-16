@@ -65,14 +65,10 @@ dependencies {
     //让retrofit支持Rxjava2
     implementation 'com.squareup.retrofit2:adapter-rxjava2:+'
 
-    //greenDao需要
-    implementation 'org.greenrobot:greendao:3.2.2' // add library
-
     //xrecyclerView需要
     implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
 
     //Eventbus依赖
     implementation 'org.greenrobot:eventbus:3.1.1'
-
 
 }

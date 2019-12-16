@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".MVP.View.LoginActivity.GuidePageActivity">
+
+    <ImageView
+        android:id="@+id/guide_img"
+        android:layout_width="@dimen/dp_118"
+        android:layout_height="@dimen/dp_86"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_140"
+        android:src="@mipmap/group" />
+
+    <TextView
+        android:id="@+id/guide_wdjk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/guide_img"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_30"
+        android:text="维度健康"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/sp_14" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/guide_wdjk"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="医生版"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/sp_14" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp_40"
+        android:layout_toLeftOf="@id/guide_bwyd"
+        android:src="@mipmap/yuan" />
+
+    <TextView
+        android:id="@+id/guide_bwyd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp_40"
+        android:text="八维移动通信学院毕业作品"
+        android:textColor="@color/colorHui"
+        android:textSize="@dimen/sp_14" />
+
+    <TextView
+        android:id="@+id/guide_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/dp_10"
+        android:text="s" />
+</RelativeLayout>

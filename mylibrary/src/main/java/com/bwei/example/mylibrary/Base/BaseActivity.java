@@ -6,7 +6,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.wd.myapplicationsss.MVP.Http.Net.NetWork;
+import com.bwei.example.mylibrary.Net.NetWork;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

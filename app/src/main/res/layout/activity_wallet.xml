@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dp_360"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MVP.View.MyActivity.WalletActivity">
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/wallet_backk"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_16"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_22"
+            android:layout_marginTop="@dimen/dp_22"
+            app:placeholderImage="@mipmap/backk" />
+
+        <TextView
+            android:id="@+id/sick_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="我的钱包" />
+
+        <TextView
+            android:id="@+id/manage_bell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            android:text="去绑定"
+            android:textColor="@color/colorSan"
+            android:textSize="@dimen/sp_10" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_20">
+
+        <ImageView
+            android:id="@+id/img_wallet"
+            android:layout_width="@dimen/dp_320"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/my_wallet_bg" />
+
+        <TextView
+            android:id="@+id/my_warllet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/img_wallet"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="我的H币"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/wallet_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/my_warllet"
+            android:layout_alignTop="@id/img_wallet"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_40"
+            android:text="2082"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/sp_48" />
+
+        <TextView
+            android:id="@+id/tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wallet_price"
+            android:layout_alignTop="@id/wallet_price"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_60"
+            android:text="(满2000可体现)"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/sp_10" />
+
+        <Button
+            android:id="@+id/wallet_but_pirce"
+            android:layout_width="@dimen/dp_58"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tx"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:background="@drawable/but_price"
+            android:text="提现"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/sp_14" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_28"
+        android:layout_marginRight="@dimen/dp_20">
+
+        <TextView
+            android:id="@+id/wallet_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="好的"
+            android:textColor="@color/colorSan"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/wallet_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wallet_name"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dp_4"
+            android:text="2019/9/6"
+            android:textColor="@color/colorJiu"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:id="@+id/wallet_red_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wallet_name"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="2019/9/6"
+            android:textColor="@color/colorJE"
+            android:textSize="@dimen/sp_14"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/wallet_blue_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wallet_name"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="2019/9/6"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/sp_14"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dp_360"
+    android:layout_height="match_parent"
+    tools:context=".MVP.View.MyActivity.SetImageActivity">
+
+    <TextView
+        android:id="@+id/zjz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_50"
+        android:text="为您设置一个张证件照吧"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/sp_16" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_360"
+        android:layout_below="@+id/zjz"
+        android:layout_marginTop="@dimen/dp_70">
+
+        <TextView
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_320"
+            android:layout_centerVertical="true"
+            android:background="@drawable/hei_zjz" />
+
+        <ImageView
+            android:id="@+id/image_photo_pic"
+            android:layout_width="@dimen/dp_300"
+            android:layout_height="@dimen/dp_360"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginRight="@dimen/dp_30"
+            android:background="@drawable/image_pic" />
+
+        <ImageView
+            android:id="@+id/set_img_camera"
+            android:layout_width="@dimen/dp_64"
+            android:layout_height="@dimen/dp_64"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_40"
+            android:src="@mipmap/my_icon_camera_n" />
+
+        <TextView
+            android:id="@+id/text_zdy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/set_img_camera"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="自定义形象照"
+            android:textColor="@color/colorHui"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_zdy"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="让你的形象独一无二"
+            android:textColor="@color/colorHui"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_300"
+            android:layout_height="@dimen/dp_131"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/according_image" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/set_image_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp_40"
+        android:background="@drawable/btlogin"
+        android:gravity="center"
+        android:padding="@dimen/dp_5"
+        android:text="完成设置"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/sp_14" />
+
+
+</RelativeLayout>

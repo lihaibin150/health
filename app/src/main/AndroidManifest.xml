@@ -2,14 +2,49 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wd.doctor">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 相机 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name="com.bwei.example.mylibrary.app.App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/caishe"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MVP.View.MyActivity.History.HistoryActivity"></activity>
+        <activity android:name=".MVP.View.MessageActivity.AllmesgActivity.AllCurrencyActivity" />
+        <activity android:name=".MVP.View.MessageActivity.AllmesgActivity.AllInterrogationActivity" />
+        <activity android:name=".MVP.View.MessageActivity.AllmesgActivity.AllSystemActivity" />
+        <activity android:name=".MVP.View.MyActivity.SetImageActivity" />
+        <activity android:name=".MVP.View.Interrogation.DetailedInquiryActivity" />
+        <activity android:name=".MVP.View.Interrogation.QuestioningActivity" />
+        <activity android:name=".MVP.View.LoginActivity.UsePwdTwoActivity" />
+        <activity android:name=".MVP.View.LoginActivity.UsePwdActivity" />
+        <activity android:name=".MVP.View.MessageActivity.AllNewsActivity" />
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/anim_exit" />
+
+        <activity android:name=".MVP.View.MyActivity.ImagePhotoActivity" />
+        <activity android:name=".MVP.View.LoginActivity.CompleteActivity" />
+        <activity android:name=".MVP.View.LoginActivity.PersonalActivity" />
+        <activity android:name=".MVP.View.LoginActivity.InformationActivity" />
+        <activity android:name=".MVP.View.MyActivity.WalletActivity" />
+        <activity android:name=".MVP.View.WardmateItem.ScreeActivity" />
+        <activity android:name=".MVP.View.WardmateItem.SickCircleInfoActivity" />
+        <activity android:name=".MVP.View.MyActivity.DataActivity" />
+        <activity android:name=".MVP.View.ShowActivity.ManagementActivity" />
+        <activity android:name=".MVP.View.ShowActivity.WardmateActivity" />
+        <activity android:name=".MVP.View.ShowActivity.InterrogationActivity" />
+        <activity android:name=".MVP.View.LoginActivity.ApplyJoinActivity" />
+        <activity android:name=".MVP.View.LoginActivity.GuidePageActivity" />
+        <activity android:name=".MainShowActivity" />
+        <activity android:name=".MVP.View.LoginActivity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,18 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="@dimen/dp_360"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="主要业务"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/sp_16" />
+
+        <ImageView
+            android:id="@+id/main_bell"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:src="@mipmap/common_nav_message_black_n" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/main_interrogation"
+            android:layout_width="@dimen/dp_320"
+            android:layout_height="@dimen/dp_150"
+            android:layout_below="@id/main_bell"
+            android:layout_marginTop="@dimen/dp_26"
+            app:failureImageScaleType="centerInside"
+            app:placeholderImage="@mipmap/inquiry_bg" />
+
+        <RelativeLayout
+            android:id="@+id/main_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/main_interrogation"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:id="@+id/text_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btlogin"
+                android:text="有新消息"
+                android:textColor="@color/colorWhite" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/text_main"
+                android:src="@mipmap/doctor" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/main_tip_box_inter"
+            android:layout_width="@dimen/dp_59"
+            android:layout_height="@dimen/dp_30"
+            android:layout_alignBottom="@id/main_interrogation"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/tip_box" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/wz"
+                android:textColor="@color/colorWhite" />
+        </RelativeLayout>
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/main_wardmate"
+            android:layout_width="@dimen/dp_320"
+            android:layout_height="@dimen/dp_150"
+            android:layout_below="@id/main_interrogation"
+            android:layout_marginTop="@dimen/dp_10"
+            app:failureImageScaleType="centerInside"
+            app:placeholderImage="@mipmap/promise_bg" />
+
+        <RelativeLayout
+            android:id="@+id/main_tip_box_wardmate"
+            android:layout_width="@dimen/dp_59"
+            android:layout_height="@dimen/dp_30"
+            android:layout_alignBottom="@id/main_wardmate"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/tip_box" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/dy"
+                android:textColor="@color/colorWhite" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/wdxx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_wardmate"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="我的信息"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/sp_16" />
+
+        <ImageView
+            android:id="@+id/main_my"
+            android:layout_width="@dimen/dp_320"
+            android:layout_height="@dimen/dp_150"
+            android:layout_below="@id/wdxx"
+            android:layout_marginTop="@dimen/dp_20"
+            android:scaleType="fitXY"
+            android:src="@mipmap/my_information_bg" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/main_headportrait"
+            android:layout_width="@dimen/dp_105"
+            android:layout_height="@dimen/dp_130"
+            android:layout_alignTop="@id/main_my"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            app:failureImageScaleType="centerInside"
+            app:placeholderImage="@mipmap/aga"
+            app:roundedCornerRadius="@dimen/dp_8" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/main_my"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_27"
+            android:layout_toRightOf="@id/main_headportrait">
+
+
+            <TextView
+                android:id="@+id/main_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="姓名"
+                android:textColor="@color/colorHui"
+                android:textSize="@dimen/sp_16" />
+
+            <TextView
+                android:id="@+id/main_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/main_name"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="广东省"
+                android:textColor="@color/colorHui"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/main_doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/main_address"
+                android:layout_marginTop="@dimen/dp_12"
+                android:text="主治医师"
+                android:textColor="@color/colorHui"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/main_subjects"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/main_doctor"
+                android:layout_marginTop="@dimen/dp_12"
+                android:layout_marginBottom="@dimen/dp_27"
+                android:text="小儿科"
+                android:textColor="@color/colorHui"
+                android:textSize="@dimen/sp_12" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/main_tip_box_my"
+            android:layout_width="@dimen/dp_59"
+            android:layout_height="@dimen/dp_30"
+            android:layout_alignBottom="@id/main_my"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/tip_box" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/gl"
+                android:textColor="@color/colorWhite" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>
