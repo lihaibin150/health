@@ -8,8 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.bwei.example.mylibrary.Base.BaseActivity;
-import com.bwei.example.mylibrary.Base.BasePresenter;
+import com.bwei.example.mylibrary.Test.IntentUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.wd.doctor.MVP.Contracter.InterrogationContracter;
+import com.wd.doctor.MVP.Presenter.InterrogationPresenter;
+import com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity.AllInterrogationActivity;
 import com.wd.doctor.R;
 
 import butterknife.BindView;
@@ -19,7 +22,7 @@ import butterknife.OnClick;
 /*
  * 问诊详情
  * */
-public class InterrogationActivity extends BaseActivity {
+public class InterrogationActivity extends BaseActivity<InterrogationPresenter> implements InterrogationContracter.IView {
 
     @BindView(R.id.manage_backk)
     SimpleDraweeView manageBackk;
@@ -36,8 +39,8 @@ public class InterrogationActivity extends BaseActivity {
     }
 
     @Override
-    public BasePresenter mPresenter() {
-        return null;
+    public InterrogationPresenter mPresenter() {
+        return new InterrogationPresenter();
     }
 
     @Override
@@ -47,6 +50,11 @@ public class InterrogationActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+    }
+
+    @Override
+    public void onSuccess(Object data) {
+
     }
 
     @Override
@@ -63,7 +71,23 @@ public class InterrogationActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.manage_bell:
+                IntentUtils.getInstence().intentStart(InterrogationActivity.this, AllInterrogationActivity.class);
                 break;
         }
+    }
+
+    @Override
+    public void onDetailsListSuccess(Object data) {
+
+    }
+
+    @Override
+    public void onFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onDetailsListFailure(Throwable e) {
+
     }
 }

@@ -5,6 +5,7 @@ import com.wd.doctor.MVP.Contracter.HomeContracter;
 import com.wd.doctor.MVP.Http.Utils.CommonObserver;
 import com.wd.doctor.MVP.Http.Utils.CommonSchedulers;
 import com.wd.doctor.MVP.Http.Utils.RequestNet;
+import com.wd.doctor.MVP.Model.Bean.Doctor.AllStausBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.ChooseImagePicBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorHealthyCurrencyNoticeListBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorInquiryNoticeListBean;
@@ -27,7 +28,7 @@ import okhttp3.MultipartBody;
  * 2、使用 compose()配合 {@link CommonSchedulers} 切换线程
  * 3、使用 {@link CommonObserver} 代替 {@link io.reactivex.Observer} ,避免每次强制重写 onSubscribe() 和 onComplete()
  */
-public class HomeModel implements HomeContracter.IModel {
+public class HomeModel implements HomeContracter.IModel{
     //根据医生id查询医生信息
     @Override
     public void getFindDoctorByIdModel(String doctorId, String sessionId, IModelCallback callback) {
@@ -116,6 +117,25 @@ public class HomeModel implements HomeContracter.IModel {
                     public void onNext(FindDoctorWalletBean doctorWalletBean) {
                         callback.onSuccess(doctorWalletBean);
                         Logger.d("s", "dIdBean" + doctorWalletBean.getMessage());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        callback.onFailure(e);
+                    }
+                });
+    }
+    //修改消息状态为全部已读
+    @Override
+    public void PutAllStausModel(String doctorId, String sessionId, IModelCallback callback) {
+        RequestNet.getInstance().create()
+                .ALL_STAUS(doctorId, sessionId)
+                .compose(CommonSchedulers.<AllStausBean>io2main())
+                .subscribe(new CommonObserver<AllStausBean>() {
+                    @Override
+                    public void onNext(AllStausBean allStausBean) {
+                        callback.onSuccess(allStausBean);
+                        Logger.d("s", "allStausBean:" + allStausBean.getMessage());
                     }
 
                     @Override

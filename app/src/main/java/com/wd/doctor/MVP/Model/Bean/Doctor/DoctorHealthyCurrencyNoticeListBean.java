@@ -13,6 +13,7 @@ package com.wd.doctor.MVP.Model.Bean.Doctor;
 
 
 public class DoctorHealthyCurrencyNoticeListBean {
+
     public String status;
     public String message;
     public ResultBean result;

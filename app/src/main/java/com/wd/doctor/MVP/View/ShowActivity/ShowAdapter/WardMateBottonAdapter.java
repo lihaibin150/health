@@ -63,20 +63,19 @@ public class WardMateBottonAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             Date date = new Date(result.get(position).getReleaseTime());
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd  hh:mm");
             ((ViewHolder) holder).bottonTime.setText(simpleDateFormat.format(date));
-
+            ((ViewHolder) holder).bottonPrice.setText(result.get(position).getAmount()+"");
             if (result.get(position).getAmount() == 0) {
                 ((ViewHolder) holder).bottonImg.setVisibility(View.GONE);
                 ((ViewHolder) holder).bottonPrice.setVisibility(View.GONE);
             } else {
-                ((ViewHolder) holder).bottonPrice.setText(result.get(position).getAmount());
                 ((ViewHolder) holder).bottonImg.setVisibility(View.VISIBLE);
                 ((ViewHolder) holder).bottonPrice.setVisibility(View.VISIBLE);
             }
             ((ViewHolder) holder).bottonRelative.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    SPUtils spUtils = new SPUtils(mContext, "wardmate");
-                    spUtils.putString("wardId", result.get(position).getSickCircleId() + "");
+                    SPUtils spUtils = new SPUtils(mContext, "Wardmate");
+                    spUtils.putString("WardId", result.get(position).getSickCircleId() + "");
                     spUtils.putString("Amount", result.get(position).getAmount() + "");
                     Intent intent = new Intent(mContext, SickCircleInfoActivity.class);
                     mContext.startActivity(intent);

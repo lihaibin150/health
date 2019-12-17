@@ -1,6 +1,7 @@
 package com.wd.doctor.MVP.Model.Bean.Patients;
 
 import java.util.List;
+
 /**
  *@Package: com.wd.doctor.MVP.Model.Bean.Doctor
  *@describe(描述)：FindSickCircleListBean.java
@@ -16,7 +17,7 @@ import java.util.List;
 public class FindSickCircleListBean {
 
     /**
-     * result : [{"amount":0,"detail":"奖学金","releaseTime":1575475200000,"sickCircleId":1645,"title":"就直接"},{"amount":0,"detail":"呀呀呀","releaseTime":1575475200000,"sickCircleId":1641,"title":"嘿嘿嘿"},{"amount":0,"detail":"呀呀呀","releaseTime":1575475200000,"sickCircleId":1635,"title":"嘿嘿嘿"},{"amount":0,"detail":"呀呀呀","releaseTime":1575475200000,"sickCircleId":1636,"title":"嘿嘿嘿"},{"amount":0,"detail":"呀呀呀","releaseTime":1575475200000,"sickCircleId":1637,"title":"嘿嘿嘿"}]
+     * result : [{"amount":0,"detail":"头疼的厉害","releaseTime":1576512000000,"sickCircleId":1742,"title":"骨科"},{"amount":0,"detail":"头疼的厉害","releaseTime":1576512000000,"sickCircleId":1740,"title":"骨科"},{"amount":0,"detail":"头疼的厉害","releaseTime":1576425600000,"sickCircleId":1736,"title":"骨科"},{"amount":0,"detail":"头疼的厉害","releaseTime":1576425600000,"sickCircleId":1732,"title":"骨科"},{"amount":0,"detail":"头疼的厉害","releaseTime":1576425600000,"sickCircleId":1731,"title":"骨科"}]
      * message : 查询成功
      * status : 0000
      */
@@ -52,10 +53,10 @@ public class FindSickCircleListBean {
     public static class ResultBean {
         /**
          * amount : 0
-         * detail : 奖学金
-         * releaseTime : 1575475200000
-         * sickCircleId : 1645
-         * title : 就直接
+         * detail : 头疼的厉害
+         * releaseTime : 1576512000000
+         * sickCircleId : 1742
+         * title : 骨科
          */
 
         private int amount;

@@ -104,19 +104,19 @@ public class WardmateModel implements WardmateContracter.IModel {
 
     //发表评论
     @Override
-    public void getPublishCommentModel(Integer doctorId, String sessionId, IModelCallback callback) {
+    public void getPublishCommentModel(String doctorId, String sessionId, String sickCircleId, String content, IModelCallback callback) {
         RequestNet.getInstance().create()
-                .PUBLISH_COMMENT(doctorId, sessionId)
+                .PUBLISH_COMMENT(doctorId, sessionId, sickCircleId, content)
                 .compose(CommonSchedulers.<PublishCommentBean>io2main())
                 .subscribe(new CommonObserver<PublishCommentBean>() {
                     @Override
                     public void onNext(PublishCommentBean publishCommentBean) {
-                        callback.onSuccess(publishCommentBean);
+                        callback.onWardmateSuccess(publishCommentBean);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        callback.onFailure(e);
+                        callback.onWardmateFailure(e);
                     }
                 });
     }

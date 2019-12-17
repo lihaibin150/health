@@ -20,6 +20,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.MVP.Contracter.HomeContracter;
 import com.wd.doctor.MVP.Model.Bean.Doctor.ChooseImagePicBean;
 import com.wd.doctor.MVP.Presenter.HomePresenter;
+import com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity.AllCurrencyActivity;
 import com.wd.doctor.MVP.View.MyActivity.DataActivity;
 import com.wd.doctor.MVP.View.MyActivity.History.HistoryActivity;
 import com.wd.doctor.MVP.View.MyActivity.SetImageActivity;
@@ -101,7 +102,7 @@ public class ManagementActivity extends BaseActivity<HomePresenter> implements H
                 finish();
                 break;
             case R.id.manage_bell://铃铛
-
+                IntentUtils.getInstence().intentStart(ManagementActivity.this, AllCurrencyActivity.class);
                 break;
             case R.id.manage_zl://查询资料
                 IntentUtils.getInstence().intentStart(this, DataActivity.class);

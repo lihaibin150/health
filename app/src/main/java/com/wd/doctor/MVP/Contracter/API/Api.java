@@ -1,6 +1,7 @@
 package com.wd.doctor.MVP.Contracter.API;
 
 
+import com.wd.doctor.MVP.Model.Bean.Doctor.AllStausBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.ApplyJoinBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.ChooseImagePicBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.CodeBean;
@@ -137,9 +138,13 @@ public interface Api {
 
     //发表评论
     @POST("sickCircle/verify/v1/publishComment")
-    Observable<PublishCommentBean> PUBLISH_COMMENT(@Header("doctorId") Integer doctorId, @Header("sessionId") String sessionId);
+    Observable<PublishCommentBean> PUBLISH_COMMENT(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("sickCircleId") String sickCircleId, @Query("content") String content);
 
     /*消息*/
+    //修改消息状态为全部已读
+    @PUT("verify/v1/modifyAllStatus")
+    Observable<AllStausBean> ALL_STAUS(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId);
+
     //查询系统通知消息
     @GET("verify/v1/findDoctorSystemNoticeList")
     Observable<DoctorSystemNoticeListBean> DOCTOR_SYSTEM(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("page") Integer page, @Query("count") Integer count);

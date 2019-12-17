@@ -223,7 +223,7 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
     //查询问诊通知消息
     @Override
     public void getInquiryPresenter(String doctorId, String sessionId, Integer page, Integer count) {
-//2、调用model中的的方法，设置回调监听
+        //2、调用model中的的方法，设置回调监听
         mHomeModel.getInquiryModel(doctorId, sessionId, page, count, new HomeContracter.IModel.IModelCallback() {
             @Override
             public void onSuccess(Object data) {
@@ -243,6 +243,23 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
                 if (ViewAttached()) {
                     getView().onFailure(e);
                 }
+            }
+        });
+    }
+
+    //修改消息状态为全部已读
+    @Override
+    public void PutAllStausPresenter(String doctorId, String sessionId) {
+        //2、调用model中的的方法，设置回调监听
+        mHomeModel.PutAllStausModel(doctorId, sessionId, new HomeContracter.IModel.IModelCallback() {
+            @Override
+            public void onSuccess(Object data) {
+                getView().onSuccess(data);
+            }
+
+            @Override
+            public void onFailure(Throwable e) {
+                getView().onFailure(e);
             }
         });
     }

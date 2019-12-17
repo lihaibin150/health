@@ -1,21 +1,21 @@
 package com.wd.doctor.MVP.Model.Bean.Patients;
 
 /**
- *@Package: com.wd.doctor.MVP.Model.Bean.Patients
- *@describe(描述)：SickCircleInfoBean.java
- *@ClassName: SickCircleInfoBean
- *@data（日期）: 2019/12/13
- *@time（时间）: 9:02
- *@author（作者）: 李海斌
- *@UpdateRemark: 更新说明：Android
- *@Version: 3.5
+ * @Package: com.wd.doctor.MVP.Model.Bean.Patients
+ * @describe(描述)：SickCircleInfoBean.java
+ * @ClassName: SickCircleInfoBean
+ * @data（日期）: 2019/12/13
+ * @time（时间）: 9:02
+ * @author（作者）: 李海斌
+ * @UpdateRemark: 更新说明：Android
+ * @Version: 3.5
  **/
 
 //查询病友圈详情
 public class SickCircleInfoBean {
 
     /**
-     * result : {"amount":0,"authorName":"LQ_PTBPO","departmentId":2,"departmentName":"骨科","detail":"4too宏观经济","disease":"退行性关节病","id":1655,"title":"挂机了","treatmentEndTime":1575561600000,"treatmentHospital":"你看看","treatmentProcess":"哈哈","treatmentStartTime":1575561600000,"userId":410,"whetherContent":2}
+     * result : {"amount":10,"authorName":"下雨吧","content":"发发发","departmentId":5,"departmentName":"小儿科","detail":"详情","disease":"病症描述","id":11,"title":"急寻：面神经炎的治疗方法","treatmentEndTime":1536681600000,"treatmentHospital":"治疗医院","treatmentProcess":"治疗过程描述","treatmentStartTime":1486051200000,"userId":1,"whetherContent":1}
      * message : 查询成功
      * status : 0000
      */
@@ -50,24 +50,26 @@ public class SickCircleInfoBean {
 
     public static class ResultBean {
         /**
-         * amount : 0
-         * authorName : LQ_PTBPO
-         * departmentId : 2
-         * departmentName : 骨科
-         * detail : 4too宏观经济
-         * disease : 退行性关节病
-         * id : 1655
-         * title : 挂机了
-         * treatmentEndTime : 1575561600000
-         * treatmentHospital : 你看看
-         * treatmentProcess : 哈哈
-         * treatmentStartTime : 1575561600000
-         * userId : 410
-         * whetherContent : 2
+         * amount : 10
+         * authorName : 下雨吧
+         * content : 发发发
+         * departmentId : 5
+         * departmentName : 小儿科
+         * detail : 详情
+         * disease : 病症描述
+         * id : 11
+         * title : 急寻：面神经炎的治疗方法
+         * treatmentEndTime : 1536681600000
+         * treatmentHospital : 治疗医院
+         * treatmentProcess : 治疗过程描述
+         * treatmentStartTime : 1486051200000
+         * userId : 1
+         * whetherContent : 1
          */
 
         private int amount;
         private String authorName;
+        private String content;
         private int departmentId;
         private String departmentName;
         private String detail;
@@ -77,31 +79,9 @@ public class SickCircleInfoBean {
         private long treatmentEndTime;
         private String treatmentHospital;
         private String treatmentProcess;
-        private String picture;
         private long treatmentStartTime;
         private int userId;
         private int whetherContent;
-
-        @Override
-        public String toString() {
-            return "ResultBean{" +
-                    "amount=" + amount +
-                    ", authorName='" + authorName + '\'' +
-                    ", departmentId=" + departmentId +
-                    ", departmentName='" + departmentName + '\'' +
-                    ", detail='" + detail + '\'' +
-                    ", disease='" + disease + '\'' +
-                    ", id=" + id +
-                    ", title='" + title + '\'' +
-                    ", treatmentEndTime=" + treatmentEndTime +
-                    ", treatmentHospital='" + treatmentHospital + '\'' +
-                    ", treatmentProcess='" + treatmentProcess + '\'' +
-                    ", picture='" + picture + '\'' +
-                    ", treatmentStartTime=" + treatmentStartTime +
-                    ", userId=" + userId +
-                    ", whetherContent=" + whetherContent +
-                    '}';
-        }
 
         public int getAmount() {
             return amount;
@@ -117,6 +97,14 @@ public class SickCircleInfoBean {
 
         public void setAuthorName(String authorName) {
             this.authorName = authorName;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
         }
 
         public int getDepartmentId() {
@@ -191,14 +179,6 @@ public class SickCircleInfoBean {
             this.treatmentProcess = treatmentProcess;
         }
 
-        public String getPicture() {
-            return picture;
-        }
-
-        public void setPicture(String picture) {
-            this.picture = picture;
-        }
-
         public long getTreatmentStartTime() {
             return treatmentStartTime;
         }
@@ -220,24 +200,6 @@ public class SickCircleInfoBean {
         }
 
         public void setWhetherContent(int whetherContent) {
-            this.whetherContent = whetherContent;
-        }
-
-        public ResultBean(int amount, String authorName, int departmentId, String departmentName, String detail, String disease, int id, String title, long treatmentEndTime, String treatmentHospital, String treatmentProcess, String picture, long treatmentStartTime, int userId, int whetherContent) {
-            this.amount = amount;
-            this.authorName = authorName;
-            this.departmentId = departmentId;
-            this.departmentName = departmentName;
-            this.detail = detail;
-            this.disease = disease;
-            this.id = id;
-            this.title = title;
-            this.treatmentEndTime = treatmentEndTime;
-            this.treatmentHospital = treatmentHospital;
-            this.treatmentProcess = treatmentProcess;
-            this.picture = picture;
-            this.treatmentStartTime = treatmentStartTime;
-            this.userId = userId;
             this.whetherContent = whetherContent;
         }
     }

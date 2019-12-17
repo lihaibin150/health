@@ -1,10 +1,12 @@
 package com.wd.doctor.MVP.Presenter;
 
 import com.bwei.example.mylibrary.Base.BasePresenter;
+import com.bwei.example.mylibrary.Test.Logger;
 import com.wd.doctor.MVP.Contracter.API.Constant;
 import com.wd.doctor.MVP.Contracter.WardmateContracter;
 import com.wd.doctor.MVP.Model.Bean.Patients.FindDepartmentBean;
 import com.wd.doctor.MVP.Model.Bean.Patients.FindSickCircleListBean;
+import com.wd.doctor.MVP.Model.Bean.Patients.SickCircleInfoBean;
 import com.wd.doctor.MVP.Model.WardmateModel;
 
 /**
@@ -35,10 +37,10 @@ public class WardmatePresenter extends BasePresenter<WardmateContracter.IView> i
             @Override
             public void onSuccess(Object data) {
                 //3、必须先判断是否挂载、然后才可以使用getView方法
-                if (ViewAttached()){
+                if (ViewAttached()) {
                     getView().onSuccess(data);
-                    if (data!=null&& Constant.SUCCESS_CODE.equals(FindDepartmentBean.class)){
-                    }else {
+                    if (data != null && Constant.SUCCESS_CODE.equals(FindDepartmentBean.class)) {
+                    } else {
                         getView().onFailure(new Exception("服务器异常"));
                     }
                 }
@@ -47,7 +49,7 @@ public class WardmatePresenter extends BasePresenter<WardmateContracter.IView> i
 
             @Override
             public void onFailure(Throwable e) {
-                if (ViewAttached()){
+                if (ViewAttached()) {
                     getView().onFailure(e);
                 }
             }
@@ -81,10 +83,10 @@ public class WardmatePresenter extends BasePresenter<WardmateContracter.IView> i
             @Override
             public void onWardmateSuccess(Object data) {
                 //3、必须先判断是否挂载、然后才可以使用getView方法
-                if (ViewAttached()){
+                if (ViewAttached()) {
                     getView().onWardmateSuccess(data);
-                    if (data!=null&& Constant.SUCCESS_CODE.equals(FindSickCircleListBean.class)){
-                    }else {
+                    if (data != null && Constant.SUCCESS_CODE.equals(FindSickCircleListBean.class)) {
+                    } else {
                         getView().onFailure(new Exception("服务器异常"));
                     }
                 }
@@ -92,7 +94,9 @@ public class WardmatePresenter extends BasePresenter<WardmateContracter.IView> i
 
             @Override
             public void onWardmateFailure(Throwable e) {
-                getView().onWardmateFailure(e);
+                if (ViewAttached()) {
+                    getView().onWardmateFailure(e);
+                }
             }
         });
     }
@@ -103,12 +107,23 @@ public class WardmatePresenter extends BasePresenter<WardmateContracter.IView> i
         mWardmateModel.getSickCircleInfoModel(doctorId, sessionId, sickCircleId, new WardmateContracter.IModel.IModelCallback() {
             @Override
             public void onSuccess(Object data) {
-                getView().onSuccess(data);
+                //3、必须先判断是否挂载、然后才可以使用getView方法
+                if (ViewAttached()) {
+                    getView().onSuccess(data);
+                    Logger.d("aa","Constantad:"+data);
+                    if (data != null && Constant.SUCCESS_CODE.equals(SickCircleInfoBean.class)) {
+                    } else {
+                        getView().onFailure(new Exception("服务器异常"));
+                    }
+                }
+
             }
 
             @Override
             public void onFailure(Throwable e) {
-                getView().onFailure(e);
+                if (ViewAttached()) {
+                    getView().onFailure(e);
+                }
             }
 
             @Override
@@ -151,26 +166,26 @@ public class WardmatePresenter extends BasePresenter<WardmateContracter.IView> i
 
     //发表评论
     @Override
-    public void getPublishCommentPresenter(Integer doctorId, String sessionId) {
-        mWardmateModel.getPublishCommentModel(doctorId, sessionId, new WardmateContracter.IModel.IModelCallback() {
+    public void getPublishCommentPresenter(String doctorId, String sessionId, String sickCircleId,String content) {
+        mWardmateModel.getPublishCommentModel(doctorId, sessionId, sickCircleId, content, new WardmateContracter.IModel.IModelCallback() {
             @Override
             public void onSuccess(Object data) {
-                getView().onSuccess(data);
+
             }
 
             @Override
             public void onFailure(Throwable e) {
-                getView().onFailure(e);
+
             }
 
             @Override
             public void onWardmateSuccess(Object data) {
-
+                getView().onWardmateSuccess(data);
             }
 
             @Override
             public void onWardmateFailure(Throwable e) {
-
+                getView().onWardmateFailure(e);
             }
         });
     }

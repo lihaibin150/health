@@ -11,7 +11,6 @@ package com.wd.doctor.MVP.Model.Bean.Doctor;
  * @Version: 3.5
  */
 
-
 public class DoctorInquiryNoticeListBean {
     public String status;
     public String message;

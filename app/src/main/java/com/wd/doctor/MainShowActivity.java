@@ -11,6 +11,7 @@ import com.bwei.example.mylibrary.Test.IntentUtils;
 import com.bwei.example.mylibrary.Test.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.MVP.Presenter.LoginPresenter;
+import com.wd.doctor.MVP.View.MessageActivity.AllNewsActivity;
 import com.wd.doctor.MVP.View.ShowActivity.InterrogationActivity;
 import com.wd.doctor.MVP.View.ShowActivity.ManagementActivity;
 import com.wd.doctor.MVP.View.ShowActivity.WardmateActivity;
@@ -81,10 +82,14 @@ public class MainShowActivity extends BaseActivity {
         mainSubjects.setText(dataDepartmentName);
     }
 
-    @OnClick({R.id.main_notice, R.id.main_interrogation, R.id.main_wardmate, R.id.main_my, R.id.main_tip_box_inter, R.id.main_tip_box_wardmate, R.id.main_tip_box_my})
+    @OnClick({R.id.main_bell, R.id.main_notice, R.id.main_interrogation, R.id.main_wardmate, R.id.main_my, R.id.main_tip_box_inter, R.id.main_tip_box_wardmate, R.id.main_tip_box_my})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.main_notice:
+            case R.id.main_notice://有消息提示
+                IntentUtils.getInstence().intentStart(MainShowActivity.this, InterrogationActivity.class);
+                break;
+            case R.id.main_bell://全部消息
+                IntentUtils.getInstence().intentStart(MainShowActivity.this, AllNewsActivity.class);
                 break;
             case R.id.main_tip_box_inter://问诊
                 IntentUtils.getInstence().intentStart(MainShowActivity.this, InterrogationActivity.class);

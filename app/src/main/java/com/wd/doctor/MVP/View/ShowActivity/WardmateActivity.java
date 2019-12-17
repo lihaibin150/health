@@ -8,6 +8,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bwei.example.mylibrary.Base.BaseActivity;
 import com.bwei.example.mylibrary.Test.IntentUtils;
+import com.bwei.example.mylibrary.Test.Logger;
+import com.bwei.example.mylibrary.Test.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.material.tabs.TabLayout;
 import com.wd.doctor.MVP.Contracter.WardmateContracter;
@@ -71,7 +73,12 @@ public class WardmateActivity extends BaseActivity<WardmatePresenter> implements
         for (int i = 0; i < result.size(); i++) {
             FindDepartmentBean.ResultBean resultBean = result.get(i);
             tab.add(resultBean.getDepartmentName());
+            //存值传到(详情页)
+            SPUtils spScikMate = new SPUtils(WardmateActivity.this, "WardMate");
+            spScikMate.putString("WardId",result.get(i).getId()+"");
+            Logger.d(TAG, "SickWardId" + result.get(i).getId()+"");
         }
+
         wardmateTopTab.setupWithViewPager(wardmateBottonVp);
         WardMateTopAdapter myAdapter = new WardMateTopAdapter(getSupportFragmentManager(), tab, result);
         wardmateBottonVp.setAdapter(myAdapter);
@@ -88,7 +95,8 @@ public class WardmateActivity extends BaseActivity<WardmatePresenter> implements
             case R.id.wardmate_backk:
                 finish();//返回
                 break;
-            case R.id.wardmate_bell:
+            case R.id.wardmate_bell://病友圈消息
+//                IntentUtils.getInstence().intentStart(WardmateActivity.this, .class);
                 break;
             case R.id.wardmate_scree://搜索
                 IntentUtils.getInstence().intentStart(WardmateActivity.this, ScreeActivity.class);

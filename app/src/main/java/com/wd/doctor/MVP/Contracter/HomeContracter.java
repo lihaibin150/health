@@ -30,10 +30,15 @@ public interface HomeContracter {
         //查询医生钱包
         void getFindDoctorWalletModel(String doctorId, String sessionId, IModelCallback callback);
 
+        //修改消息状态为全部已读
+        void PutAllStausModel(String doctorId, String sessionId, IModelCallback callback);
+
         //查询H币通知消息
         void getHealthyModel(String doctorId, String sessionId, Integer page, Integer count, IModelCallback callback);
+
         //查询系统通知消息
         void getSystemModel(String doctorId, String sessionId, Integer page, Integer count, IModelCallback callback);
+
         //查询问诊通知消息
         void getInquiryModel(String doctorId, String sessionId, Integer page, Integer count, IModelCallback callback);
 
@@ -43,6 +48,7 @@ public interface HomeContracter {
 
             void onFailure(Throwable e);
         }
+
     }
 
     //view层  命名必须是IView
@@ -71,11 +77,15 @@ public interface HomeContracter {
 
         //查询H币通知消息
         void getHealthyPresenter(String doctorId, String sessionId, Integer page, Integer count);
+
         //查询系统通知消息
         void getSystemPresenter(String doctorId, String sessionId, Integer page, Integer count);
+
         //查询问诊通知消息
         void getInquiryPresenter(String doctorId, String sessionId, Integer page, Integer count);
 
+        //修改消息状态为全部已读
+        void PutAllStausPresenter(String doctorId, String sessionId);
     }
 
 }

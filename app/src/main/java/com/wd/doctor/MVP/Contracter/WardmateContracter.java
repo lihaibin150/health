@@ -30,13 +30,14 @@ public interface WardmateContracter {
         void getSearchSickCircleModel(String keyWord, WardmateContracter.IModel.IModelCallback callback);
 
         //发表评论
-        void getPublishCommentModel(Integer doctorId, String sessionId, WardmateContracter.IModel.IModelCallback callback);
+        void getPublishCommentModel(String doctorId, String sessionId, String sickCircleId, String content, WardmateContracter.IModel.IModelCallback callback);
 
         //model层中的接口回调
         interface IModelCallback {
             void onSuccess(Object data);
 
             void onFailure(Throwable e);
+
             void onWardmateSuccess(Object data);
 
             void onWardmateFailure(Throwable e);
@@ -69,7 +70,7 @@ public interface WardmateContracter {
         void getSearchSickCirclePresenter(String keyWord);
 
         //发表评论
-        void getPublishCommentPresenter(Integer doctorId, String sessionId);
+        void getPublishCommentPresenter(String doctorId, String sessionId, String sickCircleId, String content);
 
     }
 }

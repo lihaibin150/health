@@ -40,7 +40,7 @@ public class WardMateBottonFragment extends BaseFragment<WardmatePresenter> impl
         Bundle arguments = getArguments();
         mDepartmentId = arguments.getInt("departmentId");
 //        mPresenter.getSickCircleListPresenter(2, 1, 5);
-
+        mPresenter.getSickCircleListPresenter(mDepartmentId, 1, 5);
         //设置全局的Header构建器
         SmartRefreshLayout.setDefaultRefreshHeaderCreator(new DefaultRefreshHeaderCreator() {
             @Override
@@ -81,7 +81,6 @@ public class WardMateBottonFragment extends BaseFragment<WardmatePresenter> impl
 
     @Override
     public void onWardmateSuccess(Object data) {
-        mPresenter.getSickCircleListPresenter(mDepartmentId, 1, 5);
         FindSickCircleListBean findSickCircleListBean = (FindSickCircleListBean) data;
         List<FindSickCircleListBean.ResultBean> result = findSickCircleListBean.getResult();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
