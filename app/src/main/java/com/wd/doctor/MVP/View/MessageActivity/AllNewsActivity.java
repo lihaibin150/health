@@ -8,8 +8,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bwei.example.mylibrary.Base.BaseActivity;
-import com.bwei.example.mylibrary.Test.IntentUtils;
-import com.bwei.example.mylibrary.Test.SPUtils;
+import com.bwei.example.mylibrary.Tools.IntentUtils;
+import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.MVP.Contracter.HomeContracter;
 import com.wd.doctor.MVP.Model.Bean.Doctor.AllStausBean;
@@ -92,6 +92,11 @@ public class AllNewsActivity extends BaseActivity<HomePresenter> implements Home
 
     }
 
+    @Override
+    public void onImgSuccess(Object data) {
+
+    }
+
     @OnClick({R.id.all_query_bell,R.id.all_backk, R.id.all_del, R.id.all_system, R.id.all_interrogation, R.id.all_currency})
     public void onClick(View view) {
         switch (view.getId()) {
@@ -101,7 +106,7 @@ public class AllNewsActivity extends BaseActivity<HomePresenter> implements Home
                allSystemQuery.setVisibility(View.GONE);
                 break;
             case R.id.all_backk://关闭
-                fileList();
+               finish();
                 break;
             case R.id.all_del://关闭通知
                 allNewsMeassge.setVisibility(View.GONE);
@@ -121,6 +126,11 @@ public class AllNewsActivity extends BaseActivity<HomePresenter> implements Home
 
     @Override
     public void onFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onImgFailure(Throwable e) {
 
     }
 

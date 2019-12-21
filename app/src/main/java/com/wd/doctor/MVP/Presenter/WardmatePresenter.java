@@ -1,7 +1,7 @@
 package com.wd.doctor.MVP.Presenter;
 
 import com.bwei.example.mylibrary.Base.BasePresenter;
-import com.bwei.example.mylibrary.Test.Logger;
+import com.bwei.example.mylibrary.Tools.Logger;
 import com.wd.doctor.MVP.Contracter.API.Constant;
 import com.wd.doctor.MVP.Contracter.WardmateContracter;
 import com.wd.doctor.MVP.Model.Bean.Patients.FindDepartmentBean;

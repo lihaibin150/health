@@ -47,7 +47,7 @@
                 app:tabBackground="@null"
                 app:tabGravity="fill"
                 app:tabIndicatorHeight="@dimen/dp_0"
-                app:tabMinWidth="@dimen/dp_60"
+                app:tabMinWidth="@dimen/dp_20"
                 app:tabMode="scrollable"
                 app:tabSelectedTextColor="@color/colorBlue"
                 app:tabTextAppearance="@style/TextAppearance.Design.Tab.Custom" />

@@ -14,8 +14,24 @@
         android:text="为您设置一个张证件照吧"
         android:textColor="@color/colorBlue"
         android:textSize="@dimen/sp_16" />
+    <!--
+         <ImageView
+             android:id="@+id/set_rela_photo_pic"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/dp_360"
+             android:layout_below="@+id/zjz"
+             android:layout_marginTop="@dimen/dp_70"/>
+ -->
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/set_sim_photo_pic"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_360"
+        android:layout_below="@+id/zjz"
+        android:layout_marginTop="@dimen/dp_70"
+        android:visibility="gone" />
 
     <RelativeLayout
+        android:id="@+id/set_rela_photo_pic"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_360"
         android:layout_below="@+id/zjz"
@@ -28,7 +44,6 @@
             android:background="@drawable/hei_zjz" />
 
         <ImageView
-            android:id="@+id/image_photo_pic"
             android:layout_width="@dimen/dp_300"
             android:layout_height="@dimen/dp_360"
             android:layout_marginLeft="@dimen/dp_30"

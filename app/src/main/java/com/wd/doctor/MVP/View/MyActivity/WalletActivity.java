@@ -6,12 +6,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.bwei.example.mylibrary.Base.BaseActivity;
-import com.bwei.example.mylibrary.Test.Logger;
-import com.bwei.example.mylibrary.Test.SPUtils;
+import com.bwei.example.mylibrary.Tools.IntentUtils;
+import com.bwei.example.mylibrary.Tools.Logger;
+import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.MVP.Contracter.HomeContracter;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindDoctorWalletBean;
 import com.wd.doctor.MVP.Presenter.HomePresenter;
+import com.wd.doctor.MVP.View.MyActivity.unbindactivity.UnbindActivity;
 import com.wd.doctor.R;
 
 import butterknife.BindView;
@@ -38,6 +40,8 @@ public class WalletActivity extends BaseActivity<HomePresenter> implements HomeC
     TextView walletRedPrice;
     @BindView(R.id.wallet_blue_price)
     TextView walletBluePrice;
+    private String mId;
+    private String mSessionId;
 
     @Override
     protected int getLayoutId() {
@@ -57,10 +61,9 @@ public class WalletActivity extends BaseActivity<HomePresenter> implements HomeC
     @Override
     protected void initData() {
         SPUtils spUtils = new SPUtils(WalletActivity.this, "LoginId");
-        String id = spUtils.getString("Id");
-        String sessionId = spUtils.getString("SessionId");
-        mP.getFindDoctorWalletPresenter(id, sessionId);
-        Logger.d(TAG, "FindDoctor:" + id + "==" + sessionId);
+        mId = spUtils.getString("Id");
+        mSessionId = spUtils.getString("SessionId");
+        Logger.d(TAG, "FindDoctor:" + mId + "==" + mSessionId);
     }
 
     @Override
@@ -68,8 +71,19 @@ public class WalletActivity extends BaseActivity<HomePresenter> implements HomeC
         Logger.d(TAG, "FindDoctorWalletBean:" + data);
         FindDoctorWalletBean doctorWalletBean = (FindDoctorWalletBean) data;
         FindDoctorWalletBean.ResultBean result = doctorWalletBean.getResult();
-//        walletPrice.setText(result.getDoctorId());
+        mP.getFindDoctorWalletPresenter(mId, mSessionId);
+//        if (result!=null){
+//            walletPrice.setText(result.getBalance());
+//        }else {
+//            walletPrice.setText(0);
+//        }
+
 //        walletTime.setText(result.getVersion());
+    }
+
+    @Override
+    public void onImgSuccess(Object data) {
+
     }
 
     @Override
@@ -77,11 +91,16 @@ public class WalletActivity extends BaseActivity<HomePresenter> implements HomeC
 
     }
 
+    @Override
+    public void onImgFailure(Throwable e) {
+
+    }
+
     @OnClick({R.id.manage_bell, R.id.wallet_but_pirce})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.manage_bell:
-
+            case R.id.manage_bell://绑定
+                IntentUtils.getInstence().intentStart(WalletActivity.this, UnbindActivity.class);
                 break;
             case R.id.wallet_but_pirce:
                 break;

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/dp_360"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainShowActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -145,7 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/main_my"
             android:layout_marginLeft="@dimen/dp_30"
-            android:layout_marginTop="@dimen/dp_27"
+            android:layout_marginTop="@dimen/dp_17"
             android:layout_toRightOf="@id/main_headportrait">
 
 

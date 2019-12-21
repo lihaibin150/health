@@ -13,14 +13,15 @@ import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.bwei.example.mylibrary.Base.BaseActivity;
-import com.bwei.example.mylibrary.Test.IntentUtils;
-import com.bwei.example.mylibrary.Test.Logger;
-import com.bwei.example.mylibrary.Test.SPUtils;
+import com.bwei.example.mylibrary.Tools.IntentUtils;
+import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.MVP.Contracter.HomeContracter;
 import com.wd.doctor.MVP.Model.Bean.Doctor.ChooseImagePicBean;
 import com.wd.doctor.MVP.Presenter.HomePresenter;
 import com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity.AllCurrencyActivity;
+import com.wd.doctor.MVP.View.MyActivity.AdoptionActivity;
+import com.wd.doctor.MVP.View.MyActivity.AutomaticActivity;
 import com.wd.doctor.MVP.View.MyActivity.DataActivity;
 import com.wd.doctor.MVP.View.MyActivity.History.HistoryActivity;
 import com.wd.doctor.MVP.View.MyActivity.SetImageActivity;
@@ -30,6 +31,7 @@ import com.wd.doctor.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.MultipartBody;
 
 /*
  *管理(我的)
@@ -58,6 +60,7 @@ public class ManagementActivity extends BaseActivity<HomePresenter> implements H
     private Button mPic, mCancel;
     private String mId;
     private String mSessionId;
+    private MultipartBody.Part mImage;
 
     @Override
     protected int getLayoutId() {
@@ -81,15 +84,48 @@ public class ManagementActivity extends BaseActivity<HomePresenter> implements H
         mSessionId = sploginUtils.getString("SessionId", "");
         SPUtils spUtils = new SPUtils(ManagementActivity.this, "ImagePhoto");
         String imagePhotoId = spUtils.getString("ImagePhotoId", "");
-        mP.getChooseImagePicPresenter(mId,mSessionId,imagePhotoId);
-        Logger.d(TAG,"imagePhotoId:"+imagePhotoId);
+//        mP.getChooseImagePicPresenter(mId, mSessionId, imagePhotoId);
+
         Glide.with(ManagementActivity.this).load(imagePhotoId).into(manageAutomaticImg);
+
+        SPUtils spImagePhoto = new SPUtils(ManagementActivity.this, "ImagePhoto");//从相册获取图片(imagephoneactivity)
+        String imagePhotoPath = spImagePhoto.getString("ImagePhotoPath");//相册
+        String imagePath = spImagePhoto.getString("ImagePath");//相机
+       /* if (imagePhotoPath != null) {
+            Glide.with(this).load(imagePhotoPath)
+                    .placeholder(R.mipmap.ic_launcher_round)
+                    .error(R.mipmap.ic_launcher)
+                    .into(manageAutomaticImg);//设置要展示的图片
+        }
+        if (imagePath != null) {
+            Glide.with(this).load(imagePath)
+                    .placeholder(R.mipmap.ic_launcher_round)
+                    .error(R.mipmap.ic_launcher)
+                    .into(manageAutomaticImg);//设置要展示的图片
+        }*/
+        if (spImagePhoto!=null){
+            Glide.with(this).load(imagePhotoPath)
+                    .placeholder(R.mipmap.ic_launcher_round)
+                    .error(R.mipmap.ic_launcher)
+                    .into(manageAutomaticImg);//设置要展示的图片
+        }else {
+            Glide.with(this).load(imagePath)
+                    .placeholder(R.mipmap.ic_launcher_round)
+                    .error(R.mipmap.ic_launcher)
+                    .into(manageAutomaticImg);//设置要展示的图片
+        }
+
     }
 
     @Override
     public void onSuccess(Object data) {
-        ChooseImagePicBean imagePicBean= (ChooseImagePicBean) data;
+        ChooseImagePicBean imagePicBean = (ChooseImagePicBean) data;
         String result = imagePicBean.getResult();
+    }
+
+    @Override
+    public void onImgSuccess(Object data) {
+
     }
 
     @OnClick({R.id.manage_automatic_img, R.id.manage_backk, R.id.manage_bell, R.id.manage_zl, R.id.manage_historical, R.id.manage_wallet, R.id.manage_recommendations, R.id.manage_automatic})
@@ -102,7 +138,9 @@ public class ManagementActivity extends BaseActivity<HomePresenter> implements H
                 finish();
                 break;
             case R.id.manage_bell://铃铛
-                IntentUtils.getInstence().intentStart(ManagementActivity.this, AllCurrencyActivity.class);
+                if (manageBell != null) {
+                    IntentUtils.getInstence().intentStart(ManagementActivity.this, AllCurrencyActivity.class);
+                }
                 break;
             case R.id.manage_zl://查询资料
                 IntentUtils.getInstence().intentStart(this, DataActivity.class);
@@ -114,10 +152,10 @@ public class ManagementActivity extends BaseActivity<HomePresenter> implements H
                 IntentUtils.getInstence().intentStart(ManagementActivity.this, WalletActivity.class);
                 break;
             case R.id.manage_recommendations://被采纳意见
-
+                IntentUtils.getInstence().intentStart(ManagementActivity.this, AdoptionActivity.class);
                 break;
             case R.id.manage_automatic://设置自动回复
-
+                IntentUtils.getInstence().intentStart(ManagementActivity.this, AutomaticActivity.class);
                 break;
         }
     }
@@ -160,6 +198,7 @@ public class ManagementActivity extends BaseActivity<HomePresenter> implements H
         mDialog.show();//显示对话框
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -170,6 +209,11 @@ public class ManagementActivity extends BaseActivity<HomePresenter> implements H
 
     @Override
     public void onFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onImgFailure(Throwable e) {
 
     }
 }

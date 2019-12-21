@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.bwei.example.mylibrary.Base.BaseActivity;
-import com.bwei.example.mylibrary.Test.Logger;
-import com.bwei.example.mylibrary.Test.SPUtils;
+import com.bwei.example.mylibrary.Tools.Logger;
+import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.MVP.Contracter.HomeContracter;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindDoctorByIdBean;
@@ -76,7 +76,17 @@ public class DataActivity extends BaseActivity<HomePresenter> implements HomeCon
     }
 
     @Override
+    public void onImgSuccess(Object data) {
+
+    }
+
+    @Override
     public void onFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onImgFailure(Throwable e) {
 
     }
 

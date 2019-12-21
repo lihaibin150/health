@@ -75,7 +75,8 @@
             android:id="@+id/manage_historical"
             android:layout_width="@dimen/dp_130"
             android:layout_height="@dimen/dp_144"
-            android:layout_marginTop="@dimen/dp_28">
+            android:layout_marginTop="@dimen/dp_28"
+            android:background="@drawable/management_background">
 
             <ImageView
                 android:id="@+id/img_historical"
@@ -102,7 +103,8 @@
             android:layout_width="@dimen/dp_130"
             android:layout_height="@dimen/dp_144"
             android:layout_marginLeft="@dimen/dp_28"
-            android:layout_marginTop="@dimen/dp_28">
+            android:layout_marginTop="@dimen/dp_28"
+            android:background="@drawable/management_background">
 
             <ImageView
                 android:id="@+id/img_wallet"
@@ -137,7 +139,8 @@
             android:id="@+id/manage_recommendations"
             android:layout_width="@dimen/dp_130"
             android:layout_height="@dimen/dp_144"
-            android:layout_marginTop="@dimen/dp_28">
+            android:layout_marginTop="@dimen/dp_28"
+            android:background="@drawable/management_background">
 
             <ImageView
                 android:id="@+id/img_recommendations"
@@ -164,7 +167,8 @@
             android:layout_width="@dimen/dp_130"
             android:layout_height="@dimen/dp_144"
             android:layout_marginLeft="@dimen/dp_28"
-            android:layout_marginTop="@dimen/dp_28">
+            android:layout_marginTop="@dimen/dp_28"
+            android:background="@drawable/management_background">
 
             <ImageView
                 android:id="@+id/img_automatic"

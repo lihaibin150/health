@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MVP.View.MyActivity.AutomaticActivity">
+
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/automatic_sim"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/backk" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置自动回复"
+            android:textSize="16sp" />
+
+        <Switch
+            android:id="@+id/item_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="21dip"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:switchPadding="3dip"
+            android:theme="@style/mySwitch"
+            android:track="@drawable/switch_bg" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginRight="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="正在忙，稍后为您解答!"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请先详细描述下您的情况!"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp">
+
+        <TextView
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:text="我每天下午5:00-7:00之间有空，将会在那个时间段回复您。"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginRight="30dp">
+
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:text="自定义"
+            android:textColor="@color/colorBlue"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/edit_text_view">
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginRight="10dp"
+            android:text="我每天下午5:00-7:00之间有空，将会在那个时间段回复您。"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</LinearLayout>

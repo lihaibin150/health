@@ -7,14 +7,15 @@ import android.widget.ImageView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bwei.example.mylibrary.Base.BaseActivity;
-import com.bwei.example.mylibrary.Test.IntentUtils;
-import com.bwei.example.mylibrary.Test.Logger;
-import com.bwei.example.mylibrary.Test.SPUtils;
+import com.bwei.example.mylibrary.Tools.IntentUtils;
+import com.bwei.example.mylibrary.Tools.Logger;
+import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.material.tabs.TabLayout;
 import com.wd.doctor.MVP.Contracter.WardmateContracter;
 import com.wd.doctor.MVP.Model.Bean.Patients.FindDepartmentBean;
 import com.wd.doctor.MVP.Presenter.WardmatePresenter;
+import com.wd.doctor.MVP.View.MessageActivity.AllNewsActivity;
 import com.wd.doctor.MVP.View.ShowActivity.ShowAdapter.WardMateTopAdapter;
 import com.wd.doctor.MVP.View.WardmateItem.ScreeActivity;
 import com.wd.doctor.R;
@@ -62,7 +63,6 @@ public class WardmateActivity extends BaseActivity<WardmatePresenter> implements
     protected void initData() {
         //top标题
         mP.getDepartmentPresenter();
-
     }
 
     //top
@@ -75,8 +75,8 @@ public class WardmateActivity extends BaseActivity<WardmatePresenter> implements
             tab.add(resultBean.getDepartmentName());
             //存值传到(详情页)
             SPUtils spScikMate = new SPUtils(WardmateActivity.this, "WardMate");
-            spScikMate.putString("WardId",result.get(i).getId()+"");
-            Logger.d(TAG, "SickWardId" + result.get(i).getId()+"");
+            spScikMate.putString("WardId", result.get(i).getId() + "");
+            Logger.d(TAG, "SickWardId" + result.get(i).getId() + "");
         }
 
         wardmateTopTab.setupWithViewPager(wardmateBottonVp);
@@ -96,7 +96,7 @@ public class WardmateActivity extends BaseActivity<WardmatePresenter> implements
                 finish();//返回
                 break;
             case R.id.wardmate_bell://病友圈消息
-//                IntentUtils.getInstence().intentStart(WardmateActivity.this, .class);
+                IntentUtils.getInstence().intentStart(WardmateActivity.this, AllNewsActivity.class);
                 break;
             case R.id.wardmate_scree://搜索
                 IntentUtils.getInstence().intentStart(WardmateActivity.this, ScreeActivity.class);

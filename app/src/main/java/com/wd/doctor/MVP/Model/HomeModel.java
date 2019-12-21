@@ -1,6 +1,6 @@
 package com.wd.doctor.MVP.Model;
 
-import com.bwei.example.mylibrary.Test.Logger;
+import com.bwei.example.mylibrary.Tools.Logger;
 import com.wd.doctor.MVP.Contracter.HomeContracter;
 import com.wd.doctor.MVP.Http.Utils.CommonObserver;
 import com.wd.doctor.MVP.Http.Utils.CommonSchedulers;
@@ -58,12 +58,12 @@ public class HomeModel implements HomeContracter.IModel{
                 .subscribe(new CommonObserver<UploadImagePicBean>() {
                     @Override
                     public void onNext(UploadImagePicBean imagePicBean) {
-                        callback.onSuccess(imagePic);
+                        callback.onImgSuccess(imagePic);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        callback.onFailure(e);
+                        callback.onImgFailure(e);
                     }
                 });
     }
@@ -89,7 +89,7 @@ public class HomeModel implements HomeContracter.IModel{
 
     //选择系统提供形象照
     @Override
-    public void getChooseImagePicModel(String doctorId, String sessionId, String imagePic, IModelCallback callback) {
+    public void getChooseImagePicModel(String doctorId, String sessionId, MultipartBody.Part imagePic, IModelCallback callback) {
         RequestNet.getInstance().create()
                 .CHOOSEIMAGEPIC(doctorId, sessionId, imagePic)
                 .compose(CommonSchedulers.<ChooseImagePicBean>io2main())

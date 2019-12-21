@@ -1,21 +1,17 @@
 package com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.RelativeLayout;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bwei.example.mylibrary.Base.BaseActivity;
-import com.bwei.example.mylibrary.Test.Logger;
-import com.bwei.example.mylibrary.Test.SPUtils;
-import com.bwei.example.mylibrary.Test.ToastUtils;
+import com.bwei.example.mylibrary.Tools.Logger;
+import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.MVP.Contracter.HomeContracter;
 import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorHealthyCurrencyNoticeListBean;
 import com.wd.doctor.MVP.Presenter.HomePresenter;
-import com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity.MessagAdapter.AllCAdapter;
 import com.wd.doctor.R;
 
 import butterknife.BindView;
@@ -63,17 +59,27 @@ public class AllCurrencyActivity extends BaseActivity<HomePresenter> implements 
         DoctorHealthyCurrencyNoticeListBean currencyNoticeListBean = (DoctorHealthyCurrencyNoticeListBean) data;
         DoctorHealthyCurrencyNoticeListBean.ResultBean result = currencyNoticeListBean.result;
         Logger.d(TAG,"DoctorHealthyCurrencyNoticeList:"+result.content);
-        if ("0000".equals(currencyNoticeListBean.status)) {
+       /* if ("0000".equals(currencyNoticeListBean.status)) {
             allCurrencyRecycler.setLayoutManager(new LinearLayoutManager(AllCurrencyActivity.this));
             allCurrencyRecycler.setAdapter(new AllCAdapter(AllCurrencyActivity.this, result));
         } else {
             ToastUtils.show("当前无消息");
             currencyRecyclerNoMessage.setVisibility(View.VISIBLE);
-        }
+        }*/
+    }
+
+    @Override
+    public void onImgSuccess(Object data) {
+
     }
 
     @Override
     public void onFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onImgFailure(Throwable e) {
 
     }
 

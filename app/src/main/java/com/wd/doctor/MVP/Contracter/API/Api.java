@@ -13,6 +13,7 @@ import com.wd.doctor.MVP.Model.Bean.Doctor.FindDoctorByIdBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindDoctorWalletBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindSystemImagePicBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.LoginBean;
+import com.wd.doctor.MVP.Model.Bean.Doctor.MyAdoptedCommentListBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.UploadImagePicBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.UserPwdBean;
 import com.wd.doctor.MVP.Model.Bean.Interrogation.DetailsListBean;
@@ -71,7 +72,9 @@ public interface Api {
     //根据医生id查询医生信息
     @GET("verify/v1/findDoctorById")
     Observable<FindDoctorByIdBean> FINDDOCTORBYID(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId);
-
+//查询我的被采纳的建议
+    @GET("verify/v1/findMyAdoptedCommentList")
+    Observable<MyAdoptedCommentListBean> MY_ADOPTED_COMMENT(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("page") Integer page, @Query("count") Integer count);
     //上传形象照
     @Multipart
     @POST("verify/v1/uploadImagePic")
@@ -82,9 +85,9 @@ public interface Api {
     Observable<FindSystemImagePicBean> SYSTEMIMAGEPIC();
 
     //选择系统提供形象照
-    @FormUrlEncoded
+    @Multipart
     @POST("verify/v1/chooseImagePic")
-    Observable<ChooseImagePicBean> CHOOSEIMAGEPIC(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Field("imagePic") String imagePic);
+    Observable<ChooseImagePicBean> CHOOSEIMAGEPIC(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId,  @Part MultipartBody.Part imagePic);
 
     //绑定银行卡
     @POST("verify/v1/bindDoctorBankCard")

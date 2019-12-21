@@ -10,16 +10,20 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.bwei.example.mylibrary.Base.BaseActivity;
-import com.bwei.example.mylibrary.Test.Logger;
-import com.bwei.example.mylibrary.Test.SPUtils;
-import com.bwei.example.mylibrary.Test.ToastUtils;
+import com.bwei.example.mylibrary.Tools.Logger;
+import com.bwei.example.mylibrary.Tools.SPUtils;
+import com.bwei.example.mylibrary.Tools.ToastUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.MVP.Contracter.WardmateContracter;
 import com.wd.doctor.MVP.Model.Bean.Patients.PublishCommentBean;
 import com.wd.doctor.MVP.Model.Bean.Patients.SickCircleInfoBean;
 import com.wd.doctor.MVP.Presenter.WardmatePresenter;
 import com.wd.doctor.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -73,6 +77,14 @@ public class SickCircleInfoActivity extends BaseActivity<WardmatePresenter> impl
     LinearLayout linear;
     @BindView(R.id.sick_circle_recycler)
     RelativeLayout sickCircleRecycler;
+    @BindView(R.id.sick_Treatment_detaile)
+    TextView sickTreatmentDetaile;
+    @BindView(R.id.sick_Treatment_time)
+    TextView sickTreatmentTime;
+    @BindView(R.id.sick_text_answer)
+    TextView sickTextAnswer;
+    @BindView(R.id.sick_cirle_recycler)
+    RelativeLayout sickCirleRecycler;
 
     private String mId;
     private String mSessionId;
@@ -80,6 +92,7 @@ public class SickCircleInfoActivity extends BaseActivity<WardmatePresenter> impl
     private String mAmount;
     private SickCircleInfoBean.ResultBean mResult;
     private String mSickCircleId;
+    private String mEdit;
 
     @Override
     protected int getLayoutId() {
@@ -92,7 +105,7 @@ public class SickCircleInfoActivity extends BaseActivity<WardmatePresenter> impl
         //搜索页面传过来的id
         Intent intent = getIntent();
         mSickCircleId = intent.getStringExtra("sickCircleId");
-        Logger.d(TAG, "SickmAmount" +mWardId);
+        Logger.d(TAG, "SickmAmount" + mWardId);
 
         //取值(取病友圈id)
         SPUtils spWardMate = new SPUtils(SickCircleInfoActivity.this, "Wardmate");
@@ -107,16 +120,15 @@ public class SickCircleInfoActivity extends BaseActivity<WardmatePresenter> impl
         sickCirleWifi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String mEdit = sickEdit.getText().toString().trim();
+                mEdit = sickEdit.getText().toString().trim();
                 mP.getPublishCommentPresenter(mId, mSessionId, mWardId, mEdit);
-                finish();
                 Logger.d(TAG, "SickEdit" + mEdit);
             }
         });
         int parseInt = Integer.parseInt(mAmount);
-        if (parseInt ==0){
+        if (parseInt == 0) {
             sickPrice.setVisibility(View.INVISIBLE);
-        }else {
+        } else {
             sickPrice.setText(parseInt + "H");
         }
 
@@ -131,17 +143,30 @@ public class SickCircleInfoActivity extends BaseActivity<WardmatePresenter> impl
             sickTitle.setText(mResult.getTitle());
             sickName.setText(mResult.getDepartmentName());
             sickDepartmentsView.setText(mResult.getDepartmentName());
-            sickDetailsView.setText(mResult.getDetail());
-            sickDiseaseView.setText(mResult.getDisease());
-            sickTreatmentView.setText(mResult.getTreatmentHospital());
-
-        if (mResult.getWhetherContent()!=0) {
-//            Glide.with(SickCircleInfoActivity.this).load(mResult.getTreatmentProcess()).into(sickImgView);
-//                sickImgView.setImageResource(Integer.parseInt(mResult.getTreatmentProcess()));
-        } else {
-            sickImgView.setImageResource(R.drawable.ic_launcher_background);
+            sickDetailsView.setText(mResult.getDetail());//	病症详情
+            sickDiseaseView.setText(mResult.getDisease());//病症
+            Date date = new Date(mResult.getTreatmentStartTime());
+            String day = "";
+            try {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                day = simpleDateFormat.format(date);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            sickTreatmentTime.setText(day);//治疗开始时间
+            sickTreatmentDetaile.setText(mResult.getTreatmentProcess());
+            sickTreatmentView.setText(mResult.getTreatmentHospital());//治疗医院
+            if (mResult.getPicture() != null) {
+                Glide.with(SickCircleInfoActivity.this).load(mResult.getPicture()).into(sickImgView);
+            }
+            if (mResult.getWhetherContent() == 1) {
+                sickCirleRecycler.setVisibility(View.VISIBLE);
+                linear.setVisibility(View.GONE);
+                sickCircleRecycler.setVisibility(View.GONE);
+                sickTextAnswer.setText(mResult.getContent());
+                ToastUtils.show("已经评论过");
+            }
         }
-    }
 
     }
 
@@ -150,10 +175,20 @@ public class SickCircleInfoActivity extends BaseActivity<WardmatePresenter> impl
     public void onWardmateSuccess(Object data) {
         PublishCommentBean commentBean = (PublishCommentBean) data;
         mP.getSickCircleInfoPresenter(mId, mSessionId, mSickCircleId);
-        if ("0000".equals(commentBean.getStatus())) {
-            ToastUtils.show("评论成功");
+        if (commentBean.getMessage() != null) {
+            if ("0000".equals(commentBean.getStatus())) {
+                ToastUtils.show("评论成功");
+                sickCirleRecycler.setVisibility(View.VISIBLE);
+                sickCircleRecycler.setVisibility(View.GONE);
+                linear.setVisibility(View.GONE);
+                sickTextAnswer.setText(mEdit);
+            } else {
+                sickCirleRecycler.setVisibility(View.GONE);
+                linear.setVisibility(View.VISIBLE);
+                ToastUtils.show("您已经评论了,不能重复评价!");
+            }
         } else {
-            ToastUtils.show("您已经评论了,不能重复评价!");
+            ToastUtils.show("输入不能为空");
         }
 
     }
@@ -189,6 +224,7 @@ public class SickCircleInfoActivity extends BaseActivity<WardmatePresenter> impl
     protected void initView() {
 
     }
+
     @Override
     public void onFailure(Throwable e) {
 

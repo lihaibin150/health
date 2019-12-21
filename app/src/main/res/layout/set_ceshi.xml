@@ -15,14 +15,26 @@
         android:textSize="@dimen/sp_14" />
 
     <Button
-        android:id="@+id/set_but_album"
+        android:id="@+id/set_but_image"
         android:layout_width="@dimen/dp_340"
         android:layout_height="@dimen/dp_40"
         android:layout_below="@id/set_but_pic"
         android:layout_marginTop="@dimen/dp_2"
         android:background="@drawable/pop_ceshi"
         android:gravity="center"
-        android:text="从相册选择"
+        android:text="从形象库中选择"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/sp_14" />
+
+    <Button
+        android:id="@+id/set_but_album"
+        android:layout_width="@dimen/dp_340"
+        android:layout_height="@dimen/dp_40"
+        android:layout_below="@id/set_but_image"
+        android:layout_marginTop="@dimen/dp_2"
+        android:background="@drawable/pop_ceshi"
+        android:gravity="center"
+        android:text="打开相册"
         android:textColor="@color/colorBlue"
         android:textSize="@dimen/sp_14" />
 
@@ -35,7 +47,7 @@
         android:layout_marginBottom="@dimen/dp_10"
         android:background="@drawable/pop_ceshi"
         android:gravity="center"
-        android:text="从相册选择"
+        android:text="取消"
         android:textColor="@color/colorBlue"
         android:textSize="@dimen/sp_14" />
 </RelativeLayout>

@@ -1,7 +1,7 @@
 package com.wd.doctor.MVP.Presenter;
 
 import com.bwei.example.mylibrary.Base.BasePresenter;
-import com.bwei.example.mylibrary.Test.Logger;
+import com.bwei.example.mylibrary.Tools.Logger;
 import com.wd.doctor.MVP.Contracter.API.Constant;
 import com.wd.doctor.MVP.Contracter.HomeContracter;
 import com.wd.doctor.MVP.Model.Bean.Doctor.ChooseImagePicBean;
@@ -45,11 +45,21 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
             }
 
             @Override
+            public void onImgSuccess(Object data) {
+
+            }
+
+            @Override
             public void onFailure(Throwable e) {
                 //4、失败回调
                 if (ViewAttached()) {
                     getView().onFailure(e);
                 }
+            }
+
+            @Override
+            public void onImgFailure(Throwable e) {
+
             }
         });
     }
@@ -61,22 +71,32 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
         mHomeModel.getUploadImagePicModel(doctorId, sessionId, imagePic, new HomeContracter.IModel.IModelCallback() {
             @Override
             public void onSuccess(Object data) {
+
+            }
+
+            @Override
+            public void onImgSuccess(Object data) {
                 //3、必须先判断是否挂载、然后才可以使用getView方法
                 if (ViewAttached()) {
-                    getView().onSuccess(data);
+                    getView().onImgSuccess(data);
                     if (data != null && Constant.SUCCESS_CODE.equals(UploadImagePicBean.class)) {
                         Logger.d("s", "ddata" + data);
                     } else {
-                        getView().onFailure(new Exception("服务器异常"));
+                        getView().onImgFailure(new Exception("服务器异常"));
                     }
                 }
             }
 
             @Override
             public void onFailure(Throwable e) {
+
+            }
+
+            @Override
+            public void onImgFailure(Throwable e) {
                 //4、失败回调
                 if (ViewAttached()) {
-                    getView().onFailure(e);
+                    getView().onImgFailure(e);
                 }
             }
         });
@@ -101,18 +121,28 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
             }
 
             @Override
+            public void onImgSuccess(Object data) {
+
+            }
+
+            @Override
             public void onFailure(Throwable e) {
                 //4、失败回调
                 if (ViewAttached()) {
                     getView().onFailure(e);
                 }
             }
+
+            @Override
+            public void onImgFailure(Throwable e) {
+
+            }
         });
     }
 
     //选择系统提供形象照
     @Override
-    public void getChooseImagePicPresenter(String doctorId, String sessionId, String imagePic) {
+    public void getChooseImagePicPresenter(String doctorId, String sessionId, MultipartBody.Part imagePic) {
         //2、调用model中的的方法，设置回调监听
         mHomeModel.getChooseImagePicModel(doctorId, sessionId, imagePic, new HomeContracter.IModel.IModelCallback() {
             @Override
@@ -129,11 +159,21 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
             }
 
             @Override
+            public void onImgSuccess(Object data) {
+
+            }
+
+            @Override
             public void onFailure(Throwable e) {
                 //4、失败回调
                 if (ViewAttached()) {
                     getView().onFailure(e);
                 }
+            }
+
+            @Override
+            public void onImgFailure(Throwable e) {
+
             }
         });
     }
@@ -157,11 +197,21 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
             }
 
             @Override
+            public void onImgSuccess(Object data) {
+
+            }
+
+            @Override
             public void onFailure(Throwable e) {
                 //4、失败回调
                 if (ViewAttached()) {
                     getView().onFailure(e);
                 }
+            }
+
+            @Override
+            public void onImgFailure(Throwable e) {
+
             }
         });
     }
@@ -184,11 +234,21 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
             }
 
             @Override
+            public void onImgSuccess(Object data) {
+
+            }
+
+            @Override
             public void onFailure(Throwable e) {
                 //4、失败回调
                 if (ViewAttached()) {
                     getView().onFailure(e);
                 }
+            }
+
+            @Override
+            public void onImgFailure(Throwable e) {
+
             }
         });
     }
@@ -211,11 +271,21 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
             }
 
             @Override
+            public void onImgSuccess(Object data) {
+
+            }
+
+            @Override
             public void onFailure(Throwable e) {
                 //4、失败回调
                 if (ViewAttached()) {
                     getView().onFailure(e);
                 }
+            }
+
+            @Override
+            public void onImgFailure(Throwable e) {
+
             }
         });
     }
@@ -238,11 +308,21 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
             }
 
             @Override
+            public void onImgSuccess(Object data) {
+
+            }
+
+            @Override
             public void onFailure(Throwable e) {
                 //4、失败回调
                 if (ViewAttached()) {
                     getView().onFailure(e);
                 }
+            }
+
+            @Override
+            public void onImgFailure(Throwable e) {
+
             }
         });
     }
@@ -258,8 +338,18 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
             }
 
             @Override
+            public void onImgSuccess(Object data) {
+
+            }
+
+            @Override
             public void onFailure(Throwable e) {
                 getView().onFailure(e);
+            }
+
+            @Override
+            public void onImgFailure(Throwable e) {
+
             }
         });
     }

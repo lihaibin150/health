@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.bwei.example.mylibrary.Net.NetWork;
+import com.bwei.example.mylibrary.Net.NetworkJudgment;
 import com.bwei.example.mylibrary.app.App;
 
 import butterknife.ButterKnife;
@@ -63,7 +63,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
 
     //判断是否有网络
     public boolean NetWorkUtils() {
-        return NetWork.hasNetwork(context());
+        return NetworkJudgment.Network(context());
     }
 
     //无网提醒

@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bwei.example.mylibrary.Base.BaseActivity;
-import com.bwei.example.mylibrary.Test.Logger;
-import com.bwei.example.mylibrary.Test.SPUtils;
+import com.bwei.example.mylibrary.Tools.Logger;
+import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.MVP.Contracter.HomeContracter;
 import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorSystemNoticeListBean;
@@ -69,12 +69,22 @@ public class AllSystemActivity extends BaseActivity<HomePresenter> implements Ho
     }
 
     @Override
+    public void onImgSuccess(Object data) {
+
+    }
+
+    @Override
     protected void initView() {
 
     }
 
     @Override
     public void onFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onImgFailure(Throwable e) {
 
     }
 

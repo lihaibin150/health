@@ -22,13 +22,13 @@
             app:placeholderImage="@mipmap/backk" />
 
         <TextView
-            android:id="@+id/sick_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="我的钱包" />
+            android:text="我的钱包"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/manage_bell"
@@ -91,10 +91,10 @@
         <Button
             android:id="@+id/wallet_but_pirce"
             android:layout_width="@dimen/dp_58"
-            android:layout_marginRight="@dimen/dp_20"
             android:layout_height="wrap_content"
             android:layout_below="@id/tx"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_20"
             android:layout_marginBottom="@dimen/dp_20"
             android:background="@drawable/but_price"
             android:text="提现"

@@ -5,61 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    tools:context=".MVP.View.LoginActivity.GuidePageActivity">
-
-    <ImageView
-        android:id="@+id/guide_img"
-        android:layout_width="@dimen/dp_118"
-        android:layout_height="@dimen/dp_86"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/dp_140"
-        android:src="@mipmap/group" />
+    tools:context=".MVP.View.loginActivity.GuidePageActivity">
 
     <TextView
-        android:id="@+id/guide_wdjk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/guide_img"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/dp_30"
-        android:text="维度健康"
-        android:textColor="@color/colorBlue"
-        android:textSize="@dimen/sp_14" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/guide_wdjk"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/dp_10"
-        android:text="医生版"
-        android:textColor="@color/colorBlue"
-        android:textSize="@dimen/sp_14" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/dp_40"
-        android:layout_toLeftOf="@id/guide_bwyd"
-        android:src="@mipmap/yuan" />
-
-    <TextView
-        android:id="@+id/guide_bwyd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/dp_40"
-        android:text="八维移动通信学院毕业作品"
-        android:textColor="@color/colorHui"
-        android:textSize="@dimen/sp_14" />
-
-    <TextView
-        android:id="@+id/guide_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_miao"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
         android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/dp_10"
-        android:text="s" />
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/text_view_grou"
+        android:gravity="center"
+        android:text="跳过广告"
+        android:textColor="#fff" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="118dp"
+            android:layout_height="86dp"
+            android:layout_marginTop="140dp"
+            android:src="@mipmap/group" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="维度健康"
+            android:textColor="#3087ea"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="医生版"
+            android:textColor="#3087ea"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+
 </RelativeLayout>

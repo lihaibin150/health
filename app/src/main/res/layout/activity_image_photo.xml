@@ -4,38 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/dp_30"
-    android:layout_marginRight="@dimen/dp_30"
     tools:context=".MVP.View.MyActivity.ImagePhotoActivity">
 
     <TextView
-        android:id="@+id/xxz"
-        android:layout_width="match_parent"
+        android:id="@+id/imqu_tv_one"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_50"
-        android:text="为您设置一个张形象照吧"
-        android:textColor="@color/colorBlue"
-        android:textSize="@dimen/sp_16" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/image_photo_pic_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_360"
-        android:layout_below="@id/xxz"
         android:layout_marginLeft="@dimen/dp_30"
         android:layout_marginTop="@dimen/dp_70"
-        android:layout_marginRight="@dimen/dp_30"
-        android:background="@drawable/image_pic" />
+        android:text="为您设置一张证件照吧"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/image_photo_but"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <com.stx.xhb.androidx.XBanner
+        android:layout_marginRight="@dimen/dp_20"
+        android:id="@+id/imqu_xb_xbannerone"
+        android:layout_centerHorizontal="true"
+        android:layout_width="@dimen/dp_300"
+        android:layout_height="@dimen/dp_360"
+        android:layout_below="@id/imqu_tv_one"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_70"
+        app:clipChildrenLeftRightMargin="@dimen/dp_20"
+        app:clipChildrenTopBottomMargin="@dimen/dp_10"
+        app:isAutoPlay="false"
+        app:isClipChildrenMode="true"
+        app:pointsVisibility="false" />
+
+    <Button
+        android:id="@+id/imqu_btn_butone"
+        android:layout_width="@dimen/dp_300"
+        android:layout_marginRight="@dimen/dp_30"
+        android:layout_height="@dimen/dp_36"
         android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/dp_40"
         android:background="@drawable/btlogin"
-        android:gravity="center"
-        android:padding="@dimen/dp_5"
         android:text="完成设置"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/sp_14" />

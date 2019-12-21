@@ -5,7 +5,7 @@
     android:layout_width="@dimen/dp_360"
     android:layout_height="match_parent"
     android:background="@mipmap/forget_bg"
-    tools:context=".MVP.View.LoginActivity.UsePwdActivity">
+    tools:context=".MVP.View.loginActivity.UsePwdActivity">
 
     <ImageView
         android:id="@+id/img_back_forget"

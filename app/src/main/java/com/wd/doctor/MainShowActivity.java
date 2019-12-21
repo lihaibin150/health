@@ -6,11 +6,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.bwei.example.mylibrary.Base.BaseActivity;
-import com.bwei.example.mylibrary.Test.IntentUtils;
-import com.bwei.example.mylibrary.Test.SPUtils;
+import com.bwei.example.mylibrary.Tools.IntentUtils;
+import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.wd.doctor.MVP.Presenter.LoginPresenter;
+import com.wd.doctor.MVP.Contracter.HomeContracter;
+import com.wd.doctor.MVP.Model.Bean.Doctor.ChooseImagePicBean;
+import com.wd.doctor.MVP.Presenter.HomePresenter;
 import com.wd.doctor.MVP.View.MessageActivity.AllNewsActivity;
 import com.wd.doctor.MVP.View.ShowActivity.InterrogationActivity;
 import com.wd.doctor.MVP.View.ShowActivity.ManagementActivity;
@@ -21,7 +24,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 //首页
-public class MainShowActivity extends BaseActivity {
+public class MainShowActivity extends BaseActivity<HomePresenter> implements HomeContracter.IView {
 
     @BindView(R.id.main_bell)
     ImageView mainBell;
@@ -53,6 +56,8 @@ public class MainShowActivity extends BaseActivity {
     TextView mainSubjects;
     @BindView(R.id.main_tip_box_my)
     RelativeLayout mainTipBoxMy;
+    private String mId;
+    private String mSessionId;
 
     @Override
     protected int getLayoutId() {
@@ -60,8 +65,8 @@ public class MainShowActivity extends BaseActivity {
     }
 
     @Override
-    public LoginPresenter mPresenter() {
-        return new LoginPresenter();
+    public HomePresenter mPresenter() {
+        return new HomePresenter();
     }
 
     @Override
@@ -71,6 +76,12 @@ public class MainShowActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+      /*  SPUtils sploginUtils = new SPUtils(MainShowActivity.this, "LoginId");
+        mId = sploginUtils.getString("Id", "");
+        mSessionId = sploginUtils.getString("SessionId", "");
+        SPUtils spUtils = new SPUtils(MainShowActivity.this, "ImagePhoto");
+        String imagePhotoId = spUtils.getString("ImagePhotoId", "");
+        mP.getChooseImagePicPresenter(mId, mSessionId, imagePhotoId);*/
         SPUtils spData = new SPUtils(MainShowActivity.this, "LoginId");
         String dataName = spData.getString("dataName", "");
         String dataJobTitle = spData.getString("dataJobTitle", "");
@@ -80,6 +91,17 @@ public class MainShowActivity extends BaseActivity {
         mainAddress.setText(dataInauguralHospital);
         mainDoctor.setText(dataJobTitle);
         mainSubjects.setText(dataDepartmentName);
+
+        SPUtils spImagePhoto = new SPUtils(MainShowActivity.this, "ImagePhoto");//从相册获取图片(imagephoneactivity)
+        String imagePhotoPath = spImagePhoto.getString("ImagePhotoPath", "");
+        if (imagePhotoPath != null) {
+            Glide.with(this).load(imagePhotoPath)
+                    .placeholder(R.mipmap.ic_launcher_round)
+                    .error(R.mipmap.ic_launcher)
+                    .skipMemoryCache(true)
+                    .into(mainHeadportrait);//设置要展示的图片
+        }
+
     }
 
     @OnClick({R.id.main_bell, R.id.main_notice, R.id.main_interrogation, R.id.main_wardmate, R.id.main_my, R.id.main_tip_box_inter, R.id.main_tip_box_wardmate, R.id.main_tip_box_my})
@@ -119,4 +141,24 @@ public class MainShowActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
+    @Override
+    public void onSuccess(Object data) {
+        ChooseImagePicBean imagePicBean = (ChooseImagePicBean) data;
+        String result = imagePicBean.getResult();
+    }
+
+    @Override
+    public void onImgSuccess(Object data) {
+
+    }
+
+    @Override
+    public void onFailure(Throwable e) {
+
+    }
+
+    @Override
+    public void onImgFailure(Throwable e) {
+
+    }
 }

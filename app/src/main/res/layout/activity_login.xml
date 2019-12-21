@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/dp_360"
     android:layout_height="match_parent"
-    tools:context=".MVP.View.LoginActivity.LoginActivity">
+    tools:context=".MVP.View.loginActivity.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,14 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_235"
-            android:background="@color/colorBlue"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="@dimen/dp_110"
-                android:layout_height="@dimen/dp_80"
-                android:src="@mipmap/loginwhite" />
-        </LinearLayout>
+            android:background="@mipmap/login_bg" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -46,6 +39,18 @@
                 android:singleLine="true"
                 android:textColor="#999999"
                 android:textColorHint="#999999" />
+
+            <TextView
+                android:id="@+id/loging_email_hong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_70"
+                android:text="*邮箱不能为空"
+                android:textColor="#FF0026"
+                android:textSize="@dimen/sp_9"
+                android:visibility="gone" />
         </RelativeLayout>
 
         <View
@@ -80,6 +85,18 @@
                 android:singleLine="true"
                 android:textColor="#999999"
                 android:textColorHint="#999999" />
+
+            <TextView
+                android:id="@+id/loging_pwd_hong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_70"
+                android:text="*密码不能为空"
+                android:textColor="#FF0026"
+                android:textSize="@dimen/sp_9"
+                android:visibility="gone" />
 
             <ToggleButton
                 android:id="@+id/togg_log_eye"

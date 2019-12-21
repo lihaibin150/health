@@ -25,7 +25,7 @@ public interface HomeContracter {
         void getFindSystemImagePicModel(IModelCallback callback);
 
         //选择系统提供形象照
-        void getChooseImagePicModel(String doctorId, String sessionId, String imagePic, IModelCallback callback);
+        void getChooseImagePicModel(String doctorId, String sessionId,MultipartBody.Part imagePic, IModelCallback callback);
 
         //查询医生钱包
         void getFindDoctorWalletModel(String doctorId, String sessionId, IModelCallback callback);
@@ -46,7 +46,11 @@ public interface HomeContracter {
         interface IModelCallback {
             void onSuccess(Object data);
 
+            void onImgSuccess(Object data);
+
             void onFailure(Throwable e);
+
+            void onImgFailure(Throwable e);
         }
 
     }
@@ -55,7 +59,11 @@ public interface HomeContracter {
     interface IView extends IBaseView {
         void onSuccess(Object data);
 
+        void onImgSuccess(Object data);
+
         void onFailure(Throwable e);
+
+        void onImgFailure(Throwable e);
     }
 
     //presenter层   命名必须是IPresenter
@@ -70,7 +78,7 @@ public interface HomeContracter {
         void getFindSystemImagePicPresenter();
 
         //选择系统提供形象照
-        void getChooseImagePicPresenter(String doctorId, String sessionId, String imagePic);
+        void getChooseImagePicPresenter(String doctorId, String sessionId,MultipartBody.Part imagePic);
 
         //查询医生钱包
         void getFindDoctorWalletPresenter(String doctorId, String sessionId);

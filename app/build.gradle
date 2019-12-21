@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -20,6 +20,20 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    greendao {
+        /**
+         * 版本号
+         */
+        schemaVersion 1
+        /**
+         * greendao输出dao的数据库操作实体类文件夹（相对路径 包名+自定义路径名称，包将创建于包名的直接路径下）
+         */
+        daoPackage 'com.android.greendao.greendao.gen'
+        /**
+         * greenDao实体类包文件夹
+         */
+        targetGenDir 'src/main/java'
     }
 }
 
@@ -77,8 +91,17 @@ dependencies {
 
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
-    //Recycleview刷新效果依赖
+    //SmartRefreshLayout(Recycleview)刷新效果依赖
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    //没有使用特殊Header和Footer，可以不加下面这行
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14'
+    //greendao
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'net.zetetic:android-database-sqlcipher:3.5.7@aar'
+    //磨合页面
+    implementation 'com.github.huburt-Hu:NewbieGuide:v2.4.0'
+
     //xbanner
-    implementation 'com.xhb:xbanner:1.2.2'
+    //androidX 版本使用下面的依赖
+    implementation 'com.github.xiaohaibin:XBanner:androidx_v1.0.2'
 }

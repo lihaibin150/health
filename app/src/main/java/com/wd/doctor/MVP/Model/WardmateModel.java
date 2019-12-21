@@ -1,6 +1,6 @@
 package com.wd.doctor.MVP.Model;
 
-import com.bwei.example.mylibrary.Test.Logger;
+import com.bwei.example.mylibrary.Tools.Logger;
 import com.wd.doctor.MVP.Contracter.WardmateContracter;
 import com.wd.doctor.MVP.Http.Utils.CommonObserver;
 import com.wd.doctor.MVP.Http.Utils.CommonSchedulers;

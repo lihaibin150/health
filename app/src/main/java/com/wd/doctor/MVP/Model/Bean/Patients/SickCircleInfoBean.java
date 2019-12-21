@@ -13,9 +13,8 @@ package com.wd.doctor.MVP.Model.Bean.Patients;
 
 //查询病友圈详情
 public class SickCircleInfoBean {
-
     /**
-     * result : {"amount":10,"authorName":"下雨吧","content":"发发发","departmentId":5,"departmentName":"小儿科","detail":"详情","disease":"病症描述","id":11,"title":"急寻：面神经炎的治疗方法","treatmentEndTime":1536681600000,"treatmentHospital":"治疗医院","treatmentProcess":"治疗过程描述","treatmentStartTime":1486051200000,"userId":1,"whetherContent":1}
+     * result : {"amount":0,"authorName":"","departmentId":,"departmentName":"","detail":"","disease":"","id":1649,"picture":"http://172.17.8.100/images/health/user/sickCircle/2019-12-05/f8KQys20191205184924.png","title":"","treatmentEndTime":1575475200000,"treatmentHospital":"","treatmentProcess":"","treatmentStartTime":1575475200000,"userId":397,"whetherContent":2}
      * message : 查询成功
      * status : 0000
      */
@@ -50,38 +49,47 @@ public class SickCircleInfoBean {
 
     public static class ResultBean {
         /**
-         * amount : 10
-         * authorName : 下雨吧
-         * content : 发发发
-         * departmentId : 5
-         * departmentName : 小儿科
-         * detail : 详情
-         * disease : 病症描述
-         * id : 11
-         * title : 急寻：面神经炎的治疗方法
-         * treatmentEndTime : 1536681600000
-         * treatmentHospital : 治疗医院
-         * treatmentProcess : 治疗过程描述
-         * treatmentStartTime : 1486051200000
-         * userId : 1
-         * whetherContent : 1
+         * amount : 0
+         * authorName : 杨立朝最帅
+         * departmentId : 6
+         * departmentName : 耳鼻喉科
+         * detail : 基督教
+         * disease : 慢性中耳炎
+         * id : 1649
+         * picture : http://172.17.8.100/images/health/user/sickCircle/2019-12-05/f8KQys20191205184924.png
+         * title : 就能死
+         * treatmentEndTime : 1575475200000
+         * treatmentHospital : 包子吧
+         * treatmentProcess : 那些年
+         * treatmentStartTime : 1575475200000
+         * userId : 397
+         * whetherContent : 2
          */
 
         private int amount;
         private String authorName;
-        private String content;
         private int departmentId;
         private String departmentName;
         private String detail;
         private String disease;
         private int id;
+        private String picture;
         private String title;
         private long treatmentEndTime;
         private String treatmentHospital;
         private String treatmentProcess;
         private long treatmentStartTime;
         private int userId;
+        private String content;
         private int whetherContent;
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
+        }
 
         public int getAmount() {
             return amount;
@@ -97,14 +105,6 @@ public class SickCircleInfoBean {
 
         public void setAuthorName(String authorName) {
             this.authorName = authorName;
-        }
-
-        public String getContent() {
-            return content;
-        }
-
-        public void setContent(String content) {
-            this.content = content;
         }
 
         public int getDepartmentId() {
@@ -145,6 +145,14 @@ public class SickCircleInfoBean {
 
         public void setId(int id) {
             this.id = id;
+        }
+
+        public String getPicture() {
+            return picture;
+        }
+
+        public void setPicture(String picture) {
+            this.picture = picture;
         }
 
         public String getTitle() {

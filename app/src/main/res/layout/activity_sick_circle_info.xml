@@ -28,7 +28,7 @@
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="问诊列表" />
+            android:text="列表" />
 
         <ImageView
             android:id="@+id/sick_bell"
@@ -134,7 +134,29 @@
             android:layout_height="@dimen/dp_16"
             android:layout_below="@id/sick_Treatment"
             android:layout_marginTop="@dimen/dp_10"
-            android:text=""
+            android:text="456465"
+            android:textColor="@color/colorSan"
+            android:textSize="@dimen/sp_12" />
+
+        <TextView
+            android:id="@+id/sick_Treatment_detaile"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_16"
+            android:layout_below="@id/sick_Treatment_view"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="456465"
+            android:textColor="@color/colorJiu"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:id="@+id/sick_Treatment_time"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_16"
+            android:layout_below="@id/sick_Treatment"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_20"
+            android:text="12225"
             android:textColor="@color/colorSan"
             android:textSize="@dimen/sp_12" />
 
@@ -142,7 +164,7 @@
             android:id="@+id/sick_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/sick_Treatment_view"
+            android:layout_below="@id/sick_Treatment_detaile"
             android:layout_marginTop="@dimen/dp_20"
             android:text="[相关图片]"
             android:textColor="@color/colorBlue"
@@ -150,19 +172,16 @@
 
         <ImageView
             android:id="@+id/sick_img_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="320dp"
+            android:layout_height="133dp"
             android:layout_below="@id/sick_img"
-            android:layout_marginTop="@dimen/dp_10"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_launcher_background" />
-
-
+            android:layout_marginTop="@dimen/dp_10" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/sick_img_view">
 
         <RelativeLayout
             android:id="@+id/sick_circle_recycler"
@@ -208,7 +227,43 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/sp_10"
                 android:layout_marginBottom="@dimen/dp_7"
-                android:src="@mipmap/common_icon_voice_n" />
+                android:src="@mipmap/common_send_n" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/sick_cirle_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:text="我的解答"
+                android:textColor="#4fcb9f"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/sick_text_answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/answer"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_7"
+                android:background="@null"
+                android:hint=""
+                android:paddingLeft="@dimen/dp_10"
+                android:paddingTop="@dimen/dp_8"
+                android:paddingRight="@dimen/dp_10"
+                android:paddingBottom="@dimen/dp_8"
+                android:textColor="@color/colorSan"
+                android:textColorHint="@color/colorSan"
+                android:textSize="@dimen/sp_12" />
+
         </RelativeLayout>
 
         <LinearLayout

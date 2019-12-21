@@ -13,7 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bwei.example.mylibrary.Test.SPUtils;
+import com.bwei.example.mylibrary.Tools.Logger;
+import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.wd.doctor.MVP.Model.Bean.Patients.FindSickCircleListBean;
 import com.wd.doctor.MVP.View.WardmateItem.SickCircleInfoActivity;
 import com.wd.doctor.R;
@@ -35,7 +36,6 @@ import butterknife.ButterKnife;
  * @UpdateDate: 2019/12/13 10:00
  * @Version: 3.5
  */
-
 
 public class WardMateBottonAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     Context mContext;
@@ -61,8 +61,15 @@ public class WardMateBottonAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             ((ViewHolder) holder).bottonDetail.setText(result.get(position).getDetail());
             ((ViewHolder) holder).bottonName.setText(result.get(position).getTitle());
             Date date = new Date(result.get(position).getReleaseTime());
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd  hh:mm");
-            ((ViewHolder) holder).bottonTime.setText(simpleDateFormat.format(date));
+            String day = "";
+            try {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                day = simpleDateFormat.format(date);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            ((ViewHolder) holder).bottonTime.setText(day);
+            Logger.d("ss",""+day);
             ((ViewHolder) holder).bottonPrice.setText(result.get(position).getAmount()+"");
             if (result.get(position).getAmount() == 0) {
                 ((ViewHolder) holder).bottonImg.setVisibility(View.GONE);

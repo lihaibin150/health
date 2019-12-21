@@ -12,8 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bwei.example.mylibrary.Test.SPUtils;
-import com.bwei.example.mylibrary.Test.ToastUtils;
+import com.bwei.example.mylibrary.Tools.SPUtils;
+import com.bwei.example.mylibrary.Tools.ToastUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.MVP.Model.Bean.Interrogation.RecordListBean;
 import com.wd.doctor.MVP.View.Interrogation.DetailedInquiryActivity;

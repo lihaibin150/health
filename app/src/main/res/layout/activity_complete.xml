@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@mipmap/registration_result_bg"
     android:orientation="vertical"
-    tools:context=".MVP.View.LoginActivity.CompleteActivity">
+    tools:context=".MVP.View.loginActivity.CompleteActivity">
 
     <TextView
         android:layout_width="wrap_content"
