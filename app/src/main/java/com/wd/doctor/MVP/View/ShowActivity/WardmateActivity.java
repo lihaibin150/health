@@ -63,6 +63,7 @@ public class WardmateActivity extends BaseActivity<WardmatePresenter> implements
     protected void initData() {
         //top标题
         mP.getDepartmentPresenter();
+
     }
 
     //top

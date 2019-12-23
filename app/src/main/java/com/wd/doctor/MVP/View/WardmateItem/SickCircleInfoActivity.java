@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bwei.example.mylibrary.Base.BaseActivity;
-import com.bwei.example.mylibrary.Tools.Logger;
 import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.bwei.example.mylibrary.Tools.ToastUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -105,7 +104,6 @@ public class SickCircleInfoActivity extends BaseActivity<WardmatePresenter> impl
         //搜索页面传过来的id
         Intent intent = getIntent();
         mSickCircleId = intent.getStringExtra("sickCircleId");
-        Logger.d(TAG, "SickmAmount" + mWardId);
 
         //取值(取病友圈id)
         SPUtils spWardMate = new SPUtils(SickCircleInfoActivity.this, "Wardmate");
@@ -122,7 +120,6 @@ public class SickCircleInfoActivity extends BaseActivity<WardmatePresenter> impl
             public void onClick(View v) {
                 mEdit = sickEdit.getText().toString().trim();
                 mP.getPublishCommentPresenter(mId, mSessionId, mWardId, mEdit);
-                Logger.d(TAG, "SickEdit" + mEdit);
             }
         });
         int parseInt = Integer.parseInt(mAmount);
@@ -136,7 +133,6 @@ public class SickCircleInfoActivity extends BaseActivity<WardmatePresenter> impl
 
     @Override
     public void onSuccess(Object data) {
-        Logger.d(TAG, "SickCircleInfo" + data);
         SickCircleInfoBean circleInfoBean = (SickCircleInfoBean) data;
         mResult = circleInfoBean.getResult();
         if ("0000".equals(circleInfoBean.getStatus())) {

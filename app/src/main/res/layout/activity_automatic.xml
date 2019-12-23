@@ -26,6 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:text="设置自动回复"
             android:textSize="16sp" />
 
@@ -51,13 +52,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:text="正在忙，稍后为您解答!"
             android:textSize="12sp" />
 
         <RadioButton
             android:layout_width="30dp"
             android:layout_height="20dp"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
     </RelativeLayout>
 
 
@@ -71,13 +74,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:text="请先详细描述下您的情况!"
             android:textSize="12sp" />
 
         <RadioButton
             android:layout_width="30dp"
             android:layout_height="20dp"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -90,13 +95,15 @@
         <TextView
             android:layout_width="230dp"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:text="我每天下午5:00-7:00之间有空，将会在那个时间段回复您。"
             android:textSize="12sp" />
 
         <RadioButton
             android:layout_width="30dp"
             android:layout_height="20dp"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
     </RelativeLayout>
 
 
@@ -110,6 +117,7 @@
         <TextView
             android:layout_width="280dp"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:text="自定义"
             android:textColor="@color/colorBlue"
             android:textSize="14sp" />
@@ -117,7 +125,8 @@
         <RadioButton
             android:layout_width="30dp"
             android:layout_height="20dp"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
     </RelativeLayout>
 
     <LinearLayout
@@ -131,6 +140,7 @@
         <TextView
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="14dp"
             android:layout_marginRight="10dp"

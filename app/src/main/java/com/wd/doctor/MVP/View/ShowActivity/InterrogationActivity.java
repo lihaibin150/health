@@ -5,11 +5,13 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.bwei.example.mylibrary.Base.BaseActivity;
 import com.bwei.example.mylibrary.Tools.IntentUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wd.doctor.MVP.Contracter.InterrogationContracter;
 import com.wd.doctor.MVP.Presenter.InterrogationPresenter;
 import com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity.AllInterrogationActivity;
@@ -31,8 +33,8 @@ public class InterrogationActivity extends BaseActivity<InterrogationPresenter> 
     @BindView(R.id.interr_recycler)
     RecyclerView interrRecycler;
     @BindView(R.id.interr_swipe)
-    SwipeRefreshLayout interrSwipe;
-
+    SmartRefreshLayout refreshLayout;
+    int page = 1;//当前页，默认第一页
     @Override
     protected int getLayoutId() {
         return R.layout.activity_interrogation;
@@ -50,6 +52,24 @@ public class InterrogationActivity extends BaseActivity<InterrogationPresenter> 
 
     @Override
     protected void initData() {
+        refreshLayout.setEnableRefresh(true);
+        refreshLayout.setEnableLoadMore(true);
+        refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(RefreshLayout refreshLayout) {
+                page++;
+//                mPresenter.getSickCircleListPresenter(mDepartmentId, page, 5);
+                refreshLayout.finishLoadMore();
+            }
+
+            @Override
+            public void onRefresh(RefreshLayout refreshLayout) {
+//                mList.clear();
+                page = 1;
+//                mPresenter.getSickCircleListPresenter(mDepartmentId, page, 5);
+                refreshLayout.finishRefresh();
+            }
+        });
     }
 
     @Override

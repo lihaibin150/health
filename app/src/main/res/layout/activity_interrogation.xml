@@ -48,6 +48,12 @@
             android:id="@+id/interr_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <com.scwang.smartrefresh.layout.footer.BallPulseFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srlClassicsSpinnerStyle="Translate"
+            app:srlPrimaryColor="@color/colorBlue" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>

@@ -38,7 +38,6 @@
 
     </style>
 
-
     <style name="TextAppearance.Design.Tab.Custom" parent="TextAppearance.AppCompat.Button">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/colorJiu</item>
