@@ -2,6 +2,8 @@ package com.wd.doctor.MVP.Contracter;
 
 import com.bwei.example.mylibrary.Base.IBaseView;
 
+import java.util.Map;
+
 import okhttp3.MultipartBody;
 
 /**
@@ -25,7 +27,7 @@ public interface HomeContracter {
         void getFindSystemImagePicModel(IModelCallback callback);
 
         //选择系统提供形象照
-        void getChooseImagePicModel(String doctorId, String sessionId,MultipartBody.Part imagePic, IModelCallback callback);
+        void getChooseImagePicModel(String doctorId, String sessionId, MultipartBody.Part imagePic, IModelCallback callback);
 
         //查询医生钱包
         void getFindDoctorWalletModel(String doctorId, String sessionId, IModelCallback callback);
@@ -41,6 +43,9 @@ public interface HomeContracter {
 
         //查询问诊通知消息
         void getInquiryModel(String doctorId, String sessionId, Integer page, Integer count, IModelCallback callback);
+
+        //绑定身份证
+        void getDoctorIdCardModel(String doctorId, String sessionId, Map<String, Object> BodyMap, IModelCallback callback);
 
         //model层中的接口回调
         interface IModelCallback {
@@ -78,7 +83,7 @@ public interface HomeContracter {
         void getFindSystemImagePicPresenter();
 
         //选择系统提供形象照
-        void getChooseImagePicPresenter(String doctorId, String sessionId,MultipartBody.Part imagePic);
+        void getChooseImagePicPresenter(String doctorId, String sessionId, MultipartBody.Part imagePic);
 
         //查询医生钱包
         void getFindDoctorWalletPresenter(String doctorId, String sessionId);
@@ -94,6 +99,9 @@ public interface HomeContracter {
 
         //修改消息状态为全部已读
         void PutAllStausPresenter(String doctorId, String sessionId);
+
+        //绑定身份证
+        void getDoctorIdCardPresenter(String doctorId, String sessionId, Map<String, Object> BodyMap);
     }
 
 }

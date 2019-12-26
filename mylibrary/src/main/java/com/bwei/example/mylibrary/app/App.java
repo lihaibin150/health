@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Environment;
 
 import com.bwei.example.mylibrary.R;
+import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.bwei.example.mylibrary.Tools.ToastUtils;
 import com.facebook.cache.disk.DiskCacheConfig;
 import com.facebook.drawee.backends.pipeline.Fresco;

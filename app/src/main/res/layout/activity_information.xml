@@ -50,6 +50,7 @@
             android:layout_height="wrap_content">
 
             <EditText
+                android:hint="请输入您的姓名"
                 android:id="@+id/ed_ruzhuyx"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -80,6 +81,7 @@
             android:layout_height="wrap_content">
 
             <EditText
+                android:hint="请输入您所在的医院"
                 android:id="@+id/ed_ruzhuyzm"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

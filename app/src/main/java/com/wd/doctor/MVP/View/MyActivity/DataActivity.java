@@ -1,5 +1,6 @@
 package com.wd.doctor.MVP.View.MyActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -55,6 +56,7 @@ public class DataActivity extends BaseActivity<HomePresenter> implements HomeCon
 
     @Override
     protected void initData() {
+        
         SPUtils spUtils = new SPUtils(DataActivity.this, "LoginId");
         mId = spUtils.getString("Id", "");
         mSessionId = spUtils.getString("SessionId", "");

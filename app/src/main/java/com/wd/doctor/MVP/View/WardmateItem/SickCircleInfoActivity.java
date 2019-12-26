@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bwei.example.mylibrary.Base.BaseActivity;
 import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.bwei.example.mylibrary.Tools.ToastUtils;
+import com.bwei.example.mylibrary.app.App;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.MVP.Contracter.WardmateContracter;
 import com.wd.doctor.MVP.Model.Bean.Patients.PublishCommentBean;

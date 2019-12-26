@@ -23,13 +23,13 @@ public interface InterrogationContracter {
         void getUserInfoModel(String doctorId, String sessionId, Integer userId, InterrogationContracter.IModel.IModelCallback callback);
 
         //结束问诊
-        void getInquiryModel(String doctorId, String sessionId, Integer recordId, InterrogationContracter.IModel.IModelCallback callback);
+        void getInquiryModel(String doctorId, String sessionId, Integer inquiryId, InterrogationContracter.IModel.IModelCallback callback);
 
-        //查询问诊聊天记录
-        void getDetailsListModel(String doctorId, String sessionId, Integer recordId, InterrogationContracter.IModel.IModelCallback callback);
+        //查询问诊聊天记录(接收客户端发来的消息)
+        void getDetailsListModel(String doctorId, String sessionId, Integer inquiryId, Integer page, Integer count, InterrogationContracter.IModel.IModelCallback callback);
 
-        //发送消息(推送)
-        void getMessageModel(String doctorId, String sessionId, Integer recordId, InterrogationContracter.IModel.IModelCallback callback);
+        //发送消息(发送消息到客户端)
+        void getMessageModel(String doctorId, String sessionId, Integer inquiryId, String content, Integer type, Integer userId, InterrogationContracter.IModel.IModelCallback callback);
 
         //查询医生历史问诊记录列表
         void getRecordModel(String doctorId, String sessionId, Integer page, Integer count, InterrogationContracter.IModel.IModelCallback callback);
@@ -71,11 +71,11 @@ public interface InterrogationContracter {
         //结束问诊
         void getInquiryPresenter(String doctorId, String sessionId, Integer recordId);
 
-        //查询问诊聊天记录
-        void getDetailsListPresenter(String doctorId, String sessionId, Integer recordId);
+        //查询问诊聊天记录(接收客户端发来的消息)
+        void getDetailsListPresenter(String doctorId, String sessionId, Integer inquiryId, Integer page, Integer count);
 
-        //发送消息(推送)
-        void getMessagePresenter(String doctorId, String sessionId, Integer recordId);
+        //发送消息(发送消息到客户端)
+        void getMessagePresenter(String doctorId, String sessionId, Integer inquiryId, String content, Integer type, Integer userId);
 
         //查询医生历史问诊记录列表
         void getRecordPresenter(String doctorId, String sessionId, Integer page, Integer count);

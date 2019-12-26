@@ -18,14 +18,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MVP.View.MyActivity.unbindactivity.UnbindActivity"></activity>
+        <activity android:name=".MVP.View.MyActivity.History.ViewCommentsActivity"></activity>
+        <activity android:name=".MVP.View.MyActivity.unbindactivity.BankCardActivity" />
+        <activity android:name=".MVP.View.MyActivity.unbindactivity.IDCardActivity" />
+        <activity android:name=".MVP.View.MyActivity.unbindactivity.UnbindActivity" />
         <activity android:name=".MVP.View.MyActivity.AutomaticActivity" />
 
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/fade_out" />
 
-        <activity android:name=".MVP.View.TxSc.ImgActivity" />
         <activity android:name=".MVP.View.MyActivity.AdoptionActivity" />
         <activity android:name=".MVP.View.MyActivity.History.HistoryActivity" />
         <activity android:name=".MVP.View.MessageActivity.AllmesgActivity.AllCurrencyActivity" />
@@ -51,7 +53,9 @@
         <activity android:name=".MVP.View.loginActivity.ApplyJoinActivity" />
         <activity android:name=".MVP.View.loginActivity.LoginActivity" />
         <activity android:name=".MainShowActivity" />
-        <activity android:name=".MVP.View.loginActivity.GuidePageActivity">
+        <activity
+            android:name=".MVP.View.loginActivity.GuidePageActivity"
+            android:theme="@style/TranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

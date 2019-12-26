@@ -8,12 +8,11 @@
     tools:context=".MVP.View.MyActivity.unbindactivity.UnbindActivity">
 
     <RelativeLayout
-        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/wallet_backk"
+            android:id="@+id/unbind_sim_backk"
             android:layout_width="@dimen/dp_16"
             android:layout_height="@dimen/dp_16"
             android:layout_centerVertical="true"
@@ -62,6 +61,16 @@
             android:layout_below="@id/view_unbind"
             android:layout_marginTop="@dimen/dp_8"
             android:background="@mipmap/id_card_front" />
+
+        <TextView
+            android:id="@+id/unbind_text_unbind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/dp_5"
+            android:text="@string/sfz"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/sp_14" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -95,5 +104,15 @@
             android:layout_below="@id/view_bankcard"
             android:layout_marginTop="@dimen/dp_8"
             android:background="@mipmap/bank_card_front" />
+
+        <TextView
+            android:id="@+id/unbind_text_bancard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/dp_5"
+            android:text="@string/yhk"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/sp_14" />
     </RelativeLayout>
 </LinearLayout>

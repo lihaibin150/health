@@ -63,7 +63,6 @@ public class WalletActivity extends BaseActivity<HomePresenter> implements HomeC
         SPUtils spUtils = new SPUtils(WalletActivity.this, "LoginId");
         mId = spUtils.getString("Id");
         mSessionId = spUtils.getString("SessionId");
-        Logger.d(TAG, "FindDoctor:" + mId + "==" + mSessionId);
     }
 
     @Override

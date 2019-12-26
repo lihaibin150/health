@@ -7,7 +7,19 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/questioning_delete"
+        android:layout_width="@dimen/dp_96"
+        android:layout_height="@dimen/dp_62"
+        android:layout_alignParentRight="true"
+        android:background="#E91E63"
+        android:gravity="center"
+        android:text="结束问诊"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/sp_14" />
+
     <RelativeLayout
+        android:id="@+id/questioning_relative"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_60">
 
@@ -63,18 +75,9 @@
             android:layout_marginBottom="@dimen/dp_12"
             android:src="@mipmap/xhd" />
 
-        <TextView
-            android:id="@+id/questioning_delete"
-            android:layout_width="@dimen/dp_96"
-            android:layout_height="@dimen/dp_62"
-            android:layout_alignParentRight="true"
-            android:background="#E91E63"
-            android:gravity="center"
-            android:text="结束问诊"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/sp_14" />
 
     </RelativeLayout>
+
     <View
         android:layout_width="@dimen/dp_320"
         android:layout_height="@dimen/dp_1"

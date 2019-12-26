@@ -16,8 +16,9 @@ import java.util.List;
 
 public class DetailsListBean {
 
+
     /**
-     * result : [{"askTime":1576046971000,"content":"文本","direction":1,"doctorHeadPic":"http://172.17.8.100/images/health/doctor/image_pic/default/default_image_pic.jpg","msgType":1,"userHeadPic":"http://172.17.8.100/images/health/user/head_pic/default/default_head_3.jpg"}]
+     * result : [{"askTime":1577167345000,"content":"文本","direction":1,"doctorHeadPic":"http://172.17.8.100/images/health/doctor/image_pic/default/default_image_pic.jpg","msgType":1,"userHeadPic":"http://172.17.8.100/images/health/user/head_pic/default/default_head_6.jpg"},{"askTime":1577167308000,"content":"音视","direction":1,"doctorHeadPic":"http://172.17.8.100/images/health/doctor/image_pic/default/default_image_pic.jpg","msgType":1,"userHeadPic":"http://172.17.8.100/images/health/user/head_pic/default/default_head_6.jpg"},{"askTime":1577167290000,"content":"音视","direction":1,"doctorHeadPic":"http://172.17.8.100/images/health/doctor/image_pic/default/default_image_pic.jpg","msgType":1,"userHeadPic":"http://172.17.8.100/images/health/user/head_pic/default/default_head_3.jpg"},{"askTime":1577167262000,"content":"音视","direction":1,"doctorHeadPic":"http://172.17.8.100/images/health/doctor/image_pic/default/default_image_pic.jpg","msgType":1,"userHeadPic":"http://172.17.8.100/images/health/user/head_pic/default/default_head_3.jpg"}]
      * message : 查询成功
      * status : 0000
      */
@@ -52,12 +53,12 @@ public class DetailsListBean {
 
     public static class ResultBean {
         /**
-         * askTime : 1576046971000
+         * askTime : 1577167345000
          * content : 文本
          * direction : 1
          * doctorHeadPic : http://172.17.8.100/images/health/doctor/image_pic/default/default_image_pic.jpg
          * msgType : 1
-         * userHeadPic : http://172.17.8.100/images/health/user/head_pic/default/default_head_3.jpg
+         * userHeadPic : http://172.17.8.100/images/health/user/head_pic/default/default_head_6.jpg
          */
 
         private long askTime;

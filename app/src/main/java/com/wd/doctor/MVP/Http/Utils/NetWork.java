@@ -11,7 +11,7 @@ import android.net.NetworkInfo;
  * @UpdateRemark: 更新说明：
  **/
 public class NetWork {
-    //网络判断
+   /* //网络判断
     public static boolean hasNetwork(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -20,5 +20,5 @@ public class NetWork {
         } else {
             return false;
         }
-    }
+    }*/
 }

@@ -47,7 +47,7 @@ public class InterrogationMode implements InterrogationContracter.IModel {
     @Override
     public void getUserInfoModel(String doctorId, String sessionId, Integer userId, IModelCallback callback) {
         RequestNet.getInstance().create()
-                .USR_INFO(doctorId, sessionId,userId)
+                .USR_INFO(doctorId, sessionId, userId)
                 .compose(CommonSchedulers.<UsrInfoBean>io2main())
                 .subscribe(new CommonObserver<UsrInfoBean>() {
                     @Override
@@ -81,11 +81,11 @@ public class InterrogationMode implements InterrogationContracter.IModel {
                 });
     }
 
-    //查询问诊聊天记录
+    //查询问诊聊天记录(接收客户端发来的消息)
     @Override
-    public void getDetailsListModel(String doctorId, String sessionId, Integer recordId, IModelCallback callback) {
+    public void getDetailsListModel(String doctorId, String sessionId, Integer inquiryId, Integer page, Integer count, IModelCallback callback) {
         RequestNet.getInstance().create()
-                .DETAILS_LIST(doctorId, sessionId, recordId)
+                .DETAILS_LIST(doctorId, sessionId, inquiryId, page, count)
                 .compose(CommonSchedulers.<DetailsListBean>io2main())
                 .subscribe(new CommonObserver<DetailsListBean>() {
                     @Override
@@ -100,11 +100,11 @@ public class InterrogationMode implements InterrogationContracter.IModel {
                 });
     }
 
-    //发送消息(推送)
+    //发送消息(发送消息到客户端)
     @Override
-    public void getMessageModel(String doctorId, String sessionId, Integer recordId, IModelCallback callback) {
+    public void getMessageModel(String doctorId, String sessionId, Integer inquiryId, String content, Integer type, Integer userId, IModelCallback callback) {
         RequestNet.getInstance().create()
-                .MESSAGE(doctorId, sessionId, recordId)
+                .MESSAGE(doctorId, sessionId, inquiryId, content, type, userId)
                 .compose(CommonSchedulers.<MessageBean>io2main())
                 .subscribe(new CommonObserver<MessageBean>() {
                     @Override

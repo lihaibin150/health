@@ -14,6 +14,8 @@ import com.wd.doctor.MVP.Model.Bean.Doctor.FindSystemImagePicBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.UploadImagePicBean;
 import com.wd.doctor.MVP.Model.HomeModel;
 
+import java.util.Map;
+
 import okhttp3.MultipartBody;
 
 /**
@@ -332,6 +334,32 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
     public void PutAllStausPresenter(String doctorId, String sessionId) {
         //2、调用model中的的方法，设置回调监听
         mHomeModel.PutAllStausModel(doctorId, sessionId, new HomeContracter.IModel.IModelCallback() {
+            @Override
+            public void onSuccess(Object data) {
+                getView().onSuccess(data);
+            }
+
+            @Override
+            public void onImgSuccess(Object data) {
+
+            }
+
+            @Override
+            public void onFailure(Throwable e) {
+                getView().onFailure(e);
+            }
+
+            @Override
+            public void onImgFailure(Throwable e) {
+
+            }
+        });
+    }
+    //绑定身份证
+    @Override
+    public void getDoctorIdCardPresenter(String doctorId, String sessionId, Map<String, Object> BodyMap) {
+//2、调用model中的的方法，设置回调监听
+        mHomeModel.getDoctorIdCardModel(doctorId, sessionId,BodyMap, new HomeContracter.IModel.IModelCallback() {
             @Override
             public void onSuccess(Object data) {
                 getView().onSuccess(data);

@@ -14,6 +14,9 @@ import com.wd.doctor.MVP.Model.Bean.Doctor.FindDoctorByIdBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindDoctorWalletBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindSystemImagePicBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.UploadImagePicBean;
+import com.wd.doctor.MVP.Model.Bean.My.DoctorIdCardBean;
+
+import java.util.Map;
 
 import okhttp3.MultipartBody;
 
@@ -192,6 +195,24 @@ public class HomeModel implements HomeContracter.IModel{
                 .subscribe(new CommonObserver<DoctorInquiryNoticeListBean>() {
                     @Override
                     public void onNext(DoctorInquiryNoticeListBean doctorHealthy) {
+                        callback.onSuccess(doctorHealthy);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        callback.onFailure(e);
+                    }
+                });
+    }
+    //绑定身份证
+    @Override
+    public void getDoctorIdCardModel(String doctorId, String sessionId, Map<String, Object> BodyMap, IModelCallback callback) {
+        RequestNet.getInstance().create()
+                .DOCTOR_ID_CARD(doctorId, sessionId,BodyMap)
+                .compose(CommonSchedulers.<DoctorIdCardBean>io2main())
+                .subscribe(new CommonObserver<DoctorIdCardBean>() {
+                    @Override
+                    public void onNext(DoctorIdCardBean doctorHealthy) {
                         callback.onSuccess(doctorHealthy);
                     }
 

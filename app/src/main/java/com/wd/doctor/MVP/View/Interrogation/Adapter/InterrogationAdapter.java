@@ -7,21 +7,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bwei.example.mylibrary.Tools.Logger;
 import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.bwei.example.mylibrary.Tools.ToastUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.MVP.Model.Bean.Interrogation.RecordListBean;
-import com.wd.doctor.MVP.View.Interrogation.DetailedInquiryActivity;
 import com.wd.doctor.MVP.View.Interrogation.QuestioningActivity;
+import com.wd.doctor.MVP.View.ShowActivity.InterrogationActivity;
 import com.wd.doctor.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,12 +41,11 @@ import butterknife.ButterKnife;
  */
 
 
-public class QuestioningAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class InterrogationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     Context mContext;
-    RecordListBean.ResultBean result;
+    List<RecordListBean.ResultBean> result;
     private View mInflate;
-
-    public QuestioningAdapter(QuestioningActivity questioningActivity, RecordListBean.ResultBean result) {
+    public InterrogationAdapter(InterrogationActivity questioningActivity, List<RecordListBean.ResultBean> result) {
         this.mContext = questioningActivity;
         this.result = result;
     }
@@ -58,31 +60,37 @@ public class QuestioningAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ViewHolder) {
-            if (result!=null){
-            ((ViewHolder) holder).questioningName.setText(result.nickName);
-            ((ViewHolder) holder).questioningSim.setImageURI(result.userHeadPic);
-            Date date = new Date(result.inquiryTime);
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd  hh:mm");
-            ((ViewHolder) holder).questioningTime.setText(simpleDateFormat.format(date));
-            ((ViewHolder) holder).questioningLinear.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    SPUtils spUtils = new SPUtils(mContext, "RecordList");
-                    spUtils.putInt("recordId", result.recordId);//聊天id
-                    spUtils.putInt("userId", result.userId);//用户id
-                    Intent intent = new Intent(mContext, DetailedInquiryActivity.class);
-                    mContext.startActivity(intent);
+            if (result != null) {
+                ((ViewHolder) holder).questioningName.setText(result.get(position).getNickName());
+
+                Logger.d("inte", "RecordListn:" + result.get(position).getNickName());
+                ((ViewHolder) holder).questioningSim.setImageURI(result.get(position).getUserHeadPic());
+                Date date = new Date(result.get(position).getInquiryTime());
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd  hh:mm");
+                ((ViewHolder) holder).questioningTime.setText(simpleDateFormat.format(date));
+                if (result.get(position).getStatus()==2){
+                    ((ViewHolder) holder).questioningPrompt.setVisibility(View.VISIBLE);//显示提示(小红点)
                 }
-            });
-            }else {
+                ((ViewHolder) holder).questioningLinear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SPUtils spUtils = new SPUtils(mContext, "RecordList");
+                        spUtils.putInt("recordId", result.get(position).getRecordId());//聊天id
+                        spUtils.putInt("userId", result.get(position).getUserId());//用户id
+                        Intent intent = new Intent(mContext, QuestioningActivity.class);
+                        mContext.startActivity(intent);
+                    }
+                });
+            } else {
                 ToastUtils.show("当前无问诊消息");
             }
+
         }
     }
 
     @Override
     public int getItemCount() {
-        return 1;
+        return result.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -100,6 +108,8 @@ public class QuestioningAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         TextView questioningDelete;
         @BindView(R.id.questioning_linear)
         LinearLayout questioningLinear;
+        @BindView(R.id.questioning_relative)
+        RelativeLayout questioningRelative;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

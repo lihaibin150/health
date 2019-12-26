@@ -23,6 +23,7 @@ import com.wd.doctor.MVP.Presenter.LoginPresenter;
 import com.wd.doctor.MVP.View.MyActivity.SetImageActivity;
 import com.wd.doctor.MainShowActivity;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,23 +32,23 @@ import butterknife.OnClick;
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContracter.ILoginView {
 
     private static final String TAG = "LoginActivity";
-    @BindView(R.id.login_et_email)
+    @BindView(R2.id.login_et_email)
     EditText loginEtEmail;
-    @BindView(R.id.login_et_pwd)
+    @BindView(R2.id.login_et_pwd)
     EditText loginEtPwd;
-    @BindView(R.id.togg_log_eye)
+    @BindView(R2.id.togg_log_eye)
     ToggleButton toggLogEye;
-    @BindView(R.id.login_usepwd)
+    @BindView(R2.id.login_usepwd)
     TextView loginUsepwd;
-    @BindView(R.id.login_applyJoin)
+    @BindView(R2.id.login_applyJoin)
     TextView loginApplyJoin;
-    @BindView(R.id.login_bt_but)
+    @BindView(R2.id.login_bt_but)
     Button loginBtBut;
-    @BindView(R.id.login_eye_b)
+    @BindView(R2.id.login_eye_b)
     ImageView loginEyeB;
-    @BindView(R.id.loging_email_hong)
+    @BindView(R2.id.loging_email_hong)
     TextView logingEmailHong;
-    @BindView(R.id.loging_pwd_hong)
+    @BindView(R2.id.loging_pwd_hong)
     TextView logingPwdHong;
     private LoginBean mLoginBean;
     private String mEncryptpwd;
@@ -142,7 +143,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 IntentUtils.getInstence().intentStart(LoginActivity.this, UsePwdActivity.class);
                 break;
             case R.id.login_applyJoin:
-                IntentUtils.getInstence().intentStart(LoginActivity.this, ApplyJoinActivity.class);
+                IntentUtils.getInstence().intentStart(LoginActivity.this, InformationActivity.class);
                 break;
             case R.id.login_bt_but:
                 String mEmail = loginEtEmail.getText().toString();

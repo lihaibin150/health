@@ -78,6 +78,6 @@ public class InformationActivity extends BaseActivity<LoginPresenter> implements
 
     @OnClick(R.id.but_netgeren)
     public void onClick() {
-        IntentUtils.getInstence().intentStart(InformationActivity.this,PersonalActivity.class);
+        IntentUtils.getInstence().intentStart(InformationActivity.this,ApplyJoinActivity.class);
     }
 }

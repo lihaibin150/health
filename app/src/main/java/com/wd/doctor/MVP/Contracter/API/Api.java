@@ -23,13 +23,17 @@ import com.wd.doctor.MVP.Model.Bean.Interrogation.MessageBean;
 import com.wd.doctor.MVP.Model.Bean.Interrogation.RecordBean;
 import com.wd.doctor.MVP.Model.Bean.Interrogation.RecordListBean;
 import com.wd.doctor.MVP.Model.Bean.Interrogation.UsrInfoBean;
+import com.wd.doctor.MVP.Model.Bean.My.DoctorIdCardBean;
 import com.wd.doctor.MVP.Model.Bean.Patients.FindSickCircleListBean;
 import com.wd.doctor.MVP.Model.Bean.Patients.PublishCommentBean;
 import com.wd.doctor.MVP.Model.Bean.Patients.SearchSickCircleBean;
 import com.wd.doctor.MVP.Model.Bean.Patients.SickCircleInfoBean;
 
+import java.util.Map;
+
 import io.reactivex.Observable;
 import okhttp3.MultipartBody;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -72,9 +76,15 @@ public interface Api {
     //根据医生id查询医生信息
     @GET("verify/v1/findDoctorById")
     Observable<FindDoctorByIdBean> FINDDOCTORBYID(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId);
-//查询我的被采纳的建议
+
+    //绑定身份证
+    @POST("verify/v1/bindDoctorIdCard")
+    Observable<DoctorIdCardBean> DOCTOR_ID_CARD(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Body Map<String, Object> BodyMap);
+
+    //查询我的被采纳的建议
     @GET("verify/v1/findMyAdoptedCommentList")
     Observable<MyAdoptedCommentListBean> MY_ADOPTED_COMMENT(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("page") Integer page, @Query("count") Integer count);
+
     //上传形象照
     @Multipart
     @POST("verify/v1/uploadImagePic")
@@ -87,7 +97,7 @@ public interface Api {
     //选择系统提供形象照
     @Multipart
     @POST("verify/v1/chooseImagePic")
-    Observable<ChooseImagePicBean> CHOOSEIMAGEPIC(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId,  @Part MultipartBody.Part imagePic);
+    Observable<ChooseImagePicBean> CHOOSEIMAGEPIC(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Part MultipartBody.Part imagePic);
 
     //绑定银行卡
     @POST("verify/v1/bindDoctorBankCard")
@@ -110,13 +120,13 @@ public interface Api {
     @PUT("inquiry/verify/v1/endInquiry")
     Observable<InquiryBean> INQUIRY(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("recordId") Integer recordId);
 
-    //查询问诊聊天记录
+    //查询问诊聊天记录(接收客户端发来的消息)
     @PUT("inquiry/verify/v1/findInquiryDetailsList")
-    Observable<DetailsListBean> DETAILS_LIST(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("recordId") Integer recordId);
+    Observable<DetailsListBean> DETAILS_LIST(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("inquiryId") Integer inquiryId, @Query("page") Integer page, @Query("count") Integer count);
 
-    //发送消息(推送)
+    //发送消息(发送消息到客户端)
     @PUT("inquiry/verify/v1/pushMessage")
-    Observable<MessageBean> MESSAGE(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("recordId") Integer recordId);
+    Observable<MessageBean> MESSAGE(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("inquiryId") Integer inquiryId,@Query("content")String content,@Query("type")Integer type,@Query("userId")Integer userId);
 
     //查询医生历史问诊记录列表
     @GET("inquiry/verify/v1/findHistoryInquiryRecord")
