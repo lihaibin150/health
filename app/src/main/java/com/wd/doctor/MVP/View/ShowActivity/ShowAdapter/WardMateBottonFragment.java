@@ -17,6 +17,7 @@ import com.wd.doctor.MVP.Contracter.WardmateContracter;
 import com.wd.doctor.MVP.Model.Bean.Patients.FindSickCircleListBean;
 import com.wd.doctor.MVP.Presenter.WardmatePresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,19 +27,14 @@ import butterknife.BindView;
 //病友圈列表展示
 public class WardMateBottonFragment extends BaseFragment<WardmatePresenter> implements WardmateContracter.IView {
 
-    @BindView(R.id.ward_recycler)
+    @BindView(R2.id.ward_recycler)
     RecyclerView wardRecycler;
-    @BindView(R.id.ward_smart)
+    @BindView(R2.id.ward_smart)
     SmartRefreshLayout refreshLayout;
     private int mDepartmentId;
     int page = 1;//当前页，默认第一页
     private ArrayList<FindSickCircleListBean.ResultBean> mList;
     private WardMateBottonAdapter mMyRecViewFindSickCircleAdapter;
-
-    @Override
-    protected WardmatePresenter Presenter() {
-        return new WardmatePresenter();
-    }
 
     @Override
     protected void initData() {
@@ -108,6 +104,11 @@ public class WardMateBottonFragment extends BaseFragment<WardmatePresenter> impl
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_ward_mate_botton;
+    }
+
+    @Override
+    protected WardmatePresenter Presenter() {
+        return new WardmatePresenter();
     }
 
     @Override

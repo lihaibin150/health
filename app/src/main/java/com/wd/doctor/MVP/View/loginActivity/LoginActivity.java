@@ -130,7 +130,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         }
     }
 
-    @OnClick({R.id.login_et_email, R.id.login_et_pwd, R.id.login_usepwd, R.id.login_applyJoin, R.id.login_bt_but})
+    @OnClick({R2.id.login_et_email, R2.id.login_et_pwd, R2.id.login_usepwd, R2.id.login_applyJoin, R2.id.login_bt_but})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.login_et_email:

@@ -18,6 +18,7 @@ import com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity.AllCurrencyActivit
 import com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity.AllInterrogationActivity;
 import com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity.AllSystemActivity;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,39 +27,39 @@ import butterknife.OnClick;
 //全部消息
 public class AllNewsActivity extends BaseActivity<HomePresenter> implements HomeContracter.IView {
 
-    @BindView(R.id.all_backk)
+    @BindView(R2.id.all_ne_backk)
     SimpleDraweeView allBackk;
-    @BindView(R.id.all_query_bell)
+    @BindView(R2.id.all_query_bell)
     TextView allQueryBell;
-    @BindView(R.id.all_del)
+    @BindView(R2.id.all_del)
     ImageView allDel;
-    @BindView(R.id.all_but)
+    @BindView(R2.id.all_but)
     Button allBut;
-    @BindView(R.id.all_news_meassge)
+    @BindView(R2.id.all_news_meassge)
     RelativeLayout allNewsMeassge;
-    @BindView(R.id.sim_system)
+    @BindView(R2.id.sim_system)
     SimpleDraweeView simSystem;
-    @BindView(R.id.all_system_text)
+    @BindView(R2.id.all_system_text)
     TextView allSystemText;
-    @BindView(R.id.all_system_query)
+    @BindView(R2.id.all_system_query)
     RelativeLayout allSystemQuery;
-    @BindView(R.id.all_system)
+    @BindView(R2.id.all_system)
     RelativeLayout allSystem;
-    @BindView(R.id.sim_inter)
+    @BindView(R2.id.sim_inter)
     SimpleDraweeView simInter;
-    @BindView(R.id.all_interr_text)
+    @BindView(R2.id.all_interr_text)
     TextView allInterrText;
     @BindView(R.id.all_interr_query)
     RelativeLayout allInterrQuery;
-    @BindView(R.id.all_interrogation)
+    @BindView(R2.id.all_interrogation)
     RelativeLayout allInterrogation;
-    @BindView(R.id.sim_currency)
+    @BindView(R2.id.sim_currency)
     SimpleDraweeView simCurrency;
-    @BindView(R.id.all_currency_text)
+    @BindView(R2.id.all_currency_text)
     TextView allCurrencyText;
-    @BindView(R.id.all_currency_query)
+    @BindView(R2.id.all_currency_query)
     RelativeLayout allCurrencyQuery;
-    @BindView(R.id.all_currency)
+    @BindView(R2.id.all_currency)
     RelativeLayout allCurrency;
     private String mId;
     private String mSessionId;
@@ -97,7 +98,7 @@ public class AllNewsActivity extends BaseActivity<HomePresenter> implements Home
 
     }
 
-    @OnClick({R.id.all_query_bell,R.id.all_backk, R.id.all_del, R.id.all_system, R.id.all_interrogation, R.id.all_currency})
+    @OnClick({R2.id.all_query_bell,R2.id.all_ne_backk, R2.id.all_del, R2.id.all_system, R2.id.all_interrogation, R2.id.all_currency})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.all_query_bell://全部消息已读
@@ -105,7 +106,7 @@ public class AllNewsActivity extends BaseActivity<HomePresenter> implements Home
                allInterrQuery.setVisibility(View.GONE);
                allSystemQuery.setVisibility(View.GONE);
                 break;
-            case R.id.all_backk://关闭
+            case R.id.all_ne_backk://关闭
                finish();
                 break;
             case R.id.all_del://关闭通知

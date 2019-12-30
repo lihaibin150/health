@@ -14,6 +14,7 @@ import com.wd.doctor.MVP.Contracter.InterrogationContracter;
 import com.wd.doctor.MVP.Model.Bean.Interrogation.UsrInfoBean;
 import com.wd.doctor.MVP.Presenter.InterrogationPresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,28 +24,30 @@ import butterknife.OnClick;
 public class DetailedInquiryActivity extends BaseActivity<InterrogationPresenter> implements InterrogationContracter.IView {
 
     private static final String TAG = "DetailedInquiryActivity";
-    @BindView(R.id.detailed_sim_head_portrait)
+    @BindView(R2.id.detailed_sim_head_portrait)
     SimpleDraweeView detailedSimHeadPortrait;
-    @BindView(R.id.detailed_text_name)
+    @BindView(R2.id.detailed_text_name)
     TextView detailedTextName;
     @BindView(R.id.detailed_text_disease)
     TextView detailedTextDisease;
-    @BindView(R.id.detailed_text_departments)
+    @BindView(R2.id.detailed_text_departments)
     TextView detailedTextDepartments;
-    @BindView(R.id.detailed_text_details)
+    @BindView(R2.id.detailed_text_details)
     TextView detailedTextDetails;
-    @BindView(R.id.detailed_text_type)
+    @BindView(R2.id.detailed_text_type)
     TextView detailedTextType;
-    @BindView(R.id.detailed_text_view)
+    @BindView(R2.id.detailed_text_view)
     TextView detailedTextView;
-    @BindView(R.id.detailed_text_time)
+    @BindView(R2.id.detailed_text_time)
     TextView detailedTextTime;
-    @BindView(R.id.detailed_image_img)
+    @BindView(R2.id.detailed_image_img)
     ImageView detailedImageImg;
-    @BindView(R.id.detailed_sim_backk)
+    @BindView(R2.id.detailed_sim_backk)
     SimpleDraweeView detailedSimBackk;
-    @BindView(R.id.detailed_sim_ead_portrait)
+    @BindView(R2.id.detailed_sim_ead_portrait)
     SimpleDraweeView detailedSimEadPortrait;
+    @BindView(R.id.detailed_sim_sex)
+    SimpleDraweeView detailedSimSex;
     private String mId;
     private String mSessionId;
     private int mUserId;
@@ -58,10 +61,12 @@ public class DetailedInquiryActivity extends BaseActivity<InterrogationPresenter
     protected void initData() {
         SPUtils spUserId = new SPUtils(DetailedInquiryActivity.this, "RecordList");
         mUserId = spUserId.getInt("userId");
+
         SPUtils spUtils = new SPUtils(DetailedInquiryActivity.this, "LoginId");
         mId = spUtils.getString("Id", "");
         mSessionId = spUtils.getString("SessionId", "");
-        mP.getUserInfoPresenter(mId, mSessionId, 436);
+
+        mP.getUserInfoPresenter(mId, mSessionId, mUserId);
         Logger.d(TAG, "mUserId" + mUserId);
 
 
@@ -69,12 +74,13 @@ public class DetailedInquiryActivity extends BaseActivity<InterrogationPresenter
 
     @Override
     public void onSuccess(Object data) {
-//        UsrInfoBean usrInfoBean = (UsrInfoBean) data;
-//        Logger.d(TAG, "usrInfoBean:" + usrInfoBean.getMessage());
-      /*  UsrInfoBean.ResultBean result = usrInfoBean.getResult();
+        UsrInfoBean usrInfoBean = (UsrInfoBean) data;
+        Logger.d(TAG, "usrInfoBean:" + usrInfoBean.getMessage());
+        UsrInfoBean.ResultBean result = usrInfoBean.getResult();
         if (result != null) {
             detailedTextName.setText(result.getNickName());
-        } else {
+            Logger.d(TAG, "usrInfoBean:" + result.getNickName());
+        }/* else {
             ToastUtils.show(usrInfoBean.getMessage());
             detailedTextName.setVisibility(View.GONE);
         }*/
@@ -113,7 +119,7 @@ public class DetailedInquiryActivity extends BaseActivity<InterrogationPresenter
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.detailed_sim_backk)
+    @OnClick(R2.id.detailed_sim_backk)
     public void onClick() {
         finish();
     }

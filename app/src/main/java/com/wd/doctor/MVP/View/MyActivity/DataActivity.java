@@ -13,6 +13,7 @@ import com.wd.doctor.MVP.Contracter.HomeContracter;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindDoctorByIdBean;
 import com.wd.doctor.MVP.Presenter.HomePresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,19 +23,19 @@ import butterknife.OnClick;
 public class DataActivity extends BaseActivity<HomePresenter> implements HomeContracter.IView {
 
     private static final String TAG = "DataActivity";
-    @BindView(R.id.manage_backk)
+    @BindView(R2.id.manage_backk)
     SimpleDraweeView manageBackk;
-    @BindView(R.id.data_name)
+    @BindView(R2.id.data_name)
     TextView dataName;
-    @BindView(R.id.data_hospital)
+    @BindView(R2.id.data_hospital)
     TextView dataHospital;
-    @BindView(R.id.data_departments)
+    @BindView(R2.id.data_departments)
     TextView dataDepartments;
-    @BindView(R.id.data_title)
+    @BindView(R2.id.data_title)
     TextView dataTitle;
-    @BindView(R.id.data_introduction)
+    @BindView(R2.id.data_introduction)
     TextView dataIntroduction;
-    @BindView(R.id.data_field)
+    @BindView(R2.id.data_field)
     TextView dataField;
     private String mId;
     private String mSessionId;
@@ -92,7 +93,7 @@ public class DataActivity extends BaseActivity<HomePresenter> implements HomeCon
 
     }
 
-    @OnClick({R.id.manage_backk, R.id.data_field})
+    @OnClick({R2.id.manage_backk, R2.id.data_field})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.manage_backk:

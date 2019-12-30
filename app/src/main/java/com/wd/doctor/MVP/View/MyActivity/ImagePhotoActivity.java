@@ -14,6 +14,7 @@ import com.wd.doctor.MVP.Contracter.HomeContracter;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindSystemImagePicBean;
 import com.wd.doctor.MVP.Presenter.HomePresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import java.util.AbstractList;
 import java.util.List;
@@ -25,9 +26,9 @@ import butterknife.ButterKnife;
 public class ImagePhotoActivity extends BaseActivity<HomePresenter> implements HomeContracter.IView {
 
 
-    @BindView(R.id.imqu_btn_butone)
+    @BindView(R2.id.imqu_btn_butone)
     Button imquBtnButone;
-    @BindView(R.id.imqu_xb_xbannerone)
+    @BindView(R2.id.imqu_xb_xbannerone)
     XBanner imquXbXbannerone;
     private String mSessionId;
     private String mId;

@@ -7,76 +7,80 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/questioning_delete"
-        android:layout_width="@dimen/dp_96"
-        android:layout_height="@dimen/dp_62"
-        android:layout_alignParentRight="true"
-        android:background="#E91E63"
-        android:gravity="center"
-        android:text="结束问诊"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/sp_14" />
-
-    <RelativeLayout
-        android:id="@+id/questioning_relative"
+    <com.wd.doctor.Teset.SwipeMenus
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_60">
+        android:layout_height="wrap_content">
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/questioning_sim"
-            android:layout_width="@dimen/dp_40"
-            android:layout_height="@dimen/dp_40"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dp_20" />
+        <RelativeLayout
+            android:id="@+id/questioning_relative"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/questioning_sim"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_20" />
+
+            <TextView
+                android:id="@+id/questioning_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_12"
+                android:layout_toRightOf="@id/questioning_sim"
+                android:text="4653"
+                android:textColor="@color/colorSan"
+                android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:id="@+id/questioning_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_12"
+                android:layout_toRightOf="@id/questioning_sim"
+                android:text="4654564564"
+                android:textColor="@color/colorHui"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/questioning_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_12"
+
+                android:layout_marginRight="@dimen/dp_20"
+                android:text="4654564564"
+                android:textColor="@color/colorHui"
+                android:textSize="@dimen/sp_12" />
+
+            <ImageView
+                android:id="@+id/questioning_prompt"
+                android:layout_width="@dimen/dp_10"
+                android:layout_height="@dimen/dp_10"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="@dimen/dp_20"
+                android:layout_marginBottom="@dimen/dp_12"
+                android:src="@mipmap/xhd" />
+
+        </RelativeLayout>
 
         <TextView
-            android:id="@+id/questioning_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp_12"
-            android:layout_toRightOf="@id/questioning_sim"
-            android:text="4653"
-            android:textColor="@color/colorSan"
+            android:id="@+id/questioning_delete"
+            android:layout_width="@dimen/dp_96"
+            android:layout_height="@dimen/dp_62"
+            android:background="#E91E63"
+            android:gravity="center"
+            android:text="结束问诊"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/sp_14" />
-
-        <TextView
-            android:id="@+id/questioning_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="@dimen/dp_10"
-            android:layout_marginBottom="@dimen/dp_12"
-            android:layout_toRightOf="@id/questioning_sim"
-            android:text="4654564564"
-            android:textColor="@color/colorHui"
-            android:textSize="@dimen/sp_12" />
-
-        <TextView
-            android:id="@+id/questioning_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp_12"
-            android:layout_marginRight="@dimen/dp_20"
-            android:text="4654564564"
-            android:textColor="@color/colorHui"
-            android:textSize="@dimen/sp_12" />
-
-        <ImageView
-            android:id="@+id/questioning_prompt"
-            android:layout_width="@dimen/dp_10"
-            android:layout_height="@dimen/dp_10"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="@dimen/dp_20"
-            android:layout_marginBottom="@dimen/dp_12"
-            android:src="@mipmap/xhd" />
-
-
-    </RelativeLayout>
+    </com.wd.doctor.Teset.SwipeMenus>
 
     <View
         android:layout_width="@dimen/dp_320"

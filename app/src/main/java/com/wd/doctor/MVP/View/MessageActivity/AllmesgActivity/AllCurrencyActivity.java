@@ -1,18 +1,23 @@
 package com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.RelativeLayout;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bwei.example.mylibrary.Base.BaseActivity;
 import com.bwei.example.mylibrary.Tools.Logger;
 import com.bwei.example.mylibrary.Tools.SPUtils;
+import com.bwei.example.mylibrary.Tools.ToastUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.MVP.Contracter.HomeContracter;
 import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorHealthyCurrencyNoticeListBean;
 import com.wd.doctor.MVP.Presenter.HomePresenter;
+import com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity.MessagAdapter.AllCAdapter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,11 +27,11 @@ import butterknife.OnClick;
 public class AllCurrencyActivity extends BaseActivity<HomePresenter> implements HomeContracter.IView {
 
     private static final String TAG = "AllCurrencyActivity";
-    @BindView(R.id.all_backk)
+    @BindView(R2.id.all_currency_backk)
     SimpleDraweeView allBackk;
-    @BindView(R.id.all_currency_recycler)
+    @BindView(R2.id.all_currency_recycler)
     RecyclerView allCurrencyRecycler;
-    @BindView(R.id.currency_recycler_no_message)
+    @BindView(R2.id.currency_recycler_no_message)
     RelativeLayout currencyRecyclerNoMessage;
     private String mSessionId;
     private String mId;
@@ -59,13 +64,13 @@ public class AllCurrencyActivity extends BaseActivity<HomePresenter> implements 
         DoctorHealthyCurrencyNoticeListBean currencyNoticeListBean = (DoctorHealthyCurrencyNoticeListBean) data;
         DoctorHealthyCurrencyNoticeListBean.ResultBean result = currencyNoticeListBean.result;
         Logger.d(TAG,"DoctorHealthyCurrencyNoticeList:"+result.content);
-       /* if ("0000".equals(currencyNoticeListBean.status)) {
+     if ("0000".equals(currencyNoticeListBean.status)) {
             allCurrencyRecycler.setLayoutManager(new LinearLayoutManager(AllCurrencyActivity.this));
             allCurrencyRecycler.setAdapter(new AllCAdapter(AllCurrencyActivity.this, result));
         } else {
             ToastUtils.show("当前无消息");
             currencyRecyclerNoMessage.setVisibility(View.VISIBLE);
-        }*/
+        }
     }
 
     @Override
@@ -90,7 +95,7 @@ public class AllCurrencyActivity extends BaseActivity<HomePresenter> implements 
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.all_backk)
+    @OnClick(R2.id.all_currency_backk)
     public void onClick() {
         finish();
     }

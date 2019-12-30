@@ -23,6 +23,7 @@ import com.wd.doctor.MVP.Model.Bean.Patients.SearchSickCircleBean;
 import com.wd.doctor.MVP.Presenter.WardmatePresenter;
 import com.wd.doctor.MVP.View.WardmateItem.Adapter.SeachRecordAdapter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import java.util.List;
 
@@ -34,23 +35,23 @@ import butterknife.OnClick;
 public class ScreeActivity extends BaseActivity<WardmatePresenter> implements WardmateContracter.IView {
 
 
-    @BindView(R.id.img_back)
+    @BindView(R2.id.img_back)
     ImageView imgBack;
-    @BindView(R.id.scree_et_search)
+    @BindView(R2.id.scree_et_search)
     EditText mEditText;
-    @BindView(R.id.scree_tv_search)
+    @BindView(R2.id.scree_tv_search)
     TextView mTextView;
-    @BindView(R.id.tv_history_one)
+    @BindView(R2.id.tv_history_one)
     TextView tvHistoryOne;
-    @BindView(R.id.linear1)
+    @BindView(R2.id.linear1)
     LinearLayout linear1;
-    @BindView(R.id.rec_searchSickCircle_view)
+    @BindView(R2.id.rec_searchSickCircle_view)
     RecyclerView recSearchSickCircleView;
-    @BindView(R.id.linear2)
+    @BindView(R2.id.linear2)
     LinearLayout linear2;
-    @BindView(R.id.img_none_find)
+    @BindView(R2.id.img_none_find)
     ImageView imgNoneFind;
-    @BindView(R.id.scree_text_view)
+    @BindView(R2.id.scree_text_view)
     TextView screeTextView;
     private SeachRecordAdapter mSeachRecordAdapter;
     private String mEt;
@@ -113,7 +114,7 @@ public class ScreeActivity extends BaseActivity<WardmatePresenter> implements Wa
         }
     }
 
-    @OnClick({R.id.img_back, R.id.scree_tv_search})
+    @OnClick({R2.id.img_back, R2.id.scree_tv_search})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.img_back:

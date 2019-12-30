@@ -18,6 +18,7 @@ import com.wd.doctor.MVP.Model.Bean.Doctor.ApplyJoinBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.EmailCodeBean;
 import com.wd.doctor.MVP.Presenter.LoginPresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,21 +28,21 @@ import butterknife.OnClick;
 public class ApplyJoinActivity extends BaseActivity<LoginPresenter> implements LoginContracter.ILoginView {
 
 
-    @BindView(R.id.apply_tv_verificationcode)
+    @BindView(R2.id.apply_tv_verificationcode)
     EditText applyEtEmailBut;
-    @BindView(R.id.apply_et_code)
+    @BindView(R2.id.apply_et_code)
     Button applyEtCode;
-    @BindView(R.id.apply_et_email)
+    @BindView(R2.id.apply_et_email)
     EditText applyEtEmail;
-    @BindView(R.id.apply_et_pwd)
+    @BindView(R2.id.apply_et_pwd)
     EditText applyEtPwd;
-    @BindView(R.id.apply_toggle_but)
+    @BindView(R2.id.apply_toggle_but)
     ToggleButton applyToggleBut;
-    @BindView(R.id.apply_et_pwd_two)
+    @BindView(R2.id.apply_et_pwd_two)
     EditText applyEtPwdTwo;
-    @BindView(R.id.apply_toggle_but_two)
+    @BindView(R2.id.apply_toggle_but_two)
     ToggleButton applyToggleButTwo;
-    @BindView(R.id.apply_bt_next)
+    @BindView(R2.id.apply_bt_next)
     Button applyBtNext;
     private EmailCodeBean mEmailCodeBean;
 
@@ -118,7 +119,7 @@ public class ApplyJoinActivity extends BaseActivity<LoginPresenter> implements L
 
     }
 
-    @OnClick({R.id.apply_bt_next, R.id.apply_et_code, R.id.apply_et_pwd, R.id.apply_et_pwd_two, R.id.apply_et_email})
+    @OnClick({R2.id.apply_bt_next, R2.id.apply_et_code, R2.id.apply_et_pwd, R2.id.apply_et_pwd_two, R2.id.apply_et_email})
     public void onClick(View view) {
         switch (view.getId()) {
             //验证码

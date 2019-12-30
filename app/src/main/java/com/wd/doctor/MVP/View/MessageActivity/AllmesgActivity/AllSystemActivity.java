@@ -17,6 +17,7 @@ import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorSystemNoticeListBean;
 import com.wd.doctor.MVP.Presenter.HomePresenter;
 import com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity.MessagAdapter.AllSAdapter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,13 +27,13 @@ import butterknife.OnClick;
 public class AllSystemActivity extends BaseActivity<HomePresenter> implements HomeContracter.IView {
 
     private static final String TAG = "AllSystemActivity";
-    @BindView(R.id.system_all_backk)
+    @BindView(R2.id.system_all_backk)
     SimpleDraweeView systemAllBackk;
-    @BindView(R.id.system_all_recycler)
+    @BindView(R2.id.system_all_recycler)
     RecyclerView systemAllRecycler;
-    @BindView(R.id.all_system_meassge)
+    @BindView(R2.id.all_system_meassge)
     RelativeLayout mAllSystem;
-    @BindView(R.id.img_yg)
+    @BindView(R2.id.img_yg)
     ImageView mSystem;
     private String mId;
     private String mSessionId;
@@ -95,7 +96,7 @@ public class AllSystemActivity extends BaseActivity<HomePresenter> implements Ho
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.system_all_backk)
+    @OnClick(R2.id.system_all_backk)
     public void onClick() {
         finish();
     }

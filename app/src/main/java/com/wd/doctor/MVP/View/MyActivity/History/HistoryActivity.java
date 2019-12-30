@@ -87,6 +87,16 @@ public class HistoryActivity extends BaseActivity<InterrogationPresenter> implem
 
     }
 
+    @OnClick({R2.id.history_sim_backk, R2.id.history_sim_bell})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.history_sim_backk:
+                break;
+            case R.id.history_sim_bell:
+                break;
+        }
+    }
+
     @Override
     public void onDetailsListFailure(Throwable e) {
 
@@ -97,15 +107,5 @@ public class HistoryActivity extends BaseActivity<InterrogationPresenter> implem
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
-    }
-
-    @OnClick({R.id.history_sim_backk, R.id.history_sim_bell})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.history_sim_backk:
-                break;
-            case R.id.history_sim_bell:
-                break;
-        }
     }
 }

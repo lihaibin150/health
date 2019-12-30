@@ -15,7 +15,7 @@ package com.wd.doctor.MVP.Model.Bean.Doctor;
 public class FindDoctorWalletBean {
 
     /**
-     * result : {"balance":0,"doctorId":155,"id":155,"version":1,"whetherBindBankCard":2,"whetherBindIdCard":2}
+     * result : {"balance":3500,"doctorId":157,"id":157,"version":8,"whetherBindBankCard":1,"whetherBindIdCard":2}
      * message : 查询成功
      * status : 0000
      */
@@ -50,11 +50,11 @@ public class FindDoctorWalletBean {
 
     public static class ResultBean {
         /**
-         * balance : 0
-         * doctorId : 155
-         * id : 155
-         * version : 1
-         * whetherBindBankCard : 2
+         * balance : 3500
+         * doctorId : 157
+         * id : 157
+         * version : 8
+         * whetherBindBankCard : 1
          * whetherBindIdCard : 2
          */
 

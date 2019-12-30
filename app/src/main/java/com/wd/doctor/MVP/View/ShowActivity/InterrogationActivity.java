@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bwei.example.mylibrary.Base.BaseActivity;
 import com.bwei.example.mylibrary.Tools.IntentUtils;
-import com.bwei.example.mylibrary.Tools.Logger;
 import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.bwei.example.mylibrary.Tools.ToastUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -18,12 +17,13 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wd.doctor.MVP.Contracter.InterrogationContracter;
+import com.wd.doctor.MVP.Model.Bean.Interrogation.DetailsListBean;
 import com.wd.doctor.MVP.Model.Bean.Interrogation.RecordListBean;
 import com.wd.doctor.MVP.Presenter.InterrogationPresenter;
 import com.wd.doctor.MVP.View.Interrogation.Adapter.InterrogationAdapter;
-import com.wd.doctor.MVP.View.Interrogation.DetailedInquiryActivity;
 import com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity.AllInterrogationActivity;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,21 +39,24 @@ public class InterrogationActivity extends BaseActivity<InterrogationPresenter> 
 
     private static final String TAG = "InterrogationActivity";
     int page = 1;//当前页，默认第一页
-    @BindView(R.id.interrogation_sim_backk)
+    @BindView(R2.id.interrogation_sim_backk)
     SimpleDraweeView interrogationSimBackk;
-    @BindView(R.id.interrogation_sim_bell)
+    @BindView(R2.id.interrogation_sim_bell)
     ImageView interrogationSimBell;
-    @BindView(R.id.interr_recycler_recycler)
+    @BindView(R2.id.interr_recycler_recycler)
     RecyclerView interrRecyclerRecycler;
-    @BindView(R.id.introduction_recycler_none)
+    @BindView(R2.id.introduction_recycler_none)
     RelativeLayout introductionRecyclerNone;
-    @BindView(R.id.ques_none)
+    @BindView(R2.id.ques_none)
     ImageView quesNone;
-    @BindView(R.id.interr_smart)
+    @BindView(R2.id.interr_smart)
     SmartRefreshLayout interrSmart;
+
+
     private String mId;
     private String mSessionId;
     private ArrayList<RecordListBean.ResultBean> mList;
+    private InterrogationAdapter mInterrogationAdapter;
 
     @Override
     protected int getLayoutId() {
@@ -66,13 +69,13 @@ public class InterrogationActivity extends BaseActivity<InterrogationPresenter> 
         SPUtils sploginUtils = new SPUtils(InterrogationActivity.this, "LoginId");
         mId = sploginUtils.getString("Id", "");
         mSessionId = sploginUtils.getString("SessionId", "");
-        mP.getRecordListPresenter(mId, mSessionId);
-
+        mP.getRecordListPresenter(mId, mSessionId);//查询医生的问诊记录列表
         interrSmart.setEnableRefresh(true);
         interrSmart.setEnableLoadMore(true);
         interrSmart.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
             public void onLoadMore(RefreshLayout refreshLayout) {
+                page++;
                 mP.getRecordListPresenter(mId, mSessionId);
                 refreshLayout.finishLoadMore();
             }
@@ -84,12 +87,12 @@ public class InterrogationActivity extends BaseActivity<InterrogationPresenter> 
                 } else {
                     ToastUtils.show("当前无问诊消息");
                 }
-
                 page = 1;
                 mP.getRecordListPresenter(mId, mSessionId);
                 refreshLayout.finishRefresh();
             }
         });
+
     }
 
     @Override
@@ -97,20 +100,41 @@ public class InterrogationActivity extends BaseActivity<InterrogationPresenter> 
         RecordListBean recordListBean = (RecordListBean) data;
         List<RecordListBean.ResultBean> result = recordListBean.getResult();
         mList = new ArrayList<>();
-        //查询问诊评价详情(存值)
+      /*  //查询问诊评价详情(存值)
         SPUtils spRecordId = new SPUtils(InterrogationActivity.this, "InterrogationRecordId");
-        spRecordId.putInt("recordId",result.get(0).getRecordId());
-        if (recordListBean.getMessage() != null) {
-            interrRecyclerRecycler.setLayoutManager(new LinearLayoutManager(InterrogationActivity.this));
-            interrRecyclerRecycler.setAdapter(new InterrogationAdapter(InterrogationActivity.this, result));
-        } else {
-            introductionRecyclerNone.setVisibility(View.VISIBLE);
+        spRecordId.putInt("recordId",mList.get(0).getRecordId());*/
+        if ("0000".equals(recordListBean.getStatus())) {
+            if (result != null) {
+                if (result.isEmpty()) {
+                    introductionRecyclerNone.setVisibility(View.VISIBLE);
+                    interrRecyclerRecycler.setVisibility(View.GONE);
+                } else {
+                    introductionRecyclerNone.setVisibility(View.GONE);
+                    interrRecyclerRecycler.setVisibility(View.VISIBLE);
+                    interrRecyclerRecycler.setLayoutManager(new LinearLayoutManager(InterrogationActivity.this));
+                    mInterrogationAdapter = new InterrogationAdapter(InterrogationActivity.this, result);
+                    interrRecyclerRecycler.setAdapter(mInterrogationAdapter);
+                    mInterrogationAdapter.setOnClick(new InterrogationAdapter.OnClick() {
+                        @Override
+                        public void OnClickId(int id) {
+                            mP.getDetailsListPresenter(mId, mSessionId, id, 1, 5);//结束问诊
+                        }
+                    });
+                }
+            }
         }
-
     }
 
+    //结束问诊
+    @Override
+    public void onDetailsListSuccess(Object data) {
+        DetailsListBean detailsListBean = (DetailsListBean) data;
+        if ("0000".equals(detailsListBean.getStatus())) {
 
-    @OnClick({R.id.interrogation_sim_backk, R.id.interrogation_sim_bell})
+        }
+    }
+
+    @OnClick({R2.id.interrogation_sim_backk, R2.id.interrogation_sim_bell})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.interrogation_sim_backk:
@@ -121,6 +145,7 @@ public class InterrogationActivity extends BaseActivity<InterrogationPresenter> 
                 break;
         }
     }
+
     @Override
     public InterrogationPresenter mPresenter() {
         return new InterrogationPresenter();
@@ -138,10 +163,6 @@ public class InterrogationActivity extends BaseActivity<InterrogationPresenter> 
         ButterKnife.bind(this);
     }
 
-    @Override
-    public void onDetailsListSuccess(Object data) {
-
-    }
 
     @Override
     public void onFailure(Throwable e) {

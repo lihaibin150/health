@@ -27,6 +27,7 @@ import com.wd.doctor.MVP.View.MyActivity.History.HistoryActivity;
 import com.wd.doctor.MVP.View.MyActivity.SetImageActivity;
 import com.wd.doctor.MVP.View.MyActivity.WalletActivity;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,21 +40,21 @@ import okhttp3.MultipartBody;
 public class ManagementActivity extends BaseActivity<HomePresenter> implements HomeContracter.IView {
 
     private static final String TAG = "ManagementActivity";
-    @BindView(R.id.manage_automatic_img)
+    @BindView(R2.id.manage_automatic_img)
     ImageView manageAutomaticImg;
-    @BindView(R.id.manage_backk)
+    @BindView(R2.id.manage_backk)
     SimpleDraweeView manageBackk;
-    @BindView(R.id.manage_bell)
+    @BindView(R2.id.manage_bell)
     ImageView manageBell;
-    @BindView(R.id.manage_zl)
+    @BindView(R2.id.manage_zl)
     RelativeLayout manageZl;
-    @BindView(R.id.manage_historical)
+    @BindView(R2.id.manage_historical)
     RelativeLayout manageHistorical;
-    @BindView(R.id.manage_wallet)
+    @BindView(R2.id.manage_wallet)
     RelativeLayout manageWallet;
-    @BindView(R.id.manage_recommendations)
+    @BindView(R2.id.manage_recommendations)
     RelativeLayout manageRecommendations;
-    @BindView(R.id.manage_automatic)
+    @BindView(R2.id.manage_automatic)
     RelativeLayout manageAutomatic;
     private Dialog mDialog;
     private View mInflate;
@@ -128,7 +129,7 @@ public class ManagementActivity extends BaseActivity<HomePresenter> implements H
 
     }
 
-    @OnClick({R.id.manage_automatic_img, R.id.manage_backk, R.id.manage_bell, R.id.manage_zl, R.id.manage_historical, R.id.manage_wallet, R.id.manage_recommendations, R.id.manage_automatic})
+    @OnClick({R2.id.manage_automatic_img, R2.id.manage_backk, R2.id.manage_bell, R2.id.manage_zl, R2.id.manage_historical, R2.id.manage_wallet, R2.id.manage_recommendations, R2.id.manage_automatic})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.manage_automatic_img://头像

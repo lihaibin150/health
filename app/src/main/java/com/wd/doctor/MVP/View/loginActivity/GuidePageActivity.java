@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,7 +30,7 @@ import butterknife.OnClick;
 
 public class GuidePageActivity extends AppCompatActivity {
 
-    @BindView(R.id.tv_miao)
+    @BindView(R2.id.tv_miao)
     TextView tvMiao;
     int count = 3;
 

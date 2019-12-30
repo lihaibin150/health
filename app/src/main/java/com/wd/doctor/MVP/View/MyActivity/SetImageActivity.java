@@ -35,6 +35,7 @@ import com.wd.doctor.MVP.Presenter.HomePresenter;
 import com.wd.doctor.MVP.View.ShowActivity.ManagementActivity;
 import com.wd.doctor.MVP.View.widget.ImageUtil;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -53,13 +54,13 @@ import okhttp3.RequestBody;
 public class SetImageActivity extends BaseActivity<HomePresenter> implements HomeContracter.IView {
 
     private static final String TAG = "SetImageActivity";
-    @BindView(R.id.set_img_camera)
+    @BindView(R2.id.set_img_camera)
     ImageView setImgCamera;
-    @BindView(R.id.set_image_but)
+    @BindView(R2.id.set_image_but)
     TextView setImageBut;
-    @BindView(R.id.set_sim_photo_pic)
+    @BindView(R2.id.set_sim_photo_pic)
     SimpleDraweeView setSimPhotoPic;
-    @BindView(R.id.set_rela_photo_pic)
+    @BindView(R2.id.set_rela_photo_pic)
     RelativeLayout setRelaPhotoPic;
     private Dialog mDialog;
     private View mInflate;
@@ -265,7 +266,7 @@ public class SetImageActivity extends BaseActivity<HomePresenter> implements Hom
                 break;
         }
     }
-    @OnClick({R.id.set_sim_photo_pic, R.id.set_img_camera, R.id.set_image_but})
+    @OnClick({R2.id.set_sim_photo_pic, R2.id.set_img_camera, R2.id.set_image_but})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.set_sim_photo_pic:

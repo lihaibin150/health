@@ -21,6 +21,7 @@ import com.wd.doctor.MVP.Model.Bean.Patients.PublishCommentBean;
 import com.wd.doctor.MVP.Model.Bean.Patients.SickCircleInfoBean;
 import com.wd.doctor.MVP.Presenter.WardmatePresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,57 +34,57 @@ import butterknife.OnClick;
 public class SickCircleInfoActivity extends BaseActivity<WardmatePresenter> implements WardmateContracter.IView {
 
     private static final String TAG = "SickCircleInfoActivity";
-    @BindView(R.id.sick_backk)
+    @BindView(R2.id.sick_backk)
     SimpleDraweeView sickBackk;
-    @BindView(R.id.wallet_title)
+    @BindView(R2.id.wallet_title)
     TextView sickTitle;
-    @BindView(R.id.sick_bell)
+    @BindView(R2.id.sick_bell)
     ImageView sickBell;
-    @BindView(R.id.title)
+    @BindView(R2.id.title)
     RelativeLayout title;
-    @BindView(R.id.sick_name)
+    @BindView(R2.id.sick_name)
     TextView sickName;
-    @BindView(R.id.sick_Disease)
+    @BindView(R2.id.sick_Disease)
     TextView sickDisease;
-    @BindView(R.id.sick_Disease_view)
+    @BindView(R2.id.sick_Disease_view)
     TextView sickDiseaseView;
-    @BindView(R.id.sick_Departments)
+    @BindView(R2.id.sick_Departments)
     TextView sickDepartments;
-    @BindView(R.id.sick_Departments_view)
+    @BindView(R2.id.sick_Departments_view)
     TextView sickDepartmentsView;
-    @BindView(R.id.sick_Details)
+    @BindView(R2.id.sick_Details)
     TextView sickDetails;
-    @BindView(R.id.sick_Details_view)
+    @BindView(R2.id.sick_Details_view)
     TextView sickDetailsView;
     @BindView(R.id.sick_Treatment)
     TextView sickTreatment;
-    @BindView(R.id.sick_Treatment_view)
+    @BindView(R2.id.sick_Treatment_view)
     TextView sickTreatmentView;
-    @BindView(R.id.sick_img)
+    @BindView(R2.id.sick_img)
     TextView sickImg;
-    @BindView(R.id.sick_img_view)
+    @BindView(R2.id.sick_img_view)
     ImageView sickImgView;
-    @BindView(R.id.sick_price)
+    @BindView(R2.id.sick_price)
     TextView sickPrice;
-    @BindView(R.id.sick_but)
+    @BindView(R2.id.sick_but)
     Button sickBut;
-    @BindView(R.id.sick_edit)
+    @BindView(R2.id.sick_edit)
     EditText sickEdit;
-    @BindView(R.id.sick_cirle_smile)
+    @BindView(R2.id.sick_cirle_smile)
     ImageView sickCirleSmile;
-    @BindView(R.id.sick_cirle_wifi)
+    @BindView(R2.id.sick_cirle_wifi)
     ImageView sickCirleWifi;
-    @BindView(R.id.linear)
+    @BindView(R2.id.linear)
     LinearLayout linear;
-    @BindView(R.id.sick_circle_recycler)
+    @BindView(R2.id.sick_circle_recycler)
     RelativeLayout sickCircleRecycler;
-    @BindView(R.id.sick_Treatment_detaile)
+    @BindView(R2.id.sick_Treatment_detaile)
     TextView sickTreatmentDetaile;
-    @BindView(R.id.sick_Treatment_time)
+    @BindView(R2.id.sick_Treatment_time)
     TextView sickTreatmentTime;
-    @BindView(R.id.sick_text_answer)
+    @BindView(R2.id.sick_text_answer)
     TextView sickTextAnswer;
-    @BindView(R.id.sick_cirle_recycler)
+    @BindView(R2.id.sick_cirle_recycler)
     RelativeLayout sickCirleRecycler;
 
     private String mId;
@@ -190,7 +191,7 @@ public class SickCircleInfoActivity extends BaseActivity<WardmatePresenter> impl
 
     }
 
-    @OnClick({R.id.sick_but, R.id.sick_backk, R.id.sick_bell})
+    @OnClick({R2.id.sick_but, R2.id.sick_backk, R2.id.sick_bell})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.sick_backk:

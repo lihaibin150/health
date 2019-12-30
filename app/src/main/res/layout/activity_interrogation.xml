@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="@dimen/dp_360"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MVP.View.ShowActivity.InterrogationActivity">
@@ -94,7 +94,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/interr_recycler_recycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
         <com.scwang.smartrefresh.layout.footer.BallPulseFooter
             android:layout_width="match_parent"
@@ -103,6 +103,5 @@
             app:srlPrimaryColor="@color/colorBlue" />
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
-
 
 </LinearLayout>

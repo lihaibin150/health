@@ -19,6 +19,7 @@ import com.wd.doctor.MVP.View.MessageActivity.AllNewsActivity;
 import com.wd.doctor.MVP.View.ShowActivity.ShowAdapter.WardMateTopAdapter;
 import com.wd.doctor.MVP.View.WardmateItem.ScreeActivity;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,12 +34,12 @@ import butterknife.OnClick;
 public class WardmateActivity extends BaseActivity<WardmatePresenter> implements WardmateContracter.IView {
 
     private static final String TAG = "WardmateActivity";
-    @BindView(R.id.wardmate_backk)
+    @BindView(R2.id.wardmate_backk)
     SimpleDraweeView manageBackk;
-    @BindView(R.id.wardmate_bell)
+    @BindView(R2.id.wardmate_bell)
     ImageView manageBell;
     private ArrayList<String> tab = new ArrayList<>();
-    @BindView(R.id.wardmate_scree)
+    @BindView(R2.id.wardmate_scree)
     ImageView wardmateScree;
     TabLayout wardmateTopTab;
     ViewPager wardmateBottonVp;
@@ -90,7 +91,7 @@ public class WardmateActivity extends BaseActivity<WardmatePresenter> implements
 
     }
 
-    @OnClick({R.id.wardmate_backk, R.id.wardmate_bell, R.id.wardmate_scree})
+    @OnClick({R2.id.wardmate_backk, R2.id.wardmate_bell, R2.id.wardmate_scree})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.wardmate_backk:

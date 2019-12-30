@@ -14,6 +14,7 @@ import com.wd.doctor.MVP.Contracter.LoginContracter;
 import com.wd.doctor.MVP.Model.Bean.Doctor.EmailCodeBean;
 import com.wd.doctor.MVP.Presenter.LoginPresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,15 +24,15 @@ import butterknife.OnClick;
 public class UsePwdActivity extends BaseActivity<LoginPresenter> implements LoginContracter.ILoginView {
 
     private static final String TAG = "UsePwdActivity";
-    @BindView(R.id.img_back_forget)
+    @BindView(R2.id.img_back_forget)
     ImageView imgBackForget;
-    @BindView(R.id.et_forget_email)
+    @BindView(R2.id.et_forget_email)
     EditText etForgetEmail;
-    @BindView(R.id.bt_code_forget)
+    @BindView(R2.id.bt_code_forget)
     Button btCodeForget;
-    @BindView(R.id.et_forget_pwd)
+    @BindView(R2.id.et_forget_pwd)
     EditText etForgetPwd;
-    @BindView(R.id.bt_next_forget)
+    @BindView(R2.id.bt_next_forget)
     Button btNextForget;
     private String mEmail;
     private String mPwd;
@@ -80,7 +81,7 @@ public class UsePwdActivity extends BaseActivity<LoginPresenter> implements Logi
 
     }
 
-    @OnClick({R.id.img_back_forget, R.id.bt_code_forget, R.id.bt_next_forget})
+    @OnClick({R2.id.img_back_forget, R2.id.bt_code_forget, R2.id.bt_next_forget})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.img_back_forget:

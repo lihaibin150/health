@@ -15,9 +15,6 @@ import butterknife.OnClick;
 //个人简介
 public class PersonalActivity extends BaseActivity<LoginPresenter> implements LoginContracter.ILoginView {
 
-    @BindView(R.id.but_settled)
-    Button butSettled;
-
     @Override
     protected int getLayoutId() {
         return R.layout.activity_personal;

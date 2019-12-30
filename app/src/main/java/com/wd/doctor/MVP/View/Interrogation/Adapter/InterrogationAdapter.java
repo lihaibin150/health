@@ -21,6 +21,7 @@ import com.wd.doctor.MVP.Model.Bean.Interrogation.RecordListBean;
 import com.wd.doctor.MVP.View.Interrogation.QuestioningActivity;
 import com.wd.doctor.MVP.View.ShowActivity.InterrogationActivity;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -45,6 +46,7 @@ public class InterrogationAdapter extends RecyclerView.Adapter<RecyclerView.View
     Context mContext;
     List<RecordListBean.ResultBean> result;
     private View mInflate;
+
     public InterrogationAdapter(InterrogationActivity questioningActivity, List<RecordListBean.ResultBean> result) {
         this.mContext = questioningActivity;
         this.result = result;
@@ -62,13 +64,13 @@ public class InterrogationAdapter extends RecyclerView.Adapter<RecyclerView.View
         if (holder instanceof ViewHolder) {
             if (result != null) {
                 ((ViewHolder) holder).questioningName.setText(result.get(position).getNickName());
-
-                Logger.d("inte", "RecordListn:" + result.get(position).getNickName());
                 ((ViewHolder) holder).questioningSim.setImageURI(result.get(position).getUserHeadPic());
                 Date date = new Date(result.get(position).getInquiryTime());
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd  hh:mm");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
                 ((ViewHolder) holder).questioningTime.setText(simpleDateFormat.format(date));
-                if (result.get(position).getStatus()==2){
+                if (result.get(position).getStatus() == 1) {
+                    ((ViewHolder) holder).questioningPrompt.setVisibility(View.GONE);//不显示提示(小红点)
+                } else {
                     ((ViewHolder) holder).questioningPrompt.setVisibility(View.VISIBLE);//显示提示(小红点)
                 }
                 ((ViewHolder) holder).questioningLinear.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +86,13 @@ public class InterrogationAdapter extends RecyclerView.Adapter<RecyclerView.View
             } else {
                 ToastUtils.show("当前无问诊消息");
             }
-
+            //结束问诊
+            ((ViewHolder) holder).questioningDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnClick.OnClickId(result.get(position).getRecordId());
+                }
+            });
         }
     }
 
@@ -94,26 +102,36 @@ public class InterrogationAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.questioning_sim)
+        @BindView(R2.id.questioning_sim)
         SimpleDraweeView questioningSim;
-        @BindView(R.id.questioning_name)
+        @BindView(R2.id.questioning_name)
         TextView questioningName;
-        @BindView(R.id.questioning_details)
+        @BindView(R2.id.questioning_details)
         TextView questioningDetails;
-        @BindView(R.id.questioning_time)
+        @BindView(R2.id.questioning_time)
         TextView questioningTime;
-        @BindView(R.id.questioning_prompt)
+        @BindView(R2.id.questioning_prompt)
         ImageView questioningPrompt;
-        @BindView(R.id.questioning_delete)
+        @BindView(R2.id.questioning_delete)
         TextView questioningDelete;
-        @BindView(R.id.questioning_linear)
+        @BindView(R2.id.questioning_linear)
         LinearLayout questioningLinear;
-        @BindView(R.id.questioning_relative)
+        @BindView(R2.id.questioning_relative)
         RelativeLayout questioningRelative;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
+    }
+
+    public void setOnClick(OnClick onClick) {
+        mOnClick = onClick;
+    }
+
+    OnClick mOnClick;
+
+    public interface OnClick {
+        void OnClickId(int id);
     }
 }

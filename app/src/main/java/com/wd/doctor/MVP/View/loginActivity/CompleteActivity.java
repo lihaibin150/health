@@ -8,6 +8,7 @@ import com.bwei.example.mylibrary.Tools.IntentUtils;
 import com.wd.doctor.MVP.Contracter.LoginContracter;
 import com.wd.doctor.MVP.Presenter.LoginPresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,7 +18,7 @@ import butterknife.OnClick;
 public class CompleteActivity extends BaseActivity<LoginPresenter> implements LoginContracter.ILoginView {
 
 
-    @BindView(R.id.back_return)
+    @BindView(R2.id.back_return)
     Button backReturn;
 
     @Override
@@ -25,7 +26,7 @@ public class CompleteActivity extends BaseActivity<LoginPresenter> implements Lo
         return R.layout.activity_complete;
     }
 
-    @OnClick(R.id.back_return)
+    @OnClick(R2.id.back_return)
     public void onClick() {
         IntentUtils.getInstence().intentStart(CompleteActivity.this, LoginActivity.class);
     }

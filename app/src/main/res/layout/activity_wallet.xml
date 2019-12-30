@@ -8,7 +8,6 @@
     tools:context=".MVP.View.MyActivity.WalletActivity">
 
     <RelativeLayout
-        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -31,7 +30,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/manage_bell"
+            android:id="@+id/wallet_bell"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -52,6 +51,7 @@
             android:id="@+id/img_wallet"
             android:layout_width="@dimen/dp_320"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_8"
             android:src="@mipmap/my_wallet_bg" />
 
         <TextView
@@ -102,56 +102,31 @@
             android:textSize="@dimen/sp_14" />
     </RelativeLayout>
 
-    <RelativeLayout
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/wallet_smart"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp_20"
-        android:layout_marginTop="@dimen/dp_28"
-        android:layout_marginRight="@dimen/dp_20">
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:srlEnableLoadMore="false"
+        app:srlEnablePreviewInEditMode="true">
 
-        <TextView
-            android:id="@+id/wallet_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_20"
-            android:text="好的"
-            android:textColor="@color/colorSan"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+        <com.scwang.smartrefresh.header.WaveSwipeHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/wallet_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/wallet_name"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="@dimen/dp_4"
-            android:text="2019/9/6"
-            android:textColor="@color/colorJiu"
-            android:textSize="@dimen/sp_10" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/wallet_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/wallet_red_price"
-            android:layout_width="wrap_content"
+        <com.scwang.smartrefresh.layout.footer.BallPulseFooter
+            android:layout_width="match_parent"
+            app:srlPrimaryColor="@color/colorBlue"
             android:layout_height="wrap_content"
-            android:layout_below="@id/wallet_name"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:text="2019/9/6"
-            android:textColor="@color/colorJE"
-            android:textSize="@dimen/sp_14"
-            android:visibility="gone" />
+            app:srlClassicsSpinnerStyle="Translate" />
 
-        <TextView
-            android:id="@+id/wallet_blue_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/wallet_name"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:text="2019/9/6"
-            android:textColor="@color/colorBlue"
-            android:textSize="@dimen/sp_14"
-            android:visibility="gone" />
-    </RelativeLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
 </LinearLayout>

@@ -6,6 +6,7 @@ import com.wd.doctor.MVP.Model.Bean.Doctor.ApplyJoinBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.ChooseImagePicBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.CodeBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorHealthyCurrencyNoticeListBean;
+import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorIncomeBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorInquiryNoticeListBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorSystemNoticeListBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.EmailCodeBean;
@@ -107,6 +108,10 @@ public interface Api {
     @GET("verify/v1/findDoctorWallet")
     Observable<FindDoctorWalletBean> DOCTOR_WALLET(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId);
 
+    //查询医生收支记录
+    @GET("verify/v1/findDoctorIncomeRecordList")
+    Observable<DoctorIncomeBean> DOCTOR_INCOME(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("page") Integer page, @Query("count") Integer count);
+
     /*问诊列表*/
     //查询医生的问诊记录列表
     @GET("inquiry/verify/v1/findInquiryRecordList")
@@ -126,7 +131,7 @@ public interface Api {
 
     //发送消息(发送消息到客户端)
     @PUT("inquiry/verify/v1/pushMessage")
-    Observable<MessageBean> MESSAGE(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("inquiryId") Integer inquiryId,@Query("content")String content,@Query("type")Integer type,@Query("userId")Integer userId);
+    Observable<MessageBean> MESSAGE(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("inquiryId") Integer inquiryId, @Query("content") String content, @Query("type") Integer type, @Query("userId") Integer userId);
 
     //查询医生历史问诊记录列表
     @GET("inquiry/verify/v1/findHistoryInquiryRecord")

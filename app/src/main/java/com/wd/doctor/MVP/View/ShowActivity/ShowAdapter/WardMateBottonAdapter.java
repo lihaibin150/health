@@ -18,6 +18,7 @@ import com.bwei.example.mylibrary.Tools.SPUtils;
 import com.wd.doctor.MVP.Model.Bean.Patients.FindSickCircleListBean;
 import com.wd.doctor.MVP.View.WardmateItem.SickCircleInfoActivity;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -97,17 +98,17 @@ public class WardMateBottonAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.botton_name)
+        @BindView(R2.id.botton_name)
         TextView bottonName;
-        @BindView(R.id.botton_detail)
+        @BindView(R2.id.botton_detail)
         TextView bottonDetail;
-        @BindView(R.id.botton_time)
+        @BindView(R2.id.botton_time)
         TextView bottonTime;
-        @BindView(R.id.botton_relative)
+        @BindView(R2.id.botton_relative)
         RelativeLayout bottonRelative;
-        @BindView(R.id.botton_price)
+        @BindView(R2.id.botton_price)
         TextView bottonPrice;
-        @BindView(R.id.botton_img)
+        @BindView(R2.id.botton_img)
         ImageView bottonImg;
 
         public ViewHolder(@NonNull View itemView) {

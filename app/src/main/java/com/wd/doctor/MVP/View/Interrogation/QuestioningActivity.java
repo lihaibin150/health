@@ -18,6 +18,7 @@ import com.wd.doctor.MVP.Contracter.InterrogationContracter;
 import com.wd.doctor.MVP.Model.Bean.Interrogation.MessageBean;
 import com.wd.doctor.MVP.Presenter.InterrogationPresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,19 +28,19 @@ import butterknife.OnClick;
 public class QuestioningActivity extends BaseActivity<InterrogationPresenter> implements InterrogationContracter.IView {
 
     private static final String TAG = "QuestioningActivity";
-    @BindView(R.id.ques_backk)
+    @BindView(R2.id.ques_backk)
     SimpleDraweeView quesBackk;
-    @BindView(R.id.ques_bell)
+    @BindView(R2.id.ques_bell)
     ImageView quesBell;
-    @BindView(R.id.ques_title)
+    @BindView(R2.id.ques_title)
     TextView quesTitle;
-    @BindView(R.id.questioning_recycler)
+    @BindView(R2.id.questioning_recycler)
     RecyclerView questioningRecycler;
-    @BindView(R.id.im_smart)
+    @BindView(R2.id.im_smart)
     SmartRefreshLayout imSmart;
-    @BindView(R.id.questoning_edit_text)
+    @BindView(R2.id.questoning_edit_text)
     EditText questoningEditText;
-    @BindView(R.id.questoning_but_send)
+    @BindView(R2.id.questoning_but_send)
     Button questoningButSend;
     private String mId;
     private String mSessionId;
@@ -70,7 +71,7 @@ public class QuestioningActivity extends BaseActivity<InterrogationPresenter> im
 
     }
 
-    @OnClick({R.id.ques_backk, R.id.ques_bell})
+    @OnClick({R2.id.ques_backk, R2.id.ques_bell})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ques_backk:

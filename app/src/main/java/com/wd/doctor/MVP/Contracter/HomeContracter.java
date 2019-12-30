@@ -32,6 +32,9 @@ public interface HomeContracter {
         //查询医生钱包
         void getFindDoctorWalletModel(String doctorId, String sessionId, IModelCallback callback);
 
+        //查询医生收支记录
+        void getDoctorIncomeModel(String doctorId, String sessionId, Integer page, Integer count, IModelCallback callback);
+
         //修改消息状态为全部已读
         void PutAllStausModel(String doctorId, String sessionId, IModelCallback callback);
 
@@ -46,6 +49,9 @@ public interface HomeContracter {
 
         //绑定身份证
         void getDoctorIdCardModel(String doctorId, String sessionId, Map<String, Object> BodyMap, IModelCallback callback);
+
+        //查询我的被采纳的建议
+        void getMyAdoptedModel(String doctorId, String sessionId, Integer page, Integer count, IModelCallback callback);
 
         //model层中的接口回调
         interface IModelCallback {
@@ -102,6 +108,13 @@ public interface HomeContracter {
 
         //绑定身份证
         void getDoctorIdCardPresenter(String doctorId, String sessionId, Map<String, Object> BodyMap);
+
+        //查询医生收支记录
+        void getDoctorIncomePresenter(String doctorId, String sessionId, Integer page, Integer count);
+
+        //查询我的被采纳的建议
+        void getMyAdoptedPresenter(String doctorId, String sessionId, Integer page, Integer count);
+
     }
 
 }

@@ -11,6 +11,7 @@ import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorSystemNoticeListBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindDoctorByIdBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindDoctorWalletBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindSystemImagePicBean;
+import com.wd.doctor.MVP.Model.Bean.Doctor.MyAdoptedCommentListBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.UploadImagePicBean;
 import com.wd.doctor.MVP.Model.HomeModel;
 
@@ -191,7 +192,6 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
                 if (ViewAttached()) {
                     getView().onSuccess(data);
                     if (data != null && Constant.SUCCESS_CODE.equals(FindDoctorWalletBean.class)) {
-                        Logger.d("s", "ddata" + data);
                     } else {
                         getView().onFailure(new Exception("服务器异常"));
                     }
@@ -355,11 +355,12 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
             }
         });
     }
+
     //绑定身份证
     @Override
     public void getDoctorIdCardPresenter(String doctorId, String sessionId, Map<String, Object> BodyMap) {
-//2、调用model中的的方法，设置回调监听
-        mHomeModel.getDoctorIdCardModel(doctorId, sessionId,BodyMap, new HomeContracter.IModel.IModelCallback() {
+        //2、调用model中的的方法，设置回调监听
+        mHomeModel.getDoctorIdCardModel(doctorId, sessionId, BodyMap, new HomeContracter.IModel.IModelCallback() {
             @Override
             public void onSuccess(Object data) {
                 getView().onSuccess(data);
@@ -373,6 +374,69 @@ public class HomePresenter extends BasePresenter<HomeContracter.IView> implement
             @Override
             public void onFailure(Throwable e) {
                 getView().onFailure(e);
+            }
+
+            @Override
+            public void onImgFailure(Throwable e) {
+
+            }
+        });
+    }
+
+    //查询医生收支记录
+    @Override
+    public void getDoctorIncomePresenter(String doctorId, String sessionId, Integer page, Integer count) {
+        //2、调用model中的的方法，设置回调监听
+        mHomeModel.getDoctorIncomeModel(doctorId, sessionId, page, count, new HomeContracter.IModel.IModelCallback() {
+            @Override
+            public void onSuccess(Object data) {
+
+            }
+
+            @Override
+            public void onImgSuccess(Object data) {
+                getView().onImgSuccess(data);
+            }
+
+            @Override
+            public void onFailure(Throwable e) {
+
+            }
+
+            @Override
+            public void onImgFailure(Throwable e) {
+                getView().onImgFailure(e);
+            }
+        });
+    }
+
+    //查询我的被采纳的建议
+    @Override
+    public void getMyAdoptedPresenter(String doctorId, String sessionId, Integer page, Integer count) {
+        //2、调用model中的的方法，设置回调监听
+        mHomeModel.getMyAdoptedModel(doctorId, sessionId, page, count, new HomeContracter.IModel.IModelCallback() {
+            @Override
+            public void onSuccess(Object data) {
+                //3、必须先判断是否挂载、然后才可以使用getView方法
+                if (ViewAttached()) {
+                    getView().onSuccess(data);
+                    if (data != null && Constant.SUCCESS_CODE.equals(MyAdoptedCommentListBean.class)) {
+                    } else {
+                        getView().onFailure(new Exception("服务器异常"));
+                    }
+                }
+            }
+
+            @Override
+            public void onImgSuccess(Object data) {
+
+            }
+
+            @Override
+            public void onFailure(Throwable e) {
+                if (ViewAttached()) {
+                    getView().onFailure(e);
+                }
             }
 
             @Override

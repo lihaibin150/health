@@ -14,6 +14,7 @@ import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorInquiryNoticeListBean;
 import com.wd.doctor.MVP.Presenter.HomePresenter;
 import com.wd.doctor.MVP.View.MessageActivity.AllmesgActivity.MessagAdapter.AllIAdapter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,9 +24,9 @@ import butterknife.OnClick;
 public class AllInterrogationActivity extends BaseActivity<HomePresenter> implements HomeContracter.IView {
 
     private static final String TAG = "AllInterrogationActivity";
-    @BindView(R.id.all_interr_backk)
+    @BindView(R2.id.all_interr_backk)
     SimpleDraweeView allInterrBackk;
-    @BindView(R.id.all_interr_recycler)
+    @BindView(R2.id.all_interr_recycler)
     RecyclerView allInterrRecycler;
     private String mId;
     private String mSessionId;
@@ -89,7 +90,7 @@ public class AllInterrogationActivity extends BaseActivity<HomePresenter> implem
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.all_interr_backk)
+    @OnClick(R2.id.all_interr_backk)
     public void onClick() {
         finish();
     }

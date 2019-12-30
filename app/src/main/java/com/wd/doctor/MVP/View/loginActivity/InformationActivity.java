@@ -8,6 +8,7 @@ import com.bwei.example.mylibrary.Tools.IntentUtils;
 import com.wd.doctor.MVP.Contracter.LoginContracter;
 import com.wd.doctor.MVP.Presenter.LoginPresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,7 +17,7 @@ import butterknife.OnClick;
 //信息
 public class InformationActivity extends BaseActivity<LoginPresenter> implements LoginContracter.ILoginView {
 
-    @BindView(R.id.but_netgeren)
+    @BindView(R2.id.but_netgeren)
     Button butNetgeren;
 
     @Override

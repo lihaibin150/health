@@ -8,11 +8,13 @@ import com.wd.doctor.MVP.Http.Utils.RequestNet;
 import com.wd.doctor.MVP.Model.Bean.Doctor.AllStausBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.ChooseImagePicBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorHealthyCurrencyNoticeListBean;
+import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorIncomeBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorInquiryNoticeListBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.DoctorSystemNoticeListBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindDoctorByIdBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindDoctorWalletBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.FindSystemImagePicBean;
+import com.wd.doctor.MVP.Model.Bean.Doctor.MyAdoptedCommentListBean;
 import com.wd.doctor.MVP.Model.Bean.Doctor.UploadImagePicBean;
 import com.wd.doctor.MVP.Model.Bean.My.DoctorIdCardBean;
 
@@ -31,7 +33,7 @@ import okhttp3.MultipartBody;
  * 2、使用 compose()配合 {@link CommonSchedulers} 切换线程
  * 3、使用 {@link CommonObserver} 代替 {@link io.reactivex.Observer} ,避免每次强制重写 onSubscribe() 和 onComplete()
  */
-public class HomeModel implements HomeContracter.IModel{
+public class HomeModel implements HomeContracter.IModel {
     //根据医生id查询医生信息
     @Override
     public void getFindDoctorByIdModel(String doctorId, String sessionId, IModelCallback callback) {
@@ -119,7 +121,6 @@ public class HomeModel implements HomeContracter.IModel{
                     @Override
                     public void onNext(FindDoctorWalletBean doctorWalletBean) {
                         callback.onSuccess(doctorWalletBean);
-                        Logger.d("s", "dIdBean" + doctorWalletBean.getMessage());
                     }
 
                     @Override
@@ -128,6 +129,26 @@ public class HomeModel implements HomeContracter.IModel{
                     }
                 });
     }
+
+    //查询医生收支记录
+    @Override
+    public void getDoctorIncomeModel(String doctorId, String sessionId, Integer page, Integer count, IModelCallback callback) {
+        RequestNet.getInstance().create()
+                .DOCTOR_INCOME(doctorId, sessionId, page, count)
+                .compose(CommonSchedulers.<DoctorIncomeBean>io2main())
+                .subscribe(new CommonObserver<DoctorIncomeBean>() {
+                    @Override
+                    public void onNext(DoctorIncomeBean doctorIncomeBean) {
+                        callback.onImgSuccess(doctorIncomeBean);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        callback.onImgFailure(e);
+                    }
+                });
+    }
+
     //修改消息状态为全部已读
     @Override
     public void PutAllStausModel(String doctorId, String sessionId, IModelCallback callback) {
@@ -204,16 +225,35 @@ public class HomeModel implements HomeContracter.IModel{
                     }
                 });
     }
+
     //绑定身份证
     @Override
     public void getDoctorIdCardModel(String doctorId, String sessionId, Map<String, Object> BodyMap, IModelCallback callback) {
         RequestNet.getInstance().create()
-                .DOCTOR_ID_CARD(doctorId, sessionId,BodyMap)
+                .DOCTOR_ID_CARD(doctorId, sessionId, BodyMap)
                 .compose(CommonSchedulers.<DoctorIdCardBean>io2main())
                 .subscribe(new CommonObserver<DoctorIdCardBean>() {
                     @Override
                     public void onNext(DoctorIdCardBean doctorHealthy) {
                         callback.onSuccess(doctorHealthy);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        callback.onFailure(e);
+                    }
+                });
+    }
+    //查询我的被采纳的建议
+    @Override
+    public void getMyAdoptedModel(String doctorId, String sessionId, Integer page, Integer count, IModelCallback callback) {
+        RequestNet.getInstance().create()
+                .MY_ADOPTED_COMMENT(doctorId, sessionId, page,count)
+                .compose(CommonSchedulers.<MyAdoptedCommentListBean>io2main())
+                .subscribe(new CommonObserver<MyAdoptedCommentListBean>() {
+                    @Override
+                    public void onNext(MyAdoptedCommentListBean myAdoptedCommentListBean) {
+                        callback.onSuccess(myAdoptedCommentListBean);
                     }
 
                     @Override

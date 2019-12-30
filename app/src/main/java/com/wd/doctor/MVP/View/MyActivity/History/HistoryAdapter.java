@@ -15,6 +15,7 @@ import com.wd.doctor.MVP.Model.Bean.Interrogation.RecordBean;
 import com.wd.doctor.MVP.Model.Bean.Interrogation.RecordListBean;
 import com.wd.doctor.MVP.View.ShowActivity.InterrogationActivity;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -89,17 +90,17 @@ public class HistoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
 
     class MyList extends RecyclerView.ViewHolder {
-        @BindView(R.id.history_sim_photo)
+        @BindView(R2.id.history_sim_photo)
         SimpleDraweeView historySimPhoto;
-        @BindView(R.id.history_text_name)
+        @BindView(R2.id.history_text_name)
         TextView historyTextName;
-        @BindView(R.id.history_text_time)
+        @BindView(R2.id.history_text_time)
         TextView historyTextTime;
-        @BindView(R.id.history_but_record)
+        @BindView(R2.id.history_but_record)
         Button historyButRecord;
-        @BindView(R.id.history_but_evaluation)
+        @BindView(R2.id.history_but_evaluation)
         Button historyButEvaluation;
-        @BindView(R.id.history_but_no_evaluation)
+        @BindView(R2.id.history_but_no_evaluation)
         TextView historyButNoEvaluation;
 
         public MyList(@NonNull View itemView) {

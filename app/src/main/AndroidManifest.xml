@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MVP.View.MyActivity.History.ViewCommentsActivity"></activity>
+        <activity android:name=".MVP.View.MyActivity.WithdrawalsActivity"></activity>
+        <activity android:name=".MVP.View.MyActivity.History.ViewCommentsActivity" />
         <activity android:name=".MVP.View.MyActivity.unbindactivity.BankCardActivity" />
         <activity android:name=".MVP.View.MyActivity.unbindactivity.IDCardActivity" />
         <activity android:name=".MVP.View.MyActivity.unbindactivity.UnbindActivity" />

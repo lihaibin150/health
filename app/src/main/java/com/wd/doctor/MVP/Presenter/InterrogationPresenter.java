@@ -24,8 +24,6 @@ import com.wd.doctor.MVP.Model.InterrogationMode;
 
 
 public class InterrogationPresenter extends BasePresenter<InterrogationContracter.IView> implements InterrogationContracter.IPresenter {
-
-
     private InterrogationMode mInterrogationMode;
 
     @Override
@@ -62,7 +60,7 @@ public class InterrogationPresenter extends BasePresenter<InterrogationContracte
     //查询用户详细信息
     @Override
     public void getUserInfoPresenter(String doctorId, String sessionId, Integer userId) {
-        mInterrogationMode.getUserInfoModel(doctorId, sessionId,userId, new InterrogationContracter.IModel.IModelCallback() {
+        mInterrogationMode.getUserInfoModel(doctorId, sessionId, userId, new InterrogationContracter.IModel.IModelCallback() {
             @Override
             public void onSuccess(Object data) {
                 //3、必须先判断是否挂载、然后才可以使用getView方法

@@ -99,7 +99,7 @@ public class ViewCommentsActivity extends BaseActivity<InterrogationPresenter> i
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.comments_sim_view)
+    @OnClick(R2.id.comments_sim_view)
     public void onClick() {
         finish();
     }
