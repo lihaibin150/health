@@ -18,6 +18,11 @@ android {
         ndk {
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
         }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "b5f102cc307091e167ce52e0", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
     }
     buildTypes {
         release {
@@ -54,7 +59,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation project(path: ':mylibrary')
 
-
     implementation rootProject.ext.dependencies["recyclerview"]
     implementation rootProject.ext.dependencies["xrecyclerview"]
     implementation rootProject.ext.dependencies["xrecyclerviews"]
@@ -75,22 +79,14 @@ dependencies {
     implementation rootProject.ext.dependencies["ijkplayerarmv7a"]
     implementation rootProject.ext.dependencies["ijkplayerexo"]
     implementation rootProject.ext.dependencies["autolayout"]
+    implementation rootProject.ext.dependencies["Xbanner"]
+    implementation rootProject.ext.dependencies["SmartRefreshLayout"]
+    implementation rootProject.ext.dependencies["SmartRefreshLayoutHeader"]
+    implementation rootProject.ext.dependencies["butterknife"]//Butterknife依赖
+    implementation rootProject.ext.dependencies["butterknife-apt"]//Butterknife依赖
     implementation rootProject.ext.dependencies["NewbieGuide"]   //磨合页面
     implementation 'com.github.ctiao:DanmakuFlameMaster:0.7.3'
     implementation 'com.yanzhenjie:permission:2.0.3'
-
-
-    //Butterknife依赖
-    implementation 'com.jakewharton:butterknife:10.0.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
-
-    //SmartRefreshLayout(Recycleview)刷新效果依赖
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
-    //没有使用特殊Header和Footer，可以不加下面这行
-    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14'
-    //xbanner
-    //androidX 版本使用下面的依赖
-    implementation 'com.github.xiaohaibin:XBanner:androidx_v1.0.2'
     implementation files('lib\\ocr-sdk.jar')
 
     //百度智能云
@@ -99,5 +95,7 @@ dependencies {
     //greendao
     implementation 'org.greenrobot:greendao:3.2.2'
     implementation 'net.zetetic:android-database-sqlcipher:3.5.7@aar'
-
+    //极光
+    implementation 'cn.jiguang.sdk:jmessage:2.9.0'  // 此处以JMessage 2.9.0 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:2.0.0'  // 此处以JCore 2.0.0 版本为例。
 }

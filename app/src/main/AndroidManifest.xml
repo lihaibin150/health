@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
+
         android:name="com.bwei.example.mylibrary.app.App"
         android:allowBackup="true"
         android:icon="@mipmap/caishe"
@@ -72,7 +73,18 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
+
         </provider>
+        <service
+            android:name="com.servive.XService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

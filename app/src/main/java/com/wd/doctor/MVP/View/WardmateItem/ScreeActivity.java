@@ -94,13 +94,13 @@ public class ScreeActivity extends BaseActivity<WardmatePresenter> implements Wa
         if (result.size() == 0) {
             imgNoneFind.setImageResource(R.mipmap.no_search_message);
         } else {
-//            linear2.setVisibility(View.VISIBLE);
-//            linear1.setVisibility(View.GONE);
+            linear2.setVisibility(View.VISIBLE);
+            linear1.setVisibility(View.GONE);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
             recSearchSickCircleView.setLayoutManager(linearLayoutManager);
             mSeachRecordAdapter = new SeachRecordAdapter(result, ScreeActivity.this);
             recSearchSickCircleView.setAdapter(mSeachRecordAdapter);
-//            imgNoneFind.setVisibility(View.GONE);
+            imgNoneFind.setVisibility(View.GONE);
             mSeachRecordAdapter.notifyDataSetChanged();
             mSeachRecordAdapter.setOnClick(new SeachRecordAdapter.onClick() {
                 @Override

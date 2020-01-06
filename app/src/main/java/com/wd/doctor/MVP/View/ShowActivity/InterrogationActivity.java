@@ -100,9 +100,6 @@ public class InterrogationActivity extends BaseActivity<InterrogationPresenter> 
         RecordListBean recordListBean = (RecordListBean) data;
         List<RecordListBean.ResultBean> result = recordListBean.getResult();
         mList = new ArrayList<>();
-      /*  //查询问诊评价详情(存值)
-        SPUtils spRecordId = new SPUtils(InterrogationActivity.this, "InterrogationRecordId");
-        spRecordId.putInt("recordId",mList.get(0).getRecordId());*/
         if ("0000".equals(recordListBean.getStatus())) {
             if (result != null) {
                 if (result.isEmpty()) {
@@ -114,6 +111,9 @@ public class InterrogationActivity extends BaseActivity<InterrogationPresenter> 
                     interrRecyclerRecycler.setLayoutManager(new LinearLayoutManager(InterrogationActivity.this));
                     mInterrogationAdapter = new InterrogationAdapter(InterrogationActivity.this, result);
                     interrRecyclerRecycler.setAdapter(mInterrogationAdapter);
+                    //查询问诊评价详情(存值)
+                    SPUtils spRecordId = new SPUtils(InterrogationActivity.this, "InterrogationRecordId");
+                    spRecordId.putInt("recordId",result.get(0).getRecordId());
                     mInterrogationAdapter.setOnClick(new InterrogationAdapter.OnClick() {
                         @Override
                         public void OnClickId(int id) {

@@ -170,33 +170,32 @@ public class InterrogationPresenter extends BasePresenter<InterrogationContracte
         mInterrogationMode.getMessageModel(doctorId, sessionId, inquiryId, content, type, userId, new InterrogationContracter.IModel.IModelCallback() {
             @Override
             public void onSuccess(Object data) {
-                //3、必须先判断是否挂载、然后才可以使用getView方法
-                if (ViewAttached()) {
-                    getView().onSuccess(data);
-                    if (data != null && Constant.SUCCESS_CODE.equals(MessageBean.class)) {
-                    } else {
-                        getView().onFailure(new Exception("服务器异常"));
-                    }
-                }
+
             }
 
             @Override
             public void onDetailsListSuccess(Object data) {
-
-            }
-
-            @Override
-            public void onFailure(Throwable e) {
-                //4、失败回调
+                //3、必须先判断是否挂载、然后才可以使用getView方法
                 if (ViewAttached()) {
-                    getView().onFailure(e);
+                    getView().onDetailsListSuccess(data);
+                    if (data != null && Constant.SUCCESS_CODE.equals(MessageBean.class)) {
+                    } else {
+                        getView().onDetailsListFailure(new Exception("服务器异常"));
+                    }
                 }
             }
-
             @Override
             public void onDetailsListFailure(Throwable e) {
+                //4、失败回调
+                if (ViewAttached()) {
+                    getView().onDetailsListFailure(e);
+                }
+            }
+            @Override
+            public void onFailure(Throwable e) {
 
             }
+
         });
     }
 

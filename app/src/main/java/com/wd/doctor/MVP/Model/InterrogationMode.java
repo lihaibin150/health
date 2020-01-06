@@ -109,12 +109,12 @@ public class InterrogationMode implements InterrogationContracter.IModel {
                 .subscribe(new CommonObserver<MessageBean>() {
                     @Override
                     public void onNext(MessageBean messageBean) {
-                        callback.onSuccess(messageBean);
+                        callback.onDetailsListSuccess(messageBean);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        callback.onFailure(e);
+                        callback.onDetailsListFailure(e);
                     }
                 });
     }
