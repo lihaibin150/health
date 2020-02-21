@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="@dimen/dp_320"
+        android:layout_height="@dimen/dp_114"
+        android:layout_marginTop="@dimen/dp_64"
+        android:background="@drawable/edit_text_view">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/history_sim_photo"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:background="@mipmap/ic_launcher_round"
+            app:roundAsCircle="true" />
+
+        <TextView
+            android:id="@+id/text_wenzhenren"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_toRightOf="@id/history_sim_photo"
+            android:text="问诊人:"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/history_text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_toRightOf="@id/text_wenzhenren"
+            android:text="唐丹:"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_wenzhentime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_wenzhenren"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/history_sim_photo"
+            android:text="问诊时间:"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/history_text_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/history_text_name"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/text_wenzhenren"
+            android:text="2018:10.11 10:20"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/history_but_record"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_25"
+            android:layout_below="@+id/text_wenzhentime"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/history_sim_photo"
+            android:background="@drawable/btlogin"
+            android:text="查看问诊记录"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/history_but_evaluation"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_25"
+            android:layout_below="@+id/history_text_time"
+            android:layout_marginLeft="43dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_toRightOf="@id/history_but_record"
+            android:background="@drawable/btlogin"
+            android:text="查看评价"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/history_but_no_evaluation"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_25"
+            android:layout_below="@+id/history_text_time"
+            android:layout_marginLeft="43dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_toRightOf="@id/history_but_record"
+            android:gravity="center"
+            android:text="暂无评价"
+            android:textColor="@color/colorSan"
+            android:textSize="12sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

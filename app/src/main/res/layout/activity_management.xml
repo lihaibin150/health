@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dp_360"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MVP.View.ShowActivity.ManagementActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/manage_automatic_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_260"
+            android:scaleType="fitXY"
+            android:src="@mipmap/aga" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/manage_backk"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_16"
+            android:layout_marginLeft="@dimen/dp_22"
+            android:layout_marginTop="@dimen/dp_22"
+            app:placeholderImage="@mipmap/backk" />
+
+        <ImageView
+            android:id="@+id/manage_bell"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            android:src="@mipmap/common_nav_message_black_n" />
+
+        <RelativeLayout
+            android:id="@+id/manage_zl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/manage_automatic_img"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_10">
+
+            <TextView
+                android:id="@+id/text_zl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="查询资料"
+                android:textColor="@color/colorBlue"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="@dimen/dp_12"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_toRightOf="@id/text_zl"
+                android:src="@mipmap/sdyh" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_36"
+        android:layout_marginRight="@dimen/dp_36"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/manage_historical"
+            android:layout_width="@dimen/dp_130"
+            android:layout_height="@dimen/dp_144"
+            android:layout_marginTop="@dimen/dp_28"
+            android:background="@drawable/management_background">
+
+            <ImageView
+                android:id="@+id/img_historical"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_28"
+                android:src="@mipmap/my_icon_historical" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_historical"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_24"
+                android:text="历史问诊"
+                android:textColor="#333333"
+                android:textSize="@dimen/sp_14" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/manage_wallet"
+            android:layout_width="@dimen/dp_130"
+            android:layout_height="@dimen/dp_144"
+            android:layout_marginLeft="@dimen/dp_28"
+            android:layout_marginTop="@dimen/dp_28"
+            android:background="@drawable/management_background">
+
+            <ImageView
+                android:id="@+id/img_wallet"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_28"
+                android:src="@mipmap/my_icon_wallet_n" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_wallet"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_24"
+                android:text="我的钱包"
+                android:textColor="#333333"
+                android:textSize="@dimen/sp_14" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_36"
+        android:layout_marginRight="@dimen/dp_36"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/manage_recommendations"
+            android:layout_width="@dimen/dp_130"
+            android:layout_height="@dimen/dp_144"
+            android:layout_marginTop="@dimen/dp_28"
+            android:background="@drawable/management_background">
+
+            <ImageView
+                android:id="@+id/img_recommendations"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_28"
+                android:src="@mipmap/my_icon_recommendations_adopted_n" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_recommendations"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_24"
+                android:text="被采纳意见"
+                android:textColor="#333333"
+                android:textSize="@dimen/sp_14" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/manage_automatic"
+            android:layout_width="@dimen/dp_130"
+            android:layout_height="@dimen/dp_144"
+            android:layout_marginLeft="@dimen/dp_28"
+            android:layout_marginTop="@dimen/dp_28"
+            android:background="@drawable/management_background">
+
+            <ImageView
+                android:id="@+id/img_automatic"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_28"
+                android:src="@mipmap/my_icon_automatic_response_n" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_automatic"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_24"
+                android:text="设置自动回复"
+                android:textColor="#333333"
+                android:textSize="@dimen/sp_14" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

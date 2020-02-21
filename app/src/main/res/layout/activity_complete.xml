@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/registration_result_bg"
+    android:orientation="vertical"
+    tools:context=".MVP.View.loginActivity.CompleteActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="142dp"
+        android:text="感谢您入驻维度健康"
+        android:textColor="#ffff"
+        android:textSize="24dp" />
+
+    <TextView
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@mipmap/pather"
+        android:gravity="center"
+        android:text="审核结果将于24h后发送至您邮箱"
+        android:textColor="#3087ea"
+        android:textSize="24dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp">
+
+        <Button
+            android:id="@+id/back_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/cec"
+            android:text="返回"
+            android:textColor="#ffff"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dp_360"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MVP.View.MessageActivity.AllNewsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/all_ne_backk"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_16"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_22"
+            android:layout_marginTop="@dimen/dp_22"
+            android:background="@mipmap/backk" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="消息"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/all_query_bell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            android:text="全部已读"
+            android:textColor="@color/colorSan"
+            android:textSize="@dimen/sp_10" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/all_news_meassge"
+        android:layout_width="@dimen/dp_320"
+        android:layout_height="@dimen/dp_32"
+        android:background="@color/colorF2">
+
+        <ImageView
+            android:id="@+id/all_del"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:src="@mipmap/message_icon_close_n" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_6"
+            android:layout_toRightOf="@id/all_del"
+            android:text="打开系统通知,H币消息等不错过" />
+
+        <Button
+            android:id="@+id/all_but"
+            android:layout_width="@dimen/dp_38"
+            android:layout_height="@dimen/dp_20"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:background="@drawable/btlogin"
+            android:text="开启"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/sp_10" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/all_system"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_68">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sim_system"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_24"
+            android:background="@mipmap/system_information" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/sim_system"
+            android:text="系统消息"
+            android:textColor="#4FCB9F"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:id="@+id/all_system_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_24">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="@dimen/dp_16"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_24"
+                android:src="@mipmap/xhd" />
+
+            <TextView
+                android:id="@+id/all_system_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_28"
+                android:text="5"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorF2" />
+
+    <RelativeLayout
+        android:id="@+id/all_interrogation"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_68">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sim_inter"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_24"
+            android:background="@mipmap/interview_news" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/sim_inter"
+            android:text="问诊消息"
+            android:textColor="#FB4FC7"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:id="@+id/all_interr_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_24">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="@dimen/dp_16"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_24"
+                android:src="@mipmap/xhd" />
+
+            <TextView
+                android:id="@+id/all_interr_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_28"
+                android:text="5"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorF2" />
+
+    <RelativeLayout
+        android:id="@+id/all_currency"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_68">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sim_currency"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_24"
+            android:background="@mipmap/recorded_message" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/sim_currency"
+            android:text="H币入账信息"
+            android:textColor="#FFAB26"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:id="@+id/all_currency_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_24">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="@dimen/dp_16"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_24"
+                android:src="@mipmap/xhd" />
+
+            <TextView
+                android:id="@+id/all_currency_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_28"
+                android:text="5"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

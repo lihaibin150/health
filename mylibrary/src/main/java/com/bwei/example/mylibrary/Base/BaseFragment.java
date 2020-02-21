@@ -10,8 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bwei.example.mylibrary.Net.NetworkJudgment;
 import com.bwei.example.mylibrary.app.App;
-import com.wd.myapplicationsss.MVP.Http.Net.NetWork;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -19,7 +19,7 @@ import butterknife.Unbinder;
 
 public abstract class BaseFragment<P extends BasePresenter> extends Fragment implements IBaseView {
 
-    private P mPresenter;
+    public P mPresenter;
     private View mInflate;
     private Unbinder mBind;
 
@@ -47,8 +47,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     protected void initView() {
     }
 
-    protected void initData() {
-    }
+    protected abstract void initData();
 
     protected abstract int getLayoutId();
 
@@ -64,7 +63,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
 
     //判断是否有网络
     public boolean NetWorkUtils() {
-        return NetWork.hasNetwork(context());
+        return NetworkJudgment.Network(context());
     }
 
     //无网提醒

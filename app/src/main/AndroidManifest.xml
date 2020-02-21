@@ -2,20 +2,89 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wd.doctor">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 相机 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 解锁屏幕需要的权限 -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> <!-- 申请电源锁需要的权限 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 震动权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
+
+        android:name="com.bwei.example.mylibrary.app.App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/caishe"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MVP.View.MyActivity.WithdrawalsActivity"></activity>
+        <activity android:name=".MVP.View.MyActivity.History.ViewCommentsActivity" />
+        <activity android:name=".MVP.View.MyActivity.unbindactivity.BankCardActivity" />
+        <activity android:name=".MVP.View.MyActivity.unbindactivity.IDCardActivity" />
+        <activity android:name=".MVP.View.MyActivity.unbindactivity.UnbindActivity" />
+        <activity android:name=".MVP.View.MyActivity.AutomaticActivity" />
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/fade_out" />
+
+        <activity android:name=".MVP.View.MyActivity.AdoptionActivity" />
+        <activity android:name=".MVP.View.MyActivity.History.HistoryActivity" />
+        <activity android:name=".MVP.View.MessageActivity.AllmesgActivity.AllCurrencyActivity" />
+        <activity android:name=".MVP.View.MessageActivity.AllmesgActivity.AllInterrogationActivity" />
+        <activity android:name=".MVP.View.MessageActivity.AllmesgActivity.AllSystemActivity" />
+        <activity android:name=".MVP.View.MyActivity.SetImageActivity" />
+        <activity android:name=".MVP.View.Interrogation.DetailedInquiryActivity" />
+        <activity android:name=".MVP.View.Interrogation.QuestioningActivity" />
+        <activity android:name=".MVP.View.loginActivity.UsePwdTwoActivity" />
+        <activity android:name=".MVP.View.loginActivity.UsePwdActivity" />
+        <activity android:name=".MVP.View.MessageActivity.AllNewsActivity" />
+        <activity android:name=".MVP.View.MyActivity.ImagePhotoActivity" />
+        <activity android:name=".MVP.View.loginActivity.CompleteActivity" />
+        <activity android:name=".MVP.View.loginActivity.PersonalActivity" />
+        <activity android:name=".MVP.View.loginActivity.InformationActivity" />
+        <activity android:name=".MVP.View.MyActivity.WalletActivity" />
+        <activity android:name=".MVP.View.WardmateItem.ScreeActivity" />
+        <activity android:name=".MVP.View.WardmateItem.SickCircleInfoActivity" />
+        <activity android:name=".MVP.View.MyActivity.DataActivity" />
+        <activity android:name=".MVP.View.ShowActivity.ManagementActivity" />
+        <activity android:name=".MVP.View.ShowActivity.WardmateActivity" />
+        <activity android:name=".MVP.View.ShowActivity.InterrogationActivity" />
+        <activity android:name=".MVP.View.loginActivity.ApplyJoinActivity" />
+        <activity android:name=".MVP.View.loginActivity.LoginActivity" />
+        <activity android:name=".MainShowActivity" />
+        <activity
+            android:name=".MVP.View.loginActivity.GuidePageActivity"
+            android:theme="@style/TranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.jph.takephoto.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+
+        </provider>
+        <service
+            android:name="com.servive.XService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

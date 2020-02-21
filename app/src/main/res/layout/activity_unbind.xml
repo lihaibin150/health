@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dp_360"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MVP.View.MyActivity.unbindactivity.UnbindActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/unbind_sim_backk"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_16"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_22"
+            android:layout_marginTop="@dimen/dp_22"
+            app:placeholderImage="@mipmap/backk" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="绑定信息"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_80"
+        android:layout_marginRight="@dimen/dp_50">
+
+        <TextView
+            android:id="@+id/binding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="绑定信息"
+            android:textColor="@color/colorSan"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/view_unbind"
+            android:layout_width="@dimen/dp_52"
+            android:layout_height="@dimen/dp_3"
+            android:layout_below="@id/binding"
+            android:layout_marginTop="@dimen/dp_4"
+            android:background="@color/colorBlue" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/unbind_sim_unbind"
+            android:layout_width="@dimen/dp_260"
+            android:layout_height="@dimen/dp_160"
+            android:layout_below="@id/view_unbind"
+            android:layout_marginTop="@dimen/dp_8"
+            android:background="@mipmap/id_card_front" />
+
+        <TextView
+            android:id="@+id/unbind_text_unbind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/dp_5"
+            android:text="@string/sfz"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/sp_14" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_80"
+        android:layout_marginRight="@dimen/dp_50">
+
+        <TextView
+            android:id="@+id/bankcard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="银行卡"
+            android:textColor="@color/colorSan"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/view_bankcard"
+            android:layout_width="@dimen/dp_52"
+            android:layout_height="@dimen/dp_3"
+            android:layout_below="@id/bankcard"
+            android:layout_marginTop="@dimen/dp_4"
+            android:background="@color/colorBlue" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/unbind_sim_bankcard"
+            android:layout_width="@dimen/dp_260"
+            android:layout_height="@dimen/dp_160"
+            android:layout_below="@id/view_bankcard"
+            android:layout_marginTop="@dimen/dp_8"
+            android:background="@mipmap/bank_card_front" />
+
+        <TextView
+            android:id="@+id/unbind_text_bancard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/dp_5"
+            android:text="@string/yhk"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/sp_14" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,12 +1,18 @@
 package com.bwei.example.mylibrary.Base;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
-import com.wd.myapplicationsss.MVP.Http.Net.NetWork;
+import com.bwei.example.mylibrary.Net.NetworkJudgment;
+import com.bwei.example.mylibrary.Util.StatusBarUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -40,6 +46,12 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         }
         initView();
         initData();
+        //跳转相机动态权限
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+            StrictMode.setVmPolicy(builder.build());
+        }
+        setStatusBar();//使状态栏透明
     }
 
     //布局
@@ -53,6 +65,27 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     //空实现，子类需要用的时候，可以选择重写
     protected abstract void initData();
 
+    /**
+     * 检查是否有对应权限
+     *
+     * @param activity   上下文
+     * @param permission 要检查的权限
+     * @return 结果标识
+     */
+    public int verifyPermissions(Activity activity, java.lang.String permission) {
+        int Permission = ActivityCompat.checkSelfPermission(activity, permission);
+        if (Permission == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(activity, "已经同意权限", Toast.LENGTH_SHORT).show();
+            return 1;
+        } else {
+            Toast.makeText(activity, "没有同意权限", Toast.LENGTH_SHORT).show();
+            return 0;
+        }
+    }
+    protected void setStatusBar() {
+        //这里做了两件事情，1.使状态栏透明并使contentView填充到状态栏 2.预留出状态栏的位置，防止界面上的控件离顶部靠的太近。这样就可以实现开头说的第二种情况的沉浸式状态栏了
+        StatusBarUtil.setTransparent(this);
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -64,11 +97,11 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     //判断是否有网络
     public boolean NetWorkUtils() {
-        return NetWork.hasNetwork(this);
+        return NetworkJudgment.Network(this);
     }
 
     //无网提醒
-    public void NoNetwork() {
+    public void Network() {
         Toast.makeText(BaseActivity.this, "无网，请检查网络", Toast.LENGTH_SHORT).show();
     }
 
